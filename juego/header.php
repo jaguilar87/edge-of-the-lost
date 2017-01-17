@@ -3,7 +3,7 @@
 
 <html>
 <head>
-<base href="http://jagcompany.civitis.com/sw-eotlw/juego/" />
+	<!-- base href="http://jagcompany.civitis.com/sw-eotlw/juego/" /-->
 
 	<title>Star Wars - Edges of The Lost Warriors</title>
 <?php
@@ -30,7 +30,7 @@
        <td>
 	   	   <div align="right">
 		   		<?php if ($us[admin]>0) {
-                 ?> <a target="_BLANK" href="admin" onMouseover=" ddrivetip('Entrar en secci&oacute;n de Administraci&oacute;n', '#808080');" onMouseout="hideddrivetip()"><img height=10 width=10 src="http://jagcompany.civitis.com/sw-eotlw/juego/images/admin.gif" border=0></a> <?php
+                 ?> <a target="_BLANK" href="admin" onMouseover=" ddrivetip('Entrar en secci&oacute;n de Administraci&oacute;n', '#808080');" onMouseout="hideddrivetip()"><img height=10 width=10 src="images/admin.gif" border=0></a> <?php
              }?>
 
 		   </div>
