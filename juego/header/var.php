@@ -1,5 +1,7 @@
 <?php include 'db.php';
 
+define ("SWE_VER", "2.6");
+
 include 'explicit.php'; //Cargar Funciones y Variables generales
 
 $handle = opendir('header/var/');

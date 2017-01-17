@@ -193,6 +193,8 @@
 
 		   echo "</center></small>";
 		   ?>
+			 <br /><br />
+			 <small><a href="salir.php">[Cerrar sesión]</a></small>
 		   </td>
 	   </tr>
 
