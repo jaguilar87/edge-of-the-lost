@@ -127,9 +127,9 @@ echo "  <tr>
 
 #<!--Barra Estres-->
 echo "  <tr>
- 	 	   <td><div align=\"right\"><b><b><a href=\"ayuda.php#estres\" onMouseover=\" ddrivetip('El estres es el da&ntilde;o mental de tu personaje, si pierde mucho, tiene poco dinero o no come bien el estress sube, si llega a 1000 el personaje morir&aacute;.', '#808080');\" onMouseout=\"hideddrivetip()\"><img border=0 src=\"images/h.gif\"></a>Estr�s</b></td>
+ 	 	   <td><div align=\"right\"><b><b><a href=\"ayuda.php#estres\" onMouseover=\" ddrivetip('El estres es el da&ntilde;o mental de tu personaje, si pierde mucho, tiene poco dinero o no come bien el estress sube, si llega a 1000 el personaje morir&aacute;.', '#808080');\" onMouseout=\"hideddrivetip()\"><img border=0 src=\"images/h.gif\"></a>Estr&eeacute;s</b></td>
 		   <td><img src=\"images/b3.gif\" width=\"$bar3\" height=11> <b>[$us[estres]/1000]</b></td>
-		   <td><a href=\"ciudad/?id=cbar\" onMouseover=\" ddrivetip('Sanar estr�s en el Bar', '#808080');\" onMouseout=\"hideddrivetip()\">B</a></td>
+		   <td><a href=\"ciudad/?id=cbar\" onMouseover=\" ddrivetip('Sanar estr&eeacute;s en el Bar', '#808080');\" onMouseout=\"hideddrivetip()\">B</a></td>
 		</tr>
 		<tr>
 		   <td><!-- Salto --></td>

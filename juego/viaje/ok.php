@@ -100,7 +100,7 @@ if ($ok) {
         }
 
         $result=mysql_query($c)or die(mysql_error());
-        echo'<br><br><i>Veh&iacute;culo Pr�pio:</i>';
+        echo'<br><br><i>Veh&iacute;culo Pr&oacute;pio:</i>';
         while ($v=mysql_fetch_array($result)) {
             echo "<br><input name=\"modo\" type=\"radio\" value=\"$v[nombre]\"> $v[nombre]";
         }

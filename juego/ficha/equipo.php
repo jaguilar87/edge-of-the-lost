@@ -90,7 +90,7 @@
             } elseif ($us[nv_sable]>2 and $us[estilo_sable]=='+') {
                 echo  "<b>Sable l&aacute;ser largo:</b> Con un sable l&aacute;ser largo eres capaz de luchar manteniendo las distancias y de esta manera tener m&aacute;s posibilidades de da&ntilde;ar a tu enemigo y de hacerlo con m&aacute;s fuerza. Los luchadores armados con un sable largo son capaces de lanzar ataques poderosos conocidos como: EXTERMINIOS que pueden llegar a hacer el doble de da&ntilde;o que un ataque normal.";
             } elseif ($us[nv_sable]>2 and $us[estilo_sable]=='11') {
-                echo  "<b>Dos sables l&aacute;ser:</b> El dominio y la destreza de los sables se multiplican al empu�ar dos sables, con ellos el luchador es capaz de lanzar dos ataques consecutivos, aunque un poco m&aacute;s d�biles de lo normal.";
+                echo  "<b>Dos sables l&aacute;ser:</b> El dominio y la destreza de los sables se multiplican al empu&ntilde;ar dos sables, con ellos el luchador es capaz de lanzar dos ataques consecutivos, aunque un poco m&aacute;s d&eeacute;biles de lo normal.";
             } elseif ($us[nv_sable]>2 and $us[estilo_sable]=='2') {
                 echo  "<b>Sable l&aacute;ser doble:</b> Los luchadores armados con un sable l&aacute;ser doble pueden mantener a su enemigo alejado lanzando ataques indiscriminadamente, es por eso que cada vez que da&ntilde;a el poseedor del sable doble puede tener unos momentos de descanso en los que recuperar su vida mediante la vitalizaci&oacute;n.";
             }

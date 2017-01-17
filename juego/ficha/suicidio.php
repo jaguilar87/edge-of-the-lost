@@ -12,7 +12,7 @@ echo '<script> location.href="muerto.php" </script>';
 
 break;
 case "":
-echo '�Seguro que deseas suicidarte? si lo haces tu ficha se perder&aacute; para siempre.<br><br><form action="ficha/suicidio.php" METHOD="POST">Escribe tu password para suicidarte: <input name="pass" type="password" value=""> <input type="submit" value="Suicidio"></form>';
+echo '&iquest;Seguro que deseas suicidarte? si lo haces tu ficha se perder&aacute; para siempre.<br><br><form action="ficha/suicidio.php" METHOD="POST">Escribe tu password para suicidarte: <input name="pass" type="password" value=""> <input type="submit" value="Suicidio"></form>';
 
 
 

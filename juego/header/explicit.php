@@ -13,7 +13,7 @@ function sel($table, $campo, $name)
 function textcolor($user)
 {
     $u=sel("sw_users", "", $user);
-                 
+
     if ($u[color_sable]=="rojo") {
         $txtc="#ff0000";
     } elseif ($u[color_sable]=="amarillo") {
@@ -41,15 +41,15 @@ function mapear($dir)
     function over(t,x,y){
 		var ider = document.getElementById(x+y);
 		ider.src='images/map/planetau.gif';
-		ddrivetip(t, '#808080'); 
-		
+		ddrivetip(t, '#808080');
+
 	}
-	
+
 	function out(x,y){
 		var ider = document.getElementById(x+y);
 		ider.src='images/map/planeta.gif';
-		hideddrivetip(); 
-		
+		hideddrivetip();
+
 	}
 </script>
 <?php
@@ -79,14 +79,14 @@ function mapear($dir)
             $c="SELECT * FROM sw_plan WHERE x='$x' AND y='$y'";
             $result = mysql_query($c)or die(mysql_error());
             $p = mysql_fetch_array($result);
-                           
+
             $j=0;
             $s = "SELECT * FROM sw_city WHERE planeta='$p[nombre]'";
             $q = mysql_query($s)or die(mysql_error());
             while ($l = mysql_fetch_array($q)) {
                 $j++;
             }
-                                
+
             $equi=0;
             $hab=0;
             $c= "SELECT * FROM `sw_users` WHERE planeta='$p[nombre]'";
@@ -96,7 +96,7 @@ function mapear($dir)
                 $hab++;
             }
             $equi=round($equi);
-                                
+
             if ($p[nombre]=="") {
                 echo "<td><src=\"images/map/blank.gif\">&nbsp;</td>";
             } else {
@@ -110,7 +110,7 @@ function mapear($dir)
             }
             $x++;
         }
-               
+
         echo "<td width=\"42\" bgcolor='black'<center><b>$y</b></center></td>";
         echo '</tr>';
         $y++;
@@ -133,7 +133,7 @@ function valNombre($name)
 {
     $name=trim($name);
 
-    $export = str_replace("'", "�", $name);
+    $export = str_replace("'", "`", $name);
     $export = str_replace("\\", "", $export);
 
     return $export;
