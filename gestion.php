@@ -60,7 +60,7 @@ A:hover {
                 <td width="90%" align="center" style="border-style: none; border-width: medium">
 <?php
 
-switch ($_GET[ac]){				
+switch ($_GET[ac]) {
 case "": echo "<script> location.href='index.php' </script>"; break;
 
 case "reg":
@@ -112,70 +112,109 @@ case "regok":
 #<!--                                            REG OK                                      -->
 include 'juego/db.php';
 include 'juego/header/explicit.php';
-mt_srand ((double) microtime() * 1000000);
-if(trim($_POST["n"]) != "" && trim($_POST["p"]) != "" && trim($_POST["r"]) != "" && trim($_POST["s"]) != ""&& trim($_POST["m"]) != ""){
+mt_srand((double) microtime() * 1000000);
+if (trim($_POST["n"]) != "" && trim($_POST["p"]) != "" && trim($_POST["r"]) != "" && trim($_POST["s"]) != ""&& trim($_POST["m"]) != "") {
+    $_POST[n]=valNombre($_POST[n]);
+    $_POST[p]=valNombre($_POST[p]);
+    $_POST[r]=valNombre($_POST[r]);
+    $_POST[m]=valNombre($_POST[m]);
+    $_POST[s]=valNombre($_POST[s]);
  
- $_POST[n]=valNombre($_POST[n]);
- $_POST[p]=valNombre($_POST[p]);
- $_POST[r]=valNombre($_POST[r]);
- $_POST[m]=valNombre($_POST[m]);
- $_POST[s]=valNombre($_POST[s]); 
- 
-if ($_POST["r"]=="Humano") { $vi=22; $de=23; $in=22; $co=23;}
-elseif ($_POST["r"]=="Twilek"){ $vi=20; $de=30; $in=20; $co=20;}
-elseif ($_POST["r"]=="Caamasi"){ $vi=20; $de=25; $in=25; $co=20;}
-elseif ($_POST["r"]=="Bothan"){ $vi=25; $de=20; $in=25; $co=20;}
-elseif ($_POST["r"]=="Duro"){ $vi=20; $de=20; $in=25; $co=25;}
-elseif ($_POST["r"]=="Arkaniano"){ $vi=20; $de=20; $in=30; $co=20;}
-elseif ($_POST["r"]=="Falleen"){ $vi=30; $de=20; $in=20; $co=20;}
-elseif ($_POST["r"]=="Zabrak"){ $vi=20; $de=25; $in=20; $co=25;}
-elseif ($_POST["r"]=="Cathar"){ $vi=25; $de=25; $in=20; $co=20;}
-elseif ($_POST["r"]=="Keldor"){ $vi=25; $de=20; $in=20; $co=25;}
+    if ($_POST["r"]=="Humano") {
+        $vi=22;
+        $de=23;
+        $in=22;
+        $co=23;
+    } elseif ($_POST["r"]=="Twilek") {
+        $vi=20;
+        $de=30;
+        $in=20;
+        $co=20;
+    } elseif ($_POST["r"]=="Caamasi") {
+        $vi=20;
+        $de=25;
+        $in=25;
+        $co=20;
+    } elseif ($_POST["r"]=="Bothan") {
+        $vi=25;
+        $de=20;
+        $in=25;
+        $co=20;
+    } elseif ($_POST["r"]=="Duro") {
+        $vi=20;
+        $de=20;
+        $in=25;
+        $co=25;
+    } elseif ($_POST["r"]=="Arkaniano") {
+        $vi=20;
+        $de=20;
+        $in=30;
+        $co=20;
+    } elseif ($_POST["r"]=="Falleen") {
+        $vi=30;
+        $de=20;
+        $in=20;
+        $co=20;
+    } elseif ($_POST["r"]=="Zabrak") {
+        $vi=20;
+        $de=25;
+        $in=20;
+        $co=25;
+    } elseif ($_POST["r"]=="Cathar") {
+        $vi=25;
+        $de=25;
+        $in=20;
+        $co=20;
+    } elseif ($_POST["r"]=="Keldor") {
+        $vi=25;
+        $de=20;
+        $in=20;
+        $co=25;
+    }
 
-$comf=mt_rand(0,8000);
+    $comf=mt_rand(0, 8000);
 
-$c="SELECT * FROM sw_users WHERE nombre='$_POST[n]' OR mail='$_POST[m]'";
-$result=mysql_query($c)or die(mysql_error());
-$r=mysql_fetch_array($result);
+    $c="SELECT * FROM sw_users WHERE nombre='$_POST[n]' OR mail='$_POST[m]'";
+    $result=mysql_query($c)or die(mysql_error());
+    $r=mysql_fetch_array($result);
 
-$i=1;
+    $i=1;
 
-$c="SELECT * FROM sw_city WHERE habitable='1'";
-$result=mysql_query($c)or die(mysql_error());
-while ($cil=mysql_fetch_array($result)){
-$ciudad[$i]=$cil[nombre];
-$i++;
-}
+    $c="SELECT * FROM sw_city WHERE habitable='1'";
+    $result=mysql_query($c)or die(mysql_error());
+    while ($cil=mysql_fetch_array($result)) {
+        $ciudad[$i]=$cil[nombre];
+        $i++;
+    }
 
-$luk=mt_rand(1,count($ciudad));
+    $luk=mt_rand(1, count($ciudad));
 
-$c="SELECT * FROM sw_city WHERE nombre='$ciudad[$luk]'";
-$result=mysql_query($c)or die(mysql_error());
-$cip=mysql_fetch_array($result);
+    $c="SELECT * FROM sw_city WHERE nombre='$ciudad[$luk]'";
+    $result=mysql_query($c)or die(mysql_error());
+    $cip=mysql_fetch_array($result);
 
-$c="SELECT * FROM sw_info WHERE id='dia'";
-$result=mysql_query($c)or die(mysql_error());
-$fe=mysql_fetch_array($result);
+    $c="SELECT * FROM sw_info WHERE id='dia'";
+    $result=mysql_query($c)or die(mysql_error());
+    $fe=mysql_fetch_array($result);
 
-if ($r[nombre]==$_POST[n] || $r[mail]==$_POST[m]) {echo 'Lo sentimos, ese personaje o ese mail ya existen.';}else{
+    if ($r[nombre]==$_POST[n] || $r[mail]==$_POST[m]) {
+        echo 'Lo sentimos, ese personaje o ese mail ya existen.';
+    } else {
+        $q="INSERT INTO `sw_users` (nombre, mail, password, sexo, raza, origen, vig, des, inte, con, dia, ciudad, planeta, comf, fecha) VALUES ('$_POST[n]', '$_POST[m]', '$_POST[p]', '$_POST[s]', '$_POST[r]', '$cip[nombre]', '$vi', '$de', '$in', '$co', '$fe[dia]', '$cip[nombre]', '$cip[planeta]', '$comf', '$fe[val]')";
+        $result = mysql_query($q)or die(mysql_error());
 
 
+        $sql = "SELECT id, comf FROM sw_users ORDER BY id DESC limit 0,1";
+        $result = mysql_query($sql)or die(mysql_error());
+        $ider = mysql_fetch_array($result);
 
-$q="INSERT INTO `sw_users` (nombre, mail, password, sexo, raza, origen, vig, des, inte, con, dia, ciudad, planeta, comf, fecha) VALUES ('$_POST[n]', '$_POST[m]', '$_POST[p]', '$_POST[s]', '$_POST[r]', '$cip[nombre]', '$vi', '$de', '$in', '$co', '$fe[dia]', '$cip[nombre]', '$cip[planeta]', '$comf', '$fe[val]')";
-$result = mysql_query($q)or die(mysql_error());
-
-
-$sql = "SELECT id, comf FROM sw_users ORDER BY id DESC limit 0,1";
-$result = mysql_query($sql)or die(mysql_error());
-$ider = mysql_fetch_array($result);
-
-				
-		$mess= "Hola $_POST[n], has sido registrado con �xito en Star Wars - Edges of The Lost Warriors (http://sw.jag-team.com), cuando puedas ya puedes registrarte con la siguiente informaci�n: \n Nombre: $_POST[n] \n Password:$_POST[p] \n \n Pero antes debes confirmar tu cuenta en esta direcci�n.<br> \n ( http://jagcompany.civitis.com/sw-eotlw/alta.php?code=mecagoenswcombine&c=$ider[id]&o=$ider[comf] ) Recomendamos Copiar y pegar  <br>No pierdas este Email!<br><br>Gracias por registrarte...<br><br>Juego creado por http://jag-team.com";
-	  mail($_POST[m], "Registro SWedges", $mess, "From: swedges@jag-team.com", "-fswedges@jag-team.com");
-	  echo '<font color="#ffffa8">Resgistro correcto</font>! <br>Ahora solo debes ir al link que ha sido enviado a tu correo. <br><br>(Recuerda que si tu nombre tiene un espacio debes copiar el codigo y pegarlo en vez de clickar simplemente)<br><br><font color="#ff0000">Atenci�n:</font> Si usas Hotmail u otros correos con filtro comprueba que el mail no haya sido detectado como correo no deseado antes de reportar quejas.';
-	  }
-}else{
-	  echo 'Debe rellenar todos los campos. <a href="gestion.php?ac=reg">Volver</a>';
+                
+        $mess= "Hola $_POST[n], has sido registrado con �xito en Star Wars - Edges of The Lost Warriors (http://sw.jag-team.com), cuando puedas ya puedes registrarte con la siguiente informaci�n: \n Nombre: $_POST[n] \n Password:$_POST[p] \n \n Pero antes debes confirmar tu cuenta en esta direcci�n.<br> \n ( http://jagcompany.civitis.com/sw-eotlw/alta.php?code=mecagoenswcombine&c=$ider[id]&o=$ider[comf] ) Recomendamos Copiar y pegar  <br>No pierdas este Email!<br><br>Gracias por registrarte...<br><br>Juego creado por http://jag-team.com";
+        mail($_POST[m], "Registro SWedges", $mess, "From: swedges@jag-team.com", "-fswedges@jag-team.com");
+        echo '<font color="#ffffa8">Resgistro correcto</font>! <br>Ahora solo debes ir al link que ha sido enviado a tu correo. <br><br>(Recuerda que si tu nombre tiene un espacio debes copiar el codigo y pegarlo en vez de clickar simplemente)<br><br><font color="#ff0000">Atenci�n:</font> Si usas Hotmail u otros correos con filtro comprueba que el mail no haya sido detectado como correo no deseado antes de reportar quejas.';
+    }
+} else {
+    echo 'Debe rellenar todos los campos. <a href="gestion.php?ac=reg">Volver</a>';
 }
 break;
 
@@ -197,16 +236,16 @@ case "passok":
 include 'juego/db.php';
 include 'juego/header/explicit.php';
 
-	$c = "SELECT * FROM `sw_users` WHERE mail='$_POST[mail]'";
-	$result=mysql_query($c)or die(mysql_error());
-	$ider = mysql_fetch_array($result);
-	
-if ($r[nombre]!=""){
-	mail ($r[mail], "Password Perdido", "El password de tu personaje $r[nombre] es: $r[password], \n El c�digo de confirmaci�n es: \n( http://jagcompany.civitis.com/sw-eotlw/alta.php?code=mecagoenswcombine&c=$ider[id]&o=$ider[comf] ) Recomendamos Copiar y pegar  \n No lo pierdas again :)", "From: swedges@jag-team.com", "-fswedges@jag-team.com");
+    $c = "SELECT * FROM `sw_users` WHERE mail='$_POST[mail]'";
+    $result=mysql_query($c)or die(mysql_error());
+    $ider = mysql_fetch_array($result);
+    
+if ($r[nombre]!="") {
+    mail($r[mail], "Password Perdido", "El password de tu personaje $r[nombre] es: $r[password], \n El c�digo de confirmaci�n es: \n( http://jagcompany.civitis.com/sw-eotlw/alta.php?code=mecagoenswcombine&c=$ider[id]&o=$ider[comf] ) Recomendamos Copiar y pegar  \n No lo pierdas again :)", "From: swedges@jag-team.com", "-fswedges@jag-team.com");
 
-	 echo 'Mail con password de $r[nombre] enviado a $r[mail]... <a href="index.php">Volver</a>';
-}else{
-	  echo "No existe ninguna cuenta con ese mail";
+    echo 'Mail con password de $r[nombre] enviado a $r[mail]... <a href="index.php">Volver</a>';
+} else {
+    echo "No existe ninguna cuenta con ese mail";
 }
 break;
 

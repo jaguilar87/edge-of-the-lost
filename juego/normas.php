@@ -58,8 +58,6 @@
 		<br><b>5.4-</b> Si alguien incumple estas normas ser&aacute; avisado con 5 dias de antelacion 
 		para que se cambie el nombre. Si en ese tiempo no se ha cambiado el nick ser&aacute; borrado sin 
 		atender a quejas.
-		
-		
 </td>
 </tr>
 </table>

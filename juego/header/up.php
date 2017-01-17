@@ -4,12 +4,7 @@
 $handle = opendir('header/up/');
    while (false !== ($file = readdir($handle))) {
        if ($file != "." && $file != "..") {
-       		include_once "up/$file";
+           include_once "up/$file";
        }
    }
-closedir($handle); 
-
-
-
-
-?>
+closedir($handle);

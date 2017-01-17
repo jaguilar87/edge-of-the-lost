@@ -3,15 +3,15 @@
 
 <html>
 <head>
-<base href="http://jagcompany.civitis.com/sw-eotlw/juego/" />
+	<!-- base href="http://jagcompany.civitis.com/sw-eotlw/juego/" /-->
 
 	<title>Star Wars - Edges of The Lost Warriors</title>
-<?php 
-			#Incluir los Datos en Modulos
-			include_once 'header/style.php'; #Incluir datos de Estilo
-			include_once 'header/var.php'; #incluir Datos PHP
-			$ver=sel("sw_info", "id", "ver");
-?> 
+<?php
+            #Incluir los Datos en Modulos
+            include_once 'header/style.php'; #Incluir datos de Estilo
+            include_once 'header/var.php'; #incluir Datos PHP
+            $ver=sel("sw_info", "id", "ver");
+?>
 
 </head>
 
@@ -20,16 +20,18 @@
 <table width="100%">
 <tr>
        <td>
-			 		<small>SW-eotlw <?php echo $ver[val]; ?> es una creaci�n de <a href="http://jag-team.com">JAGteam�</a></small><br>
+			 		<small>SW-eotlw <?php echo $ver[val]; ?> es una creaci&oacute;n de <a href="http://jag-team.com">JAGteam</a></small><br>
        </td>
 			 <td>
 			 <?php
-			 			include_once 'header/up.php'; #Incluir datos de subir de niveles
-			 ?>
+                        include_once 'header/up.php'; #Incluir datos de subir de niveles
+             ?>
 			 </td>
        <td>
 	   	   <div align="right">
-		   		<?php if($us[admin]>0){?> <a target="_BLANK" href="admin" onMouseover=" ddrivetip('Entrar en secci�n de Administraci�n', '#808080');" onMouseout="hideddrivetip()"><img height=10 width=10 src="http://jagcompany.civitis.com/sw-eotlw/juego/images/admin.gif" border=0></a> <?php }?>
+		   		<?php if ($us[admin]>0) {
+                 ?> <a target="_BLANK" href="admin" onMouseover=" ddrivetip('Entrar en secci&oacute;n de Administraci&oacute;n', '#808080');" onMouseout="hideddrivetip()"><img height=10 width=10 src="images/admin.gif" border=0></a> <?php
+             }?>
 
 		   </div>
 	   </td>
@@ -46,7 +48,7 @@
 	   </caption>
 	   <tr>
 	   	   <td VALIGN="top" width="100%" height=24>
-				
+
 		   </td>
 	   </tr>
 	   <tr>
