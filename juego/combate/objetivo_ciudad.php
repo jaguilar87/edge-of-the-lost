@@ -19,9 +19,9 @@
             }
         } else {
             ?>
-		<center><big><big><b>Planeando ataque contra la ciudad <?php=$cic[nombre]?></b></big></big></center>
+		<center><big><big><b>Planeando ataque contra la ciudad <?php echo $cic[nombre]?></b></big></big></center>
 		<br><br>
-		Si tu clan ataca la ciudad de <b><?php=$cic[nombre]?></b> gastar&aacute; potencia, como m&aacute;s dure la defensa de la ciudad, m&aacute;s potencia se gastar&aacute;.
+		Si tu clan ataca la ciudad de <b><?php echo $cic[nombre]?></b> gastar&aacute; potencia, como m&aacute;s dure la defensa de la ciudad, m&aacute;s potencia se gastar&aacute;.
 		<br>
 		Si tu clan se queda sin potencia a medio combate hay muchas probabilidades de perder el combate.
 		<br><a href='ataque/?id=objetivo_ciudad&ok=true'>Atacar!</a>";

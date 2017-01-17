@@ -21,23 +21,23 @@
 			<tr valign='top' >
 
 				<td width=150 align='right' >
-					<img height=150 src='<?php=$cat[bandera]?>'>
+					<img height=150 src='<?php echo $cat[bandera]?>'>
 				</td>
 				<td width=150>
 					<img src='images/vs.jpg'>
 				</td>
 				<td  width=150>
-					<img height=150 src='<?php=$cde[bandera]?>'>
+					<img height=150 src='<?php echo $cde[bandera]?>'>
 				</td>
 			</tr>
 			<tr>
 				<td align=right>
-					<b><?php=$cat[nombre]?></b>
+					<b><?php echo $cat[nombre]?></b>
 				</td>
 				<td align=center>
 				</td>
 				<td>
-					<b><?php=$cde[nombre]?></b>
+					<b><?php echo $cde[nombre]?></b>
 				</td>
 			</tr>
 		</table>

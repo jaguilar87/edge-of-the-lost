@@ -26,23 +26,23 @@
 			<tr valign='top' >
 
 				<td width=150 align='right' >
-					<img height=150 src='<?php=$at[avatar_path]?>'>
+					<img height=150 src='<?php echo $at[avatar_path]?>'>
 				</td>
 				<td width=150>
 					<img src='images/vs.jpg'>
 				</td>
 				<td  width=150>
-					<img height=150 src='<?php=$de[avatar_path]?>'>
+					<img height=150 src='<?php echo $de[avatar_path]?>'>
 				</td>
 			</tr>
 			<tr>
 				<td align=right>
-					<b><?php=$at[nom]?></b>
+					<b><?php echo $at[nom]?></b>
 				</td>
 				<td align=center>
 				</td>
 				<td>
-					<b><?php=$de[nom]?></b>
+					<b><?php echo $de[nom]?></b>
 				</td>
 			</tr>
 		</table>

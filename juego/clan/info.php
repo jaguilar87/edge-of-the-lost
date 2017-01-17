@@ -4,7 +4,7 @@
 	<table width='100%' cellpadding=4 cellspacing=4>
 		<tr valign="TOP">
 			<td width=200>
-				<img width=200 src='<?php=$cli[bandera]?>'>
+				<img width=200 src='<?php echo $cli[bandera]?>'>
 			</td>
 			<td>
 <?php

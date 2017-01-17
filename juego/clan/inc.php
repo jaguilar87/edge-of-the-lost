@@ -14,9 +14,9 @@
         echo "<hr></center>";
 ?>
 	<center><small>
-		[<a href='clan/?id=info&clan=<?php=$_GET[clan]?>'>Informaci&oacute;n</a>]
-		[<a href='clan/?id=mem&clan=<?php=$_GET[clan]?>'>Miembros</a>]
-		[<a href='clan/?id=ciudades&clan=<?php=$_GET[clan]?>'>Ciudades</a>]
+		[<a href='clan/?id=info&clan=<?php echo $_GET[clan]?>'>Informaci&oacute;n</a>]
+		[<a href='clan/?id=mem&clan=<?php echo $_GET[clan]?>'>Miembros</a>]
+		[<a href='clan/?id=ciudades&clan=<?php echo $_GET[clan]?>'>Ciudades</a>]
 <?php
     if ($cli[nombre] == $us[clan]) {
         ?>

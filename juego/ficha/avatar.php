@@ -8,9 +8,9 @@ if ($enviar) {
 } else {
     ?>
 Cambia de Avatar de forma facil, escribe aqu&iacute; la URL de una imagen y se guardar&aacute; como tu avatar, ten en cuenta que la imagen se vera a 75x75 asi que vigila la imagen que elijas.<br>
-   <center><br><b>Avatar Actual:</b><br><img src='<?php echo $us[avatar_path]; ?>'><br><?php=$us[avatar_path]?></center>
+   <center><br><b>Avatar Actual:</b><br><img src='<?php echo $us[avatar_path]; ?>'><br><?php echo $us[avatar_path]?></center>
    <form method="get" action="ficha/avatar.php">
-   URL del Avatar:<input type="Text" name="av" Value="<?php=$_GET[def]?>" style="width:350px"><br>
+   URL del Avatar:<input type="Text" name="av" Value="<?php echo $_GET[def]?>" style="width:350px"><br>
    <input type="Submit" name="enviar" value="Ok">
    </form>
 
