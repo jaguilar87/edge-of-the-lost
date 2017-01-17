@@ -17,22 +17,22 @@ Cambia de Avatar de forma facil, escribe aqu&iacute; la URL de una imagen y se g
    <br><br><b>A continuaci&oacute;n una lista de posibles avatares:</b><br>
    <br><table width="100%">
 <tr>
-       <td width="33%"><center><a href="ficha/avatar.php?def=http://jagcompany.civitis.com/sw-eotlw/juego/images/avatar/e_arkaniano.jpg"><img border=0 src="images/avatar/e_arkaniano.jpg"></a></center></td>
-       <td width="33%"><center><a href="ficha/avatar.php?def=http://jagcompany.civitis.com/sw-eotlw/juego/images/avatar/e_bothan.jpg"><img border=0 src="images/avatar/e_bothan.jpg"></a></center></td>
-       <td width="33%"><center><a href="ficha/avatar.php?def=http://jagcompany.civitis.com/sw-eotlw/juego/images/avatar/e_caamasi.jpg"><img border=0 src="images/avatar/e_caamasi.jpg"></a></center></td>
+       <td width="33%"><center><a href="ficha/avatar.php?def=images/avatar/e_arkaniano.jpg"><img border=0 src="images/avatar/e_arkaniano.jpg"></a></center></td>
+       <td width="33%"><center><a href="ficha/avatar.php?def=images/avatar/e_bothan.jpg"><img border=0 src="images/avatar/e_bothan.jpg"></a></center></td>
+       <td width="33%"><center><a href="ficha/avatar.php?def=images/avatar/e_caamasi.jpg"><img border=0 src="images/avatar/e_caamasi.jpg"></a></center></td>
 </tr>
 <tr>
-       <td><center><a href="ficha/avatar.php?def=http://jagcompany.civitis.com/sw-eotlw/juego/images/avatar/e_cathar.jpg"><img border=0 src="images/avatar/e_cathar.jpg"></a></center></td>
-       <td><center><a href="ficha/avatar.php?def=http://jagcompany.civitis.com/sw-eotlw/juego/images/avatar/e_duro.jpg"><img border=0 src="images/avatar/e_duro.jpg"></a></center></td>
-       <td><center><a href="ficha/avatar.php?def=http://jagcompany.civitis.com/sw-eotlw/juego/images/avatar/e_faallen.jpg"><img border=0 src="images/avatar/e_faallen.jpg"></a></center></td>
+       <td><center><a href="ficha/avatar.php?def=images/avatar/e_cathar.jpg"><img border=0 src="images/avatar/e_cathar.jpg"></a></center></td>
+       <td><center><a href="ficha/avatar.php?def=images/avatar/e_duro.jpg"><img border=0 src="images/avatar/e_duro.jpg"></a></center></td>
+       <td><center><a href="ficha/avatar.php?def=images/avatar/e_faallen.jpg"><img border=0 src="images/avatar/e_faallen.jpg"></a></center></td>
 </tr>
 <tr>
-       <td><center><a href="ficha/avatar.php?def=http://jagcompany.civitis.com/sw-eotlw/juego/images/avatar/e_humano.jpg"><img border=0 src="images/avatar/e_humano.jpg"></a></center></td>
-       <td><center><a href="ficha/avatar.php?def=http://jagcompany.civitis.com/sw-eotlw/juego/images/avatar/e_keldor.jpg"><img border=0 src="images/avatar/e_keldor.jpg"></a></center></td>
-       <td><center><a href="ficha/avatar.php?def=http://jagcompany.civitis.com/sw-eotlw/juego/images/avatar/e_twilek.jpg"><img border=0 src="images/avatar/e_twilek.jpg"></a></center></td>
+       <td><center><a href="ficha/avatar.php?def=images/avatar/e_humano.jpg"><img border=0 src="images/avatar/e_humano.jpg"></a></center></td>
+       <td><center><a href="ficha/avatar.php?def=images/avatar/e_keldor.jpg"><img border=0 src="images/avatar/e_keldor.jpg"></a></center></td>
+       <td><center><a href="ficha/avatar.php?def=images/avatar/e_twilek.jpg"><img border=0 src="images/avatar/e_twilek.jpg"></a></center></td>
 </tr>
 <tr>
-       <td><center><a href="ficha/avatar.php?def=http://jagcompany.civitis.com/sw-eotlw/juego/images/avatar/e_zabrak.jpg"><img border=0 src="images/avatar/e_zabrak.jpg"></a></center></td>
+       <td><center><a href="ficha/avatar.php?def=images/avatar/e_zabrak.jpg"><img border=0 src="images/avatar/e_zabrak.jpg"></a></center></td>
        <td></td>
        <td></td>
 </tr>
