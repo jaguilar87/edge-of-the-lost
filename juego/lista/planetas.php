@@ -2,4 +2,4 @@
 echo "<center>";
 mapear("lista/planet.php");
 
-include_once 'footer.php';?>
+include_once 'footer.php';

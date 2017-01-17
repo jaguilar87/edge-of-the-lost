@@ -11,14 +11,14 @@
 
 <?php include 'db.php';
 
-if ($_GET[dia]==""){
-   $res=mysql_query("SELECT * FROM sw_control_transferencias ORDER BY id DESC")or die(mysql_error());
-}else{
-   $res=mysql_query("SELECT * FROM sw_control_transferencias WHERE dia='$_GET[dia]' ORDER BY id DESC")or die(mysql_error());
+if ($_GET[dia]=="") {
+    $res=mysql_query("SELECT * FROM sw_control_transferencias ORDER BY id DESC")or die(mysql_error());
+} else {
+    $res=mysql_query("SELECT * FROM sw_control_transferencias WHERE dia='$_GET[dia]' ORDER BY id DESC")or die(mysql_error());
 }
    
-   while ($s=mysql_fetch_array($res)){
-   		 echo "<tr><td>$s[id]</td><td>$s[dia]</td><td>$s[origen]</td><td>$s[destino]</td><td>$s[cantidad]</td></tr>";
+   while ($s=mysql_fetch_array($res)) {
+       echo "<tr><td>$s[id]</td><td>$s[dia]</td><td>$s[origen]</td><td>$s[destino]</td><td>$s[cantidad]</td></tr>";
    }
 ?>
 </table>
