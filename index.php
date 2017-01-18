@@ -82,10 +82,6 @@ $visit[val]++;
             <table border="1" cellpadding="0" cellspacing="0" style="border-collapse: collapse; border-width: 0" width="90%" id="AutoNumber7">
               <tr>
                 <td width="90%" align="center" style="border-style: none; border-width: medium">
-								<center><?php include_once "http://www.magiatar.com/publicidad.php?id=warjag"; ?></center>
-                <p style="margin-top: 0; margin-bottom: 0">
-								<br>
-
                 <font face="Verdana" style="font-size: 8pt">Bienvenido a <strong>
                 <font color="#ffffae">Star Wars - Edge of the Lost Warriors.</font></strong>
                 </font></p>

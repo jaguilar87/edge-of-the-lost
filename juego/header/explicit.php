@@ -71,6 +71,15 @@ function mapear($dir){
   }
   echo '</table>';
 }
+function valNombre($name){
+		
+		$name=trim($name);
+
+		$export = str_replace("'", "´", $name);
+		$export = str_replace("\\", "", $export);
+
+		return $export;
+}
 
 
 # Variables Generales

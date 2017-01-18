@@ -301,7 +301,7 @@ if ($e!="0" && $f!="0"){
 		 		mysql_query("DELETE FROM sw_vehiculos WHERE id='$d2[id]'")or die(mysql_error());
 				echo "<b>$d2[nombre]</b> derribado!";
 				$chB+=500;
-				break;
+				$tem=-1;
 		 }
 	  }
 	  
@@ -325,7 +325,7 @@ if ($e!="0" && $f!="0"){
 		 		mysql_query("DELETE FROM sw_vehiculos WHERE id='$a2[id]'")or die(mysql_error());
 				echo "<b>$a2[nombre]</b> derribado!";
 				$chA+=500;
-				break;		
+				$tem=-1;	
 		 }				
 	  }
 	  

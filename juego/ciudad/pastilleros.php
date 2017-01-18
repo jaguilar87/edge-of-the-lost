@@ -23,7 +23,8 @@ if ($ci[fabrica]=="S" && $us[nombre]==$ci[rey]){
 						 mysql_query("UPDATE `sw_clan` SET potencia='$cl[potencia]', mineral='$cl[mineral]' WHERE nombre='$cl[nombre]'")or die(mysql_error());
 
  				 	     if ($_GET[tip]=="Lanzadera" || $_GET[tip]=="Crucero"){$espacio="S";}else{$espacio="N";}
-				 
+				 			 
+							 $_POST[nom]=valNombre($_POST[nom]);
 						 mysql_query("INSERT INTO `sw_vehiculos` (nombre, tipo, ciudad, prop, tprop, espacio, arma, mineral, potencia, fabricante, dia) VALUES ('$_GET[nom]', '$_GET[tip]', '$ci[nombre]', '$ci[clan]', 'Clan', '$espacio', '$arma', '$min', '$tur', '$cl[nombre]', '$us[dia]')")or die(mysql_error());
 						 
 						 

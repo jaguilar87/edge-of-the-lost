@@ -149,7 +149,11 @@ if ($_GET[ciudad]==""){$_GET[ciudad]=$ci[nombre];}
 				mysql_query("UPDATE sw_clan SET fondos='$cl[fondos]' WHERE nombre='$cl[nombre]'")or die(mysql_error());
 			 }
 		break;
-		
+		case "des":
+	  	 mysql_query("UPDATE sw_users SET ciudad='$_GET[new]' WHERE ciudad='$cic[nombre]'")or die(mysql_error());
+		 	 mysql_query("UPDATE `sw_city` SET nombre='$_GET[new]' WHERE nombre='$cic[nombre]'")or die(mysql_error()); 
+		 	 echo "Ciudad renombrada a $_GET[new]";
+		break;
 	  } #Final del SWITCH
 	  
  	 		 echo '<b></b><table width="100%"><tr><td VALIGN ="TOP"><big><b>Edificios</b></big><table width="100%" Cellspacing="2"><tr bgcolor="#737373"><td><b>Nombre</b></td><td><small><b><center>C</center></b></small></td><td><small><b>Manten.</b></small></td><td></td></tr>';
@@ -252,7 +256,7 @@ if ($_GET[ciudad]==""){$_GET[ciudad]=$ci[nombre];}
 			</table></form>";
 			
 			
-			
+			echo "<br><form method=\"GET\"><input type='text' name='new' value='$cic[nombre]' style='width:400px'> <input style='width:98px' type='submit' value='Cambiar Nombre'/> </form>
 			
 			
 			

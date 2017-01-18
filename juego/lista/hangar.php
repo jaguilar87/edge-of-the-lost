@@ -1,20 +1,20 @@
 <?php include_once 'header.php';
-echo '<table width="100%"><tr><td><b>Nombre</b></td><td><b>Posición</b></td>';
-echo "<tr bgcolor='#808080'><td><i>Vehículos del Clan:</i> </td><td></td></tr>";
+echo '<table width="100%"><tr><td><b>Nombre</b></td>';
+echo "<tr bgcolor='#808080'><td><i>Vehículos</i> </td><td><b>Propietario</b></td></tr>";
 
-	 $result = mysql_query("SELECT * FROM `sw_vehiculos` WHERE prop='$cl[nombre]' AND tprop='Clan' ORDER BY id ASC")or die(mysql_error());
+	 $result = mysql_query("SELECT * FROM `sw_vehiculos` ORDER BY id ASC")or die(mysql_error());
 	 while ($p = mysql_fetch_array($result)){
 	 	   echo "<tr>
 		   			 <td>
 					 	 <a href=\"lista/proyecto.php?ac=vehiculo&div=$p[nombre]\">
 						 	$p[nombre]
 						 </a>
-					 </td>
-					 <td>
-					 	 $p[ciudad]
-				"; 
+						 </td>
+						 <td>
+						  $p[trpop] $p[prop]
+			  "; 
 
-			if ($cl[lider]==$us[nombre]){
+			if ($cl[lider]==$us[nombre] && $p[prop]==$cl[nombre]){
 			   echo " <a onMouseover=\" ddrivetip('Poner a la venta', '#808080');\" onMouseout=\"hideddrivetip()\"  href=\"clan/?id=vender&vehiculo=$p[nombre]\"><img border=0 src=\"images/arr.gif\"><small>Vender</small></a>";
 			} 
 			
@@ -41,11 +41,6 @@ echo "<tr bgcolor='#808080'><td><i>Tus Vehículos:</i> </td><td></td></tr>";
 	 } 
 
 
-echo "<tr bgcolor='#808080'><td><i>Vehículos en la ciudad:</i></td><td><b>Propietario</b></td></tr>";
-	 $result = mysql_query("SELECT * FROM `sw_vehiculos` WHERE ciudad='$ci[nombre]' ORDER BY id ASC")or die(mysql_error());
-	 while ($p = mysql_fetch_array($result)){
-	 	   echo "<tr><td><a href=\"lista/proyecto.php?ac=vehiculo&div=$p[nombre]\">$p[nombre]</a></td><td><small>$p[tprop] $p[prop]</small></td></tr>";
-		} 
 echo '</table>';
 
 

@@ -3,7 +3,7 @@
 
 <html>
 <head>
-<base href="http://warjag.venajugar.com/juego/" />
+<base href="http://jagcompany.civitis.com/sw-eotlw/juego/" />
 
 	<title>Star Wars - Edges of The Lost Warriors</title>
 <?php 
@@ -21,7 +21,6 @@
 <tr>
        <td>
 			 		<small>SW-eotlw <? echo $ver[val]; ?> es una creación de <a href="http://jagcompany.civitis.com">JAGCompany</a></small><br>
-					<?php include_once "http://www.magiatar.com/publicidad.php?id=warjag"; ?>
        </td>
 			 <td>
 			 <?php

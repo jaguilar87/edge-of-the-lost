@@ -227,7 +227,7 @@ menu[0] = new Array();
 
 // A non-vertical menu with a few different colours and no popout indicator, as an example.
 // *** MOVE ROOT MENU AROUND HERE ***  it's positioned at (50, 0) and is 17px high now.
-menu[0][0] = new Menu(false, '', 100, 184, 20, '#c0c0c0', '#ffffff', 'itemBorder', 'itemText');
+menu[0][0] = new Menu(false, '', 100, 121, 20, '#c0c0c0', '#ffffff', 'itemBorder', 'itemText');
 
 // The 'length' of each of these items is 40, and there is spacing of 20 to the next item.
 // Most of the links are set to '#' hashes, make sure you change them to actual files.

@@ -58,7 +58,7 @@ A:hover {
             <table border="1" cellpadding="0" cellspacing="0" style="border-collapse: collapse; border-width: 0" width="90%" id="AutoNumber7">
               <tr>
                 <td width="90%" align="center" style="border-style: none; border-width: medium">
-<?php												<center><?php include_once "http://www.magiatar.com/publicidad.php?id=warjag"; ?></center>
+<?php
 
 switch ($_GET[ac]){				
 case "": echo "<script> location.href='index.php' </script>"; break;
@@ -115,6 +115,12 @@ include 'juego/header/explicit.php';
 mt_srand ((double) microtime() * 1000000);
 if(trim($_POST["n"]) != "" && trim($_POST["p"]) != "" && trim($_POST["r"]) != "" && trim($_POST["s"]) != ""&& trim($_POST["m"]) != ""){
  
+ $_POST[n]=valNombre($_POST[n]);
+ $_POST[p]=valNombre($_POST[p]);
+ $_POST[r]=valNombre($_POST[r]);
+ $_POST[m]=valNombre($_POST[m]);
+ $_POST[s]=valNombre($_POST[s]); 
+ 
 if ($_POST["r"]=="Humano") { $vi=22; $de=23; $in=22; $co=23;}
 elseif ($_POST["r"]=="Twilek"){ $vi=20; $de=30; $in=20; $co=20;}
 elseif ($_POST["r"]=="Caamasi"){ $vi=20; $de=25; $in=25; $co=20;}
@@ -153,6 +159,8 @@ $fe=mysql_fetch_array($result);
 
 if ($r[nombre]==$_POST[n] || $r[mail]==$_POST[m]) {echo 'Lo sentimos, ese personaje o ese mail ya existen.';}else{
 
+
+
 $q="INSERT INTO `sw_users` (nombre, mail, password, sexo, raza, origen, vig, des, inte, con, dia, ciudad, planeta, comf, fecha) VALUES ('$_POST[n]', '$_POST[m]', '$_POST[p]', '$_POST[s]', '$_POST[r]', '$cip[nombre]', '$vi', '$de', '$in', '$co', '$fe[dia]', '$cip[nombre]', '$cip[planeta]', '$comf', '$fe[val]')";
 $result = mysql_query($q)or die(mysql_error());
 
@@ -161,7 +169,7 @@ $sql = "SELECT id, comf FROM sw_users ORDER BY id DESC limit 0,1";
 $result = mysql_query($sql)or die(mysql_error());
 $ider = mysql_fetch_array($result);
 
-			$mess= "Hola $_POST[n], has sido registrado con éxito en Star Wars - Edges of The Lost Warriors (http://sw-eotlw.esp.st), cuando puedas ya puedes registrarte con la siguiente información: \n Nombre: $_POST[n] \n Password:$_POST[p] \n \n Pero antes debes confirmar tu cuenta en esta dirección.<br> \n ( http://warjag.venajugar.com/alta.php?code=mecagoenswcombine&c=$ider[id]&o=$ider[comf] ) Recomendamos Copiar y pegar  <br>No pierdas este Email!<br><br>Gracias por registrarte...<br><br>Juego creado por http://jagcompany.civitis.com";
+			$mess= "Hola $_POST[n], has sido registrado con éxito en Star Wars - Edges of The Lost Warriors (http://swedges.tk), cuando puedas ya puedes registrarte con la siguiente información: \n Nombre: $_POST[n] \n Password:$_POST[p] \n \n Pero antes debes confirmar tu cuenta en esta dirección.<br> \n ( http://jagcompany.civitis.com/sw-eotlw/alta.php?code=mecagoenswcombine&c=$ider[id]&o=$ider[comf] ) Recomendamos Copiar y pegar  <br>No pierdas este Email!<br><br>Gracias por registrarte...<br><br>Juego creado por http://jagcompany.civitis.com";
 	  mail($_POST[m], "Registro sw-eotlw", $mess);
 	  echo '<font color="#ffffa8">Resgistro correcto</font>! <br>Ahora solo debes ir al link que ha sido enviado a tu correo. <br><br>(Recuerda que si tu nombre tiene un espacio debes copiar el codigo y pegarlo en vez de clickar simplemente)<br><br><font color="#ff0000">Atención:</font> Si usas Hotmail u otros correos con filtro comprueba que el mail no haya sido detectado como correo no deseado antes de reportar quejas.';
 	  }
@@ -193,7 +201,7 @@ include 'juego/header/explicit.php';
 	$ider = mysql_fetch_array($result);
 	
 if ($r[nombre]!=""){
-	mail ($r[mail], "Password Perdido", "El password de tu personaje $r[nombre] es: $r[password], \n El código de confirmación es: \n( http://warjag.venajugar.com/alta.php?code=mecagoenswcombine&c=$ider[id]&o=$ider[comf] ) Recomendamos Copiar y pegar  \n No lo pierdas again :)");
+	mail ($r[mail], "Password Perdido", "El password de tu personaje $r[nombre] es: $r[password], \n El código de confirmación es: \n( http://jagcompany.civitis.com/sw-eotlw/alta.php?code=mecagoenswcombine&c=$ider[id]&o=$ider[comf] ) Recomendamos Copiar y pegar  \n No lo pierdas again :)");
 
 	 echo 'Mail con password de $r[nombre] enviado a $r[mail]... <a href="index.php">Volver</a>';
 }else{

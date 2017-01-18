@@ -22,7 +22,8 @@ switch ($_GET[ac]){
    								$pla=mysql_fetch_array($result);
 
    								if ($pla[nombre]==""){echo "<br>El planeta no existe";}else{
-
+										 
+										 $_GET[nombre]=valNombre($_GET[nombre]);
    								   $c= "INSERT INTO sw_city (nombre, planeta, clan, rey) VALUES ('$_GET[nombre]', '$_GET[pla]', '$us[clan]', '$us[nombre]')"; 
    								   $result= mysql_query($c)or die(mysql_error()); 
 								   echo "<br>Tramites finalizados. $_GET[nombre] construida en $_GET[pla]!";
@@ -73,7 +74,8 @@ switch ($_GET[ac]){
 
 
 			   	  if ($us[nombre]==$cl[lider] && $cl[nombre]!=""){echo 'Eres el lider de un clan, primero debes disolver el clan.';}else{
-
+						
+						$_POST[nom]=valNombre($_POST[nom]);
 				   $c= "INSERT INTO sw_clan (nombre, lider, hermandad) VALUES ('$_POST[nom]', '$us[nombre]', '$_POST[her]')"; 
 					 $result= mysql_query($c); 
 					 echo '<br>Tramites finalizados.';

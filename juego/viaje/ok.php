@@ -72,7 +72,7 @@ if ($ok){
 	  		}
  
 	        mysql_query("UPDATE sw_users SET turnos='$us[turnos]', creditos='$us[creditos]' WHERE nombre='$us[nombre]'")or die(mysql_error()); 
-	  		echo "Viaje a $_GET[ci] completado, ha pagado $coste Créditos.";
+	  		echo "Viaje a $_GET[ci] completado, ha pagado $coste Créditos.<br><br><center> $un[mess] </center>";
 	  }
    }
 }else{ 
