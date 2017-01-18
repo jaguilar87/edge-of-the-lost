@@ -1,28 +1,41 @@
-<? include 'db.php';
+<? include 'juego/db.php'; session_start();
+if ($_SESSION[nombre]!=""){echo "<script> location.href='juego/' </script>";}
+
+
+
 $i=0;
 $j=0;
 $k=0;
+$equi=0;
+
 
 $c= "SELECT * FROM `sw_users`";
 $result = mysql_query($c)or die(mysql_error());
-while ($user= mysql_fetch_array($result)){ $i++;}
+while ($user= mysql_fetch_array($result)){ $i++;
+$equi+=$user[lado];
+}
 
+$equi=round($equi);
 $c= "SELECT * FROM `sw_att`";
 $result = mysql_query($c)or die(mysql_error());
  while ($user= mysql_fetch_array($result)){ $j++;}
  
- $c= "SELECT * FROM `sw_city`";
+$c= "SELECT * FROM `sw_city`";
 $result = mysql_query($c)or die(mysql_error());
- while ($user= mysql_fetch_array($result)){ $k++;}
+while ($user= mysql_fetch_array($result)){$k++;}
 
+$c= "SELECT * FROM `sw_board_noticias` WHERE tipo='ULTIMA NOTICIA'";
+$result = mysql_query($c)or die(mysql_error());
+$not= mysql_fetch_array($result);
+ 
 
-$c= "SELECT * FROM `sw_noticias` WHERE id='2'";
+$c= "SELECT * FROM `sw_fecha` WHERE id='2'";
 $result = mysql_query($c)or die(mysql_error());
 $visit= mysql_fetch_array($result);
 
-$visit[noticia]++;
+$visit[dia]++;
 
-    $c="UPDATE `sw_noticias` SET noticia='$visit[noticia]' WHERE id='2'";
+    $c="UPDATE `sw_fecha` SET dia='$visit[dia]' WHERE id='2'";
 	$result=mysql_query($c)or die(mysql_error());
 	
 ?>
@@ -58,10 +71,10 @@ A:hover {
 <meta http-equiv="Page-Enter" content="revealTrans(Duration=1.0,Transition=23)">
 </head>
 
-<body text="#FFFFFF" bgcolor="#000000" background="images/bg1.gif" link="#FFFFAE" vlink="#FFEFAE">
+<body text="#FFFFFF" bgcolor="#000000" background="juego/images/bg1.gif" link="#FFFFAE" vlink="#FFEFAE">
 
 <small><table width="100%"><tr><td> <font face="Verdana" style="font-size: 8pt">SW-eotlw es una creación de <a href="http://jagcompany.civitis.com">JAGCompany</a></small><br><br></td><td><div align="right">
- <font face="Verdana" style="font-size: 8pt"><? echo "Visita Nº <font color=\"#ffff00\">$visit[noticia]</font>";?></div></td></tr></table>
+ <font face="Verdana" style="font-size: 8pt"><? echo "Visita Nº <font color=\"#ffff00\">$visit[dia]</font>";?></div></td></tr></table>
 <br>
 <div align="center">
   <center>
@@ -76,9 +89,9 @@ A:hover {
   <table border="1" cellpadding="0" cellspacing="0" style="border-collapse: collapse; border-width: 0" bordercolor="#111111" width="661" id="AutoNumber5">
     <tr>
       <td width="661" align="center" style="border-style: none; border-width: medium">
-      <img border="0" src="images/edge456.gif" width="661" height="235"><table border="1" cellpadding="0" cellspacing="0" style="border-collapse: collapse; border-width: 0" width="100%" id="AutoNumber6" height="178" bgcolor="#000000">
+      <img border="0" src="juego/images/edge456.gif" width="661" height="235"><table border="1" cellpadding="0" cellspacing="0" style="border-collapse: collapse; border-width: 0" width="100%" id="AutoNumber6" height="178" bgcolor="#000000">
         <tr>
-          <td width="71" style="border-style: none; border-width: medium" background="images/borde1.jpg" height="176">
+          <td width="71" style="border-style: none; border-width: medium" background="juego/images/borde1.jpg" height="176">
           &nbsp;</td>
           <td style="border-style: none; border-width: medium" height="176">&nbsp;<div align="center">
             <center>
@@ -98,7 +111,7 @@ A:hover {
                     <p align="center">
 
 							<font face="Verdana" style="font-size: 8pt">
-							<? echo "<font color=\"#ffff00\">$i</font> Jugadores.<br><font color=\"#ffff00\">$j</font> Ataques.<br><font color=\"#ffff00\">$k</font> Ciudades.";?>
+							<? echo "<font color=\"#ffff00\">$i</font> Jugadores.<br><font color=\"#ffff00\">$j</font> Ataques.<br><font color=\"#ffff00\">$k</font> Ciudades.<br><br>Equilibrio en la Fuerza: <font color=\"#ffff00\">$equi</font>";?>
 					<td width="265">
                     <div align="right" style="width: 222; height: 140">
                       <form action="login.php" method="post">
@@ -131,15 +144,15 @@ A:hover {
                         <font face="Verdana"><span style="font-size: 8pt">
                         &nbsp; <br>
                         </span></font>
-                        <input name="login" type="image" src="images/login.jpg" value="submit" border="0" style="float: right"><font face="Verdana"><span style="font-size: 8pt">
+                        <input name="login" type="image" src="juego/images/login.jpg" value="submit" border="0" style="float: right"><font face="Verdana"><span style="font-size: 8pt">
                         
                         <br>
                         &nbsp;</span></font></p>
                       </form>
                       <p><br>
                       <font face="Verdana">
-                      <a href="http://jagcompany.civitis.com/sw-eotlw/reg.php">
-                      <span style="font-size: 8pt">Regístrate</span></a><span style="font-size: 8pt">/</span><a href="http://jagcompany.civitis.com/sw-eotlw/passlost.php"><span style="font-size: 8pt">¿Password 
+                      <a href="gestion.php?ac=reg">
+                      <span style="font-size: 8pt">Regístrate</span></a><span style="font-size: 8pt">/</span><a href="gestion.php?ac=pass"><span style="font-size: 8pt">¿Password 
                       Perdido?</span></a></font></div>
                     </td>
                   </tr>
@@ -153,32 +166,32 @@ A:hover {
                     <td width="232">
                     <div align="right">
                       <font face="Verdana" style="font-size: 8pt">
-                      <a href="http://jagcompany.civitis.com/sw-eotlw/historia.php">
+                      <a href="juego/historia.php">
                       HISTORIA DEL JUEGO</a><br>
-                      <a href="http://jagcompany.civitis.com/sw-eotlw/ayuda.php">
+                      <a href="juego/ayuda.php">
                       AYUDA Y FAQ</a><br>
                       <a target="_BLANK" href="http://sw-eotlw.foro.st">FOROS</a><br>
                       <br>
-                      <i>Creadores:</i><br>
+                      <i>Creador:</i><br>
                       <a href="http://jagcompany.civitis.com">Zeros</a> 
-                      (Programador)[<a href="mailto:JAGCompany@hotmail.com"><img src="images/msg.gif" border="0" width="11" height="7"></a><img src="images/msn.gif" border="0" width="15" height="17">]<br>
-                      Aklay (Historiador, colaborador)[<a href="mailto:aklay_bcn@hotmail.com"><img src="images/msg.gif" border="0" width="11" height="7"></a><img src="images/msn.gif" border="0" width="15" height="17">]<br>
-                      KSK (Grafista, Colaborador)[<a href="mailto:ksk_themaster@hotmail.com"><img src="images/msg.gif" border="0" width="11" height="7"></a><img src="images/msn.gif" border="0" width="15" height="17">]<br>
+                      (Programador)[<a href="mailto:JAGCompany@hotmail.com"><img src="juego/images/msg.gif" border="0" width="11" height="7"></a><img src="juego/images/msn.gif" border="0" width="15" height="17">]<br>
+                      <i>Agradecimientos:</i><br>
+					  KSK (Grafista, Colaborador)[<a href="mailto:ksk_themaster@hotmail.com"><img src="juego/images/msg.gif" border="0" width="11" height="7"></a><img src="juego/images/msn.gif" border="0" width="15" height="17">]<br>
                       <a href="http://paginaweb.de/alejandro86">Jaccer</a> 
-                      (Colaborador)[<a href="mailto:alejandro_rsc@hotmail.com"><img src="images/msg.gif" border="0" width="11" height="7"></a><img src="images/msn.gif" border="0" width="15" height="17">]<br>
+                      (Colaborador)[<a href="mailto:alejandro_rsc@hotmail.com"><img src="juego/images/msg.gif" border="0" width="11" height="7"></a><img src="juego/images/msn.gif" border="0" width="15" height="17">]<br>
                       <a href="http://civitis.com">Civitis</a> (Hosting)<br>
                       A ellos y algunos más... gracias...</font></div>
                     </td>
                   </tr>
                 </table>
-                <p>&nbsp;</td>
+                <center><marquee style="width:500px"><small><?php echo "$not[tipo]>> $not[post]"; ?></marquee></small></center><br></td>
               </tr>
             </table>
             </center>
           </div>
           </td>
-          <td width="71" style="border-style: none; border-width: medium" background="images/borde2.jpg" height="176">
-          <img border="0" src="images/borde2.jpg" width="71" height="44"></td>
+          <td width="71" style="border-style: none; border-width: medium" background="juego/images/borde2.jpg" height="176">
+          <img border="0" src="juego/images/borde2.jpg" width="71" height="44"></td>
         </tr>
       </table>
       </td>
@@ -188,7 +201,7 @@ A:hover {
 </div>
 
       <p style="margin-top: 0; margin-bottom: 0">
-      <img border="0" src="images/bajo.jpg" width="661" height="69"></td>
+      <img border="0" src="juego/images/bajo.jpg" width="661" height="69"></td>
     </tr>
   </table>
   </center>

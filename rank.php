@@ -1,4 +1,4 @@
-<?php include 'var.php';
+<?php include 'juego/var.php';
 
 
 echo '<table width="100%" cellpading="5" cellspacing="5" bgcolor="#4f4f4f" ><caption align="TOP">Los más ricos</caption><tr><td><b>Nombre</b></td><td><b>Créditos</b></td></tr>';
