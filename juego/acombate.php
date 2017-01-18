@@ -22,8 +22,8 @@
 							 if ($ob[hp]<=0){echo "$ob[nombre] ya está muerto, dejalo en paz";}else{
 							 	if ($us[hp]<=0){echo "¿Sabes que no eres inmortal verdad? No puedes atacar estando KO";}else{
 								   if ($ob[clan]==$us[clan] && $us[clan]!=NULL){echo "No puedes atacar a personas de tu clan";}else{
-								   	     $c="SELECT * FROM `sw_diplomacia` WHERE origen='$us[clan]' AND destino='$ob[clan]'";
-										 $result=mysql_query($c)or die(mysql_error());
+								   	     
+										 $result=mysql_query("SELECT * FROM `sw_diplomacia` WHERE origen='$us[clan]' AND destino='$ob[clan]'")or die(mysql_error());
 										 $r = mysql_fetch_array($result);
 										 if ($r[estado]=="Aliado"){echo "El objetivo pertenece a un clan aliado, no lo puedes atacar...";}else{
 										 

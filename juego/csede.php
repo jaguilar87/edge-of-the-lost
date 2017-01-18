@@ -1,14 +1,13 @@
 <?php include 'header.php';
 if ($_GET[clan]==""){$_GET[clan]=$us[clan];}
-$c= "SELECT * FROM `sw_clan` WHERE nombre='$_GET[clan]'";
-$result = mysql_query($c)or die(mysql_error());
-$cli = mysql_fetch_array($result);
 
-if ($cl[lider]==$us[nombre] && $us[clan]==$_GET[clan]){ echo '<center>[<a href="cgest.php">Gestionar Clan</a>]</center>';}
+$cli = sel("sw_clan", "", $_GET[clan]);
+
+if ($cli[lider]==$us[nombre] && $us[clan]==$_GET[clan]){ echo '<center>[<a href="cgest.php">Gestionar Clan</a>]</center>';}
 
 
 $u=textcolor($cli[lider]);
-echo "</small><br><big><big><b><big>Clan $cli[nombre]</big> </b></big></big></center><hr><b>Líder:</b> <font color=\"$u[txtc]\">$u[titulo] $u[prefix] $u[nombre]</font></b><br><b>Hermandad:</b> $cli[hermandad]<br><b>Fondos:</b> $cli[fondos]<br><b>Puntos:</b> $cli[puntos]<br><b>Minerales:</b> $cli[mineral]<hr>";
+echo "</small><br><big><big><b><big>Clan $cli[nombre]</big> </b></big></big></center><hr><b>Líder:</b> <font color=\"$u[txtc]\">$u[titulo] $u[prefix] $u[nombre]</font></b><br><b>Hermandad:</b> $cli[hermandad]<br><b>Fondos:</b> $cli[fondos]<br><b>Puntos:</b> $cli[puntos]<br><b>Minerales:</b> $cli[mineral]<br><b>Poténcia:</b> $cli[potencia] W<hr>";
 
 echo " <b>Miembros del Clan:</b><br>";
 $c="SELECT * FROM `sw_users` WHERE clan='$cli[nombre]' ORDER BY merito DESC";
@@ -31,7 +30,11 @@ $c="SELECT * FROM `sw_vehiculos` WHERE prop='$cli[nombre]' AND tprop='Clan' ORDE
 $result=mysql_query($c)or die(mysql_error());
 $i=1;
 echo '<table width="100%"><tr><td><b>Nombre</b></td><td><b>Posición</b></td>';
-while ($p = mysql_fetch_array($result)){echo "<tr><td><b>$i- </b><a href=\"ipproyecto.php?id=vehiculo&div=$p[nombre]\">$p[nombre]</a></td><td>($p[x],$p[y]) $p[ciudad]</td></tr>"; $i++;} 
+while ($p = mysql_fetch_array($result))
+{
+ 	  echo "<tr><td><b>$i- </b><a href=\"ipproyecto.php?id=vehiculo&div=$p[nombre]\">$p[nombre]</a></td><td>$p[ciudad]</td></tr>"; 
+	  $i++;
+} 
 echo '</table>';
 
 if ($us[clan]==$cli[nombre]){

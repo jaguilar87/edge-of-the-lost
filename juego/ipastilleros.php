@@ -1,144 +1,73 @@
 <?php
-switch ($_GET[act]){
-case "construir":
-	 			  if ($_GET[veh]==""){echo "<script> location.href='ipproyecto.php?id=nuevo' </script>";}
-	 			  if ($cl[lider]==$us[nombre]){
-				  	 switch ($_GET[veh]){
-  			 		 case "deslizador": $min=500; $tur=200; $name="Deslizador"; break; 
-					 case "transporte": $min=3000; $tur=750; $name="Transporte Ligero"; break; 
-					 case "crucero": $min=10000; $tur=2000; $name="Crucero De Batalla"; break;
-				  }
-				  echo "De verdad deseas empezar a construir un $name gastando $min Minerales y $tur Turnos?";
-				  echo "<form action=\"idistritos.php\" method=\"GET\"><input name=\"act\" type=\"hidden\" value=\"ok\">Bautizala como: <b>$name <input name=\"def\" type=\"hidden\" value=\"ipastilleros.php\"> <input name=\"nombre\" type=\"text\" value=\"\"></b> <input name=\"veh\" type=\"hidden\" value=\"$_GET[veh]\"><input type=\"submit\" value=\"Construir\"></form>";
-				  }else{ echo "No eres el lider del clan";}
-				  break;
-
-case "ok":
-	 			  if ($_GET[veh]==""){echo "<script> location.href='idestritos.php?def=ipproyecto.php&id=nuevo' </script>";}
-	 			  if ($cl[lider]==$us[nombre]){
-				  	 switch ($_GET[veh]){
-					 		case "deslizador": $min=500; $tur=200; $name="Deslizador"; break; 
-							case "transporte": $min=3000; $tur=750; $name="Transporte Ligero"; break; 
-							case "crucero": $min=10000; $tur=2000; $name="Crucero De Batalla"; break; 
-				  }	 	  		  
-				     
-					$c= "SELECT * FROM `sw_clan` WHERE nombre='$us[clan]'";
-	 				$result = mysql_query($c)or die(mysql_error());
-	 		   		$cn = mysql_fetch_array($result);
-						$nombraco= "$name $_GET[nombre]";					 
-					
-					$cn[mineral]-=$min;
-					
-					if ($cn[mineral]<0){echo 'Mineral insuficiente';}else{ 
-
-					$c="SELECT * FROM `sw_fabrica` WHERE nombre='$nombraco'";
-					$result=mysql_query($c)or die(mysql_error());
-					$ul=mysql_fetch_array($result);
-					
-					if ($ul[nombre]==$nombraco){echo 'Nombre ya existente. Elija Otro.';}else{
-					
-					$c="UPDATE `sw_clan` SET mineral='$cn[mineral]' WHERE nombre='$us[clan]'";
-					$result=mysql_query($c)or die(mysql_error());
-					 
-					 $sql = "INSERT INTO `sw_fabrica` (nombre, tipo, mineral, tgastados, ttotales, dia, clan) VALUES ('$nombraco', '$name', '$min', '0', '$tur', '$us[dia]', '$us[clan]')";
-					 $result = mysql_query($sql);
-					 echo 'Vehiculo en puesto cola...<a href="cgest.php">Volver</a>';
-				  
-				  }}
-				  }else{ echo "No eres el lider del clan";}
-				  break;
-
-case "trab": echo "<form action=\"idistritos.php\" method=\"GET\">Gastar <input name=\"turnos\" type=\"input\" value=\"1\">Energía en el proyecto $_GET[pro]. <input name=\"def\" type=\"hidden\" value=\"ipastilleros.php\"><input name=\"act\" type=\"hidden\" value=\"trabok\"> <input name=\"pro\" type=\"hidden\" value=\"$_GET[pro]\"><input value=\"Trabajar\" type=\"submit\"></form>"; break;
-
-case "trabok": 
-
-   $c="SELECT * FROM sw_clan WHERE nombre='$ci[clan]'";
-   $result=mysql_query($c)or die(mysql_error());
-   $cli=mysql_fetch_array($result);
+if ($ci[fabrica]=="S" && $us[nombre]==$ci[rey]){
+   if ($_GET[ok]){
+   	  			  $vl=sel("sw_vehiculos", "", $_GET[nom]);
+				  if ($_GET[nom]==$vl[nombre]){
+				  	 echo "Ese nombre ya existe, elije otro";
+				  }else{
+				  	 
+   	  				  	 switch ($_GET[tip]){
+					 		case "VCA": $min=500; $tur=200; break; 
+							case "Lanzadera": $min=3000; $tur=750; break; 
+							case "Crucero": $min=10000; $tur=2000; break; 
+				  	     }	
+      
+   						 $cl[potencia]-=$tur;
+						 	 $cl[mineral]-=$min;
    
-$coste = $cli[pagomina]*$_GET[turnos];
+   						 if ($cl[potencia]<0 || $cl[mineral]<0){
+						 	echo "Poténcia o mineral insuficiente...";
+						 }else{
+						 
+						 mysql_query("UPDATE `sw_clan` SET potencia='$cl[potencia]', mineral='$cl[mineral]' WHERE nombre='$cl[nombre]'")or die(mysql_error());
 
-if ($_GET[turnos]<=0){echo "Turnos Inválidos";}else{
-if ($coste>$cli[fondos]){echo 'El clan no puede pagarte esa cantidad';}else{
-$us[turnos]-=$_GET[turnos];
-if ($us[turnos]<0){echo 'Energía insuficiente';}else{
+ 				 	     if ($_GET[tip]=="Lanzadera" || $_GET[tip]=="Crucero"){$espacio="S";}else{$espacio="N";}
+				 
+						 mysql_query("INSERT INTO `sw_vehiculos` (nombre, tipo, ciudad, prop, tprop, espacio, arma, mineral, potencia, fabricante, dia) VALUES ('$_GET[nom]', '$_GET[tip]', '$ci[nombre]', '$ci[clan]', 'Clan', '$espacio', '$arma', '$min', '$tur', '$cl[nombre]', '$us[dia]')")or die(mysql_error());
+						 
+						 
+						  echo "<table background='images/bg3.jpg'  width='100%' height='100%'>
+						  <tr>					  
+						      <td><big><big><b>Astilleros de $ci[nombre]</b></big></big><br><br>Vehículo Construido</td></tr></table>";   
+						 
+						 
+						 
+						 
+						 
+						 
+						 
+						 }
+				  }
+   
+   
+   }else{
+   
+   		 echo "<table background='images/bg3.jpg'  width='100%' height='100%'>
+<tr>
+    <td><big><big><b>Astilleros de $ci[nombre]</b></big></big>";   
+   		 echo "<br>Bienvenido a los astilleros <b>$us[nombre]</b>! En los astilleros convertiremos su potencia y mineral en poderosos vehiculos para su clan, esperamos sus instrucciones.<br><br>"; 
 
 
-	$c="SELECT * FROM `sw_fabrica` WHERE nombre='$_GET[pro]' AND finalizado='N'";
-	$result=mysql_query($c)or die(mysql_error());
-	$ul=mysql_fetch_array($result);
+   		 echo '<br><center><table>
+<tr>
+    <td>    <form action="idistritos.php" method="GET">
 
-	if ($ul[nombre]==$_GET[pro]){
-
-	
-	$us[estres]+=($_GET[turnos]/5)*2;
-	$us[creditos]+=$coste;
-	$cli[fondos]-=$coste;
-	$lad=$_GET[turnos]/10;
-	$us[lado]+=$lad;
-	$us[puntos]+=$_GET[turnos]/10;
-	$mert=$_GET[turnos]/10;
-	if ($cli[nombre]==$cl[nombre]){$us[merito]+=$mert;}
-	$ul[tgastados]+=$_GET[turnos];
-
-
-	  $c="UPDATE `sw_clan` SET fondos='$cli[fondos]', mineral='$cli[mineral]' WHERE nombre='$cli[nombre]'";
-	  $result=mysql_query($c)or die(mysql_error());
-
-	  $c="UPDATE `sw_users` SET puntos='$us[puntos]', estres='$us[estres]', merito='$us[merito]', lado='$us[lado]', creditos='$us[creditos]', turnos='$us[turnos]' WHERE nombre='$us[nombre]'";
-	  $result=mysql_query($c)or die(mysql_error());
-	  
-	  $c="UPDATE `sw_fabrica` SET tgastados='$ul[tgastados]' WHERE nombre='$ul[nombre]'";
-	  $result=mysql_query($c)or die(mysql_error());
-	  
-	  if ($ul[tgastados]>=$ul[ttotales]){
-	  
-	  if ($ul[tipo]=="Transporte Ligero" || $ul[tipo]=="Crucero de Batalla"){$espacio="S";}else{$espacio="N";}
-	  
-	  $c="UPDATE `sw_fabrica` SET finalizado='S' WHERE nombre='$ul[nombre]'";
-	  $result=mysql_query($c)or die(mysql_error());
-		
-	  $sql = "INSERT INTO `sw_vehiculos` (nombre, tipo, ciudad, prop, tprop, espacio) VALUES ('$ul[nombre]', '$ul[tipo]', '$ci[nombre]', '$ci[clan]', 'Clan', '$espacio')";
-	  $result = mysql_query($sql);
+					   	   Nombre del Vehículo: <br>&nbsp;&nbsp;<input name="nom" type="text" value="">
+					   	   <br><br>Tipo vehículo: <br>&nbsp;&nbsp;<input name="tip" type="radio" value="VCA">VCA <br>&nbsp;&nbsp;<input name="tip" type="radio" value="Lanzadera">Lanzadera <br>&nbsp;&nbsp;<input name="tip" type="radio" value="Crucero">Crucero
+					   	   <br><br><input name="ok" type="submit" value="Construir">
+                           <input name="def" type="hidden" value="ipastilleros.php">
+					</form>				
+					</td>
+</tr>
+</table></center>
+';
+		 echo '<small><b><b>Vehículos:</b></b></small><br><small><table width="100%" ><tr bgcolor="#808080"><td><small><b>Nombre</b></small></td><td><small><b>Tipo</b></small></td><td><small>Minerales</small></td><td><small>Potencia</small></td></tr><tr><td><small>VCA</small></td><td><small>Vehículo Terrestre</small></td><td><small>500M</small></td><td><small>200W</small></td></tr><tr><td><small>Lanzadera</small></td><td><small>Transporte Ligero</small></td><td><small>3.000M</small></td><td><small>750W</small></td></tr><tr><td><small>Crucero</small></td><td><small>Gan nave de combate espacial</small></td><td><small>10.000M</small></td><td><small>2000W</small></td></tr></table></small></td>
+</tr>
+</table>';
 		 
-		}
-	  
-	  
-	  echo 'Trabajo completo..';
-	  	  echo "<br><small><font color=\"#caffff\">Has caminado $lad puntos al lado de la Luz.</font></small>";
-}else{Echo 'El Proyecto no existe';}}}}
-	break;			  
-				  
-				  
-default:
-
-if ($ci[fabrica]=="S"){
-
-   $c="SELECT * FROM sw_clan WHERE nombre='$ci[clan]'";
-   $result=mysql_query($c)or die(mysql_error());
-   $cli=mysql_fetch_array($result);
-
-
-echo "<small>El clan $cli[nombre] te pagará $cli[pagomina] por cada punto de Energía que estés trabajando en uno de los siguientes proyectos:</small>";
-echo "<small><br>Recuerda que trabajar en los Astilleros aumenta tus puntos hacia el lado de la Luz</small>";
-
-echo "<table width=\"100%\"><tr bgcolor=\"#808080\"><td><b>Nombre</b></td><td><b><small>Mineral</small></b></td><td><b><small>E. Gastados/ E. Total</small></b></td><td></td></tr>";
-
-$c="SELECT * FROM `sw_fabrica` WHERE clan='$cli[nombre]' AND finalizado='N' ORDER BY dia ASC";
-$result=mysql_query($c)or die(mysql_error());
-while ($p = mysql_fetch_array($result)){echo "<tr><td><a href=\"ipproyecto.php?id=$p[id]\">$p[nombre]</a></td><td>$p[mineral]</td><td>$p[tgastados] / $p[ttotales]</td><td><a href=\"idistritos.php?def=ipastilleros.php&act=trab&pro=$p[nombre]\"><img border=0 src=\"images/e.jpg\"></a></td></tr>";}
-echo '</table>';
-
-
-
-
-}else{echo 'La ciudad no dispone de Astilleros';}
-
-break;
-
-
-
-
-
+   }
+}else{
+	 echo 'La ciudad no dispone de Astilleros o no eres el Rey de la Ciudad';
 }
+
 ?>

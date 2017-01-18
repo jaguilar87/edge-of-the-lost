@@ -1,31 +1,46 @@
 <?php 
-
 if ($ci[cura]=="N"){echo 'Tu ciudad no dispone de bar...';}else{
-$curing = $us[estres];
 
-$costes = $ci[copas]*$curing;
+if ($ok){
+   $curing = $us[estres];
 
-$us[creditos] -= $costes;
+   $costes = $ci[copas]*$curing;
 
-if ($us[creditos]<0){echo 'Crédito insuficiente...';}else{
-if ($us[hp]<=0){ echo 'No puedes ir al bar estando KO...';}else{
+   $us[creditos] -= $costes;
 
-$us[estres]=0;
+   if ($us[creditos]<0){echo 'Crédito insuficiente...';}else{
+   	  if ($us[hp]<=0){ echo 'No puedes ir al bar estando KO...';}else{
+
+	  	 $us[estres]=0;
 
 
-$c= "SELECT * FROM `sw_clan` WHERE nombre='$ci[clan]'";
-$result = mysql_query($c)or die(mysql_error());
-$clr = mysql_fetch_array($result);
+		 $c= "SELECT * FROM `sw_clan` WHERE nombre='$ci[clan]'";
+		 $result = mysql_query($c)or die(mysql_error());
+		 $clr = mysql_fetch_array($result);
 
-$clr[fondos] += $costes;
+		 $clr[fondos] += $costes;
 
-$c = "UPDATE `sw_users` SET estres='$us[estres]', creditos='$us[creditos]' WHERE nombre='$_SESSION[nombre]'";
-$result = mysql_query($c);
+		 $c = "UPDATE `sw_users` SET estres='$us[estres]', creditos='$us[creditos]' WHERE nombre='$_SESSION[nombre]'";
+		 $result = mysql_query($c);
 
-$c = "UPDATE `sw_clan` SET fondos='$clr[fondos]' WHERE nombre='$ci[clan]'";
-$result = mysql_query($c);
+		 $c = "UPDATE `sw_clan` SET fondos='$clr[fondos]' WHERE nombre='$ci[clan]'";
+		 $result = mysql_query($c);
 
-echo "<br>Bebes y te relajas por valor de <b>$costes Crédito(s)</b> y tu Estrés desaparece...<br><small>(Tu dinero fue a parar al clan $ci[clan])</small>";
+		 echo "<br>Bebes y te relajas por valor de <b>$costes Crédito(s)</b> y tu Estrés desaparece...<br><small>(Tu dinero fue a parar al clan $ci[clan])</small>";
 
-}}}
+	  }
+   }
+   
+}else{
+
+   $curing = $us[estres];
+
+   $costes = $ci[copas]*$curing;
+   
+   echo "<center>La curación de Estrés te costará <b>$costes Créditos</b><br><br><a href='idistritos.php?def=icbar.php&ok=true'>CURAR ESTRES</a></center>";
+
+
+
+}
+}
 ?>

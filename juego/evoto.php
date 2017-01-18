@@ -1,6 +1,6 @@
 <?php include 'header.php';
 
-if ($us[nv_sable]>=3){
+if ($us[nv_sable]>=2){
 
 $c= "SELECT * FROM `sw_evoto` ORDER BY ref DESC limit 0,1";
 $result = mysql_query($c)or die(mysql_error());
@@ -54,5 +54,5 @@ if ($i==0){
 
 
 echo "</table>";
-}else{ echo "No tienes suficiente nivel para votar, debes ser como mínimo MAESTRO/LORD";}
+}else{ echo "No tienes suficiente nivel para votar, debes ser como mínimo CABALLERO/PADAWAN";}
 include 'footer.php'?>

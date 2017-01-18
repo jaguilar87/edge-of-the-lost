@@ -5,7 +5,7 @@ echo "Estas son las leyes de $ci[nombre]:";
 
 echo '<br><br><table width="100%" border=1>'; 
 
-echo "<tr><td><a href=\"#\" onMouseover=\" ddrivetip('En caso afirmativo los jugadores se podran atacar dentro de la ciudad libremente sin peligro de ser buscados por la Ley.', '#808080');\" onMouseout=\"hideddrivetip()\"><img border=0 src=\"images/h.gif\"></a>Ciudad PK</td><td>$ci[pk]</td>";
+echo "<tr><td>No hay leyes de momento...</td>";
 
 echo "</tr>";
 

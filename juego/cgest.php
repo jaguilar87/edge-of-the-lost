@@ -6,16 +6,20 @@ $result = mysql_query($c)or die(mysql_error());
 $cli = mysql_fetch_array($result);
 
 $u=textcolor($cli[lider]);
-echo "<center><big><big><b><big>Gestión del Clan <b>$cli[nombre]</b></big> </b></big></big></center><hr><b>Líder:</b> <font color=\"$u[txtc]\">$u[titulo] $u[prefix] $u[nombre]</font></b><br><b>Hermandad:</b> $cli[hermandad]<br><b>Fondos:</b> $cli[fondos]<br><b>Puntos:</b> $cli[puntos]<br><b>Minerales:</b> $cli[mineral]";
-
-
+echo "<center><big><big><b><big>Gestión del Clan <b>$cli[nombre]</b></big> </b></big></big></center><hr><b>Líder:</b> <font color=\"$u[txtc]\">$u[titulo] $u[prefix] $u[nombre]</font></b><br><b>Hermandad:</b> $cli[hermandad]<br><b>Fondos:</b> $cli[fondos]<br><b>Puntos:</b> $cli[puntos]<br><b>Minerales:</b> $cli[mineral]<br><b>Poténcia:</b> $cli[potencia] W";
 
 echo '<hr> <b>Miembros del Clan:</b><br><a name="miem"></a>';
 $c="SELECT * FROM `sw_users` WHERE clan='$cli[nombre]' ORDER BY merito DESC";
 $result=mysql_query($c)or die(mysql_error());
 $i=1;
 echo '<table><tr><td><b>Nombre</b></td><td><div align="right">Mérito</div></td><td></td></tr>';
-while ($r = mysql_fetch_array($result)){$u=textcolor($r[nombre]); echo "<tr><td>$i- <a href=\"info.php?us=$r[nombre]\"><font color=\"$u[txtc]\">$u[titulo] $u[prefix] $r[nombre]</font></a></td><td> <div align=\"right\">$u[merito]</div></td><td><a href=\"clanact.php?act=expul&us=$r[nombre]\"><img border=0 src=\"images/x.gif\"></a></td><td></td></tr>"; $i++;}
+while ($r = mysql_fetch_array($result))
+{
+	  $u=textcolor($r[nombre]); 
+	  echo "<tr><td>$i- <a href=\"info.php?us=$r[nombre]\"><font color=\"$u[txtc]\">$u[titulo] $u[prefix] $r[nombre]</font></a></td><td> <div align=\"right\">$u[merito]</div></td><td><a href=\"clanact.php?act=expul&us=$r[nombre]\"><img border=0 src=\"images/x.gif\"></a></td><td></td></tr>"; 
+	  $i++;
+}
+
 echo '</table>';
 
 echo '<hr> <a name="ciud"></a><b>Ciudades del Clan:</b><br>';
@@ -27,14 +31,20 @@ while ($r = mysql_fetch_array($result)){$u=textcolor($r[rey]); echo "<tr><td>$i-
 echo '</table>';
 
 echo '<br><hr><b>Trabajos del clan:</b> <a name="trab"></a>';
-echo "<form action=\"clanact.php\" method=\"GET\">Pago por punto de Energía trabajando <input name=\"pago\" type=\"text\" value=\"$cli[pagomina]\">Créditos. <input name=\"act\" type=\"hidden\" value=\"mina\"><input type=\"submit\" value=\"Modificar\"></form>";
-
+echo "<form action=\"clanact.php\" method=\"GET\">Pago en generador <input name=\"pago\" type=\"text\" value=\"$cli[pago]\">Créditos. <input name=\"act\" type=\"hidden\" value=\"mina\"><input type=\"submit\" value=\"Modificar\"></form>";
 
 echo '<hr><br><b>Vehículos del Clan:</b><a name="vehi"></a>';
 $c="SELECT * FROM `sw_vehiculos` WHERE prop='$cl[nombre]' AND tprop='Clan' ORDER BY nombre ASC";
 $result=mysql_query($c)or die(mysql_error());
-echo '<table width="100%"><tr><td><b>Nombre</b></td><td><b>Posición</b></td>';
-while ($p = mysql_fetch_array($result)){echo "<tr><td><a href=\"ipproyecto.php?id=vehiculo&div=$p[nombre]\">$p[nombre]</a></td><td>($p[x],$p[y]) $p[ciudad]"; if ($cl[lider]==$us[nombre] && $p[tipo]!="Crucero De Batalla"){echo " <a onMouseover=\" ddrivetip('Poner a la venta', '#808080');\" onMouseout=\"hideddrivetip()\"  href=\"clanact.php?act=vender&vehiculo=$p[nombre]\"><img border=0 src=\"images/arr.gif\"><small>Vender</small></a>";} echo "</td></tr>";} 
+echo '<table width="100%"><tr><td><b>Nombre</b></td><td><b>Posición</b></td><td><b>Daños</b></td></tr>';
+while ($p = mysql_fetch_array($result)){
+			echo "<tr><td><a href=\"ipproyecto.php?id=vehiculo&div=$p[nombre]\">$p[nombre]</a></td><td>$p[ciudad]"; 
+			if ($cl[lider]==$us[nombre] && $p[tipo]!="Crucero"){
+				 echo " <a onMouseover=\" ddrivetip('Poner a la venta', '#808080');\" onMouseout=\"hideddrivetip()\"  href=\"clanact.php?act=vender&vehiculo=$p[nombre]\"><img border=0 src=\"images/arr.gif\"><small>Vender</small></a>";
+			} 
+			$cost=$p[dam]*1000;
+			echo "</td><td>$p[dam]% Daños	<a onMouseover=\" ddrivetip('Reparar por $cost mineral', '#808080');\" href=\"idistritos.php?def=ipreparar.php&veh=$p[id]\" onMouseout=\"hideddrivetip()\"><img border=0 src='images/e.jpg'></a></td></tr>";
+} 
 echo '</table>';
 echo '<br><a href="idistritos.php?def=ipastilleros.php">Añadir un proyecto</a>';
 echo '<br><a href="cviajes.php">Gestionar Rutas de Viaje</a>';

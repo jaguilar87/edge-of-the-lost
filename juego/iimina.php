@@ -1,46 +1,40 @@
 <?php
-if ($ci[mina]=="S"){
+if ($ci[mina]=="S" && $us[nombre]==$ci[rey]){
 
-   $c="SELECT * FROM sw_clan WHERE nombre='$ci[clan]'";
-   $result=mysql_query($c)or die(mysql_error());
-   $cli=mysql_fetch_array($result);
+ if ($_GET[pot]){
+ 	$cl[potencia]-=$_GET[pot];
+ 	$cl[mineral]+=$_GET[pot];
+	$pl[mineral]-=$_GET[pot];
+ 
+ 	if ($cl[potencia]<0){
+	   echo "El clan no dispone de suficiente Potencia para realizar esa acción";
+	}else{
+	   if ($pl[mineral]<0){
+	   	  echo "El planeta no dispone de suficiente mineral";
+	   }else{
+	   		 mysql_query("UPDATE sw_clan SET mineral='$cl[mineral]', potencia='$cl[potencia]' WHERE nombre='$us[clan]'")or die(mysql_error());
+       		 mysql_query("INSERT INTO `sw_board_clan` (clan, poster, dia, mess) VALUES ('$us[clan]', 'INFORMACION', '$us[dia]', '$us[nombre] a gastado <b>$_GET[pot] W</b> en la mina de la ciudad de <b>$ci[nombre]</b>')");
+			 mysql_query("UPDATE sw_plan SET mineral='$pl[mineral]' WHERE nombre='$pl[nombre]'")or die(mysql_error());
+	   		 echo "Los robots han extraido <b>$_GET[pot] minerales</b> con éxito.";
+	   }
+	}
+ 
+ }else{
+ 
+   echo "<small>Tu clan <b>$us[clan]</b> dispone en estos momentos de <b>$cl[potencia] W</b> de potencia, como rey de <b>$ci[nombre]</b> tienes derecho a gastarlos para mover los robots extractores.</small>";
+   echo "<br><br><small>Cada W de potencia que gastes supondrá una Unidad de Mineral extraido</small>";
 
-if ($ok){
+echo '
+	 <form action="idistritos.php" METHOD="GET">
+	 	   Gastar <input name="pot" type="text" value=""> W en la Mina. <input name="def" type="hidden" value="iimina.php">
+	 	   <input type="submit" Value="OK">
+	 
+	 </form>
+	 ';
 
-$coste = $cli[pagomina]*$_POST[turnos];
+ }	 
 
-if ($coste>$cli[fondos]){echo 'El clan no puede pagarte esa cantidad';}else{
-$us[turnos]-=$_POST[turnos];
-if ($_POST[turnos]<=0){echo "Número de turnos inválido";}else{
-if ($us[turnos]<0){echo 'Energía insuficiente';}else{
-
-$us[estres]+=($_POST[turnos]/5)*2;
-$us[creditos]+=$coste;
-$cli[fondos]-=$coste;
-$cli[mineral]+=$_POST[turnos];
-$lad=$_POST[turnos]/10;
-$us[lado]+=$lad;
-$us[puntos]+=$_POST[turnos]/10;
-
-	  $c="UPDATE `sw_clan` SET fondos='$cli[fondos]', mineral='$cli[mineral]' WHERE nombre='$cli[nombre]'";
-	  $result=mysql_query($c)or die(mysql_error());
-
-	  $c="UPDATE `sw_users` SET puntos='$us[puntos]', estres='$us[estres]', lado='$us[lado]', creditos='$us[creditos]', turnos='$us[turnos]' WHERE nombre='$us[nombre]'";
-	  $result=mysql_query($c)or die(mysql_error());
-	  
-	  echo 'Trabajo completo..';
-	  echo "<br>Has producido $_POST[turnos] mineral(es) que fueron para el clan $cli[nombre] que te pagó un total de $coste Créditos";
-	  echo "<br><small><font color=\"#caffff\">Has caminado $lad puntos al lado de la Luz.</font></small>";
-}}}
 }else{
-
-echo "<small>El clan $cli[nombre] te pagará $cli[pagomina] por cada punto de Energía que estés trabajando.<br>El clan ganará una unidad de mineral por cada turno que trabajes para ellos</small>";
-echo "<small><br>Recuerda que trabajar en la mina aumenta tus puntos hacia el lado de la Luz</small>";
-echo '<form action="idistritos.php?def=iimina.php" method="POST">Gastar <input name="turnos" type="input" value="1">Energía en la mina. <input name="ok" value="Trabajar" type="submit"></form>';
-
-
-
-
-
-}}else{echo 'La ciudad no dispone de minas';}
+	  echo 'La ciudad no dispone de minas o no eres el rey de la ciudad';
+}
 ?>

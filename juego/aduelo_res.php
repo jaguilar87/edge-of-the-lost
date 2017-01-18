@@ -11,7 +11,7 @@ if($ob[hp]<=0){
 
 $ganancias= "En un duelo no se gana ni se pierde nada";
 
- $sql = "INSERT INTO `sw_att` (dia, atacante, defensor, combate, ganador, ganancias) VALUES ('$fe[dia]', '$us[nombre]', '$ob[nombre]', '$log', '$ganador', '$ganancias')";
+ $sql = "INSERT INTO `sw_att` (dia, atacante, defensor, combate, ganador, ganancias) VALUES ('$us[dia]', '$us[nombre]', '$ob[nombre]', '$log', '$ganador', '$ganancias')";
  $result = mysql_query($sql);   
    
  $sql = "SELECT id FROM `sw_att` ORDER BY id DESC limit 0,1";
@@ -24,7 +24,7 @@ $result = mysql_query($c);
 $c = "UPDATE `sw_users` SET hp='$realob' WHERE nombre='$ob[nombre]'";
 $result = mysql_query($c);
 
- $sql = "INSERT INTO `sw_log` (user, log, dia, tipo, ref) VALUES ('$ob[nombre]', '$us[nombre] te ha retado en duelo!.', '$fe[dia]', '5', '$ider[id]')";
+ $sql = "INSERT INTO `sw_log` (user, log, dia, tipo, ref) VALUES ('$ob[nombre]', '$us[nombre] te ha retado en duelo!.', '$us[dia]', '5', '$ider[id]')";
  $result = mysql_query($sql);
  
 

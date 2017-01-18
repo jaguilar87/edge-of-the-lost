@@ -7,7 +7,8 @@ $us[turnos]-=5;
 
 if($ob[hp]<=0){
 			  $ganador=$us[nombre]; 
-			  $robado= rand($ob[creditos]/100,$ob[creditos]/2);
+			  $robado= mt_rand($ob[creditos]/100,$ob[creditos]/2);
+				$robado+=$robado*(($us[cl_picaro]*5)/100);				
 			  if ($robado<0){$robado=0;}
 			  $ob[creditos]-=$robado;
 			  $us[creditos]+=$robado;
@@ -22,9 +23,10 @@ if($ob[hp]<=0){
 
 
 	  		  $ganador=$ob[nombre]; 
-			  $robado= rand($us[creditos]/100,$us[creditos]/2);
+			  $robado= mt_rand($us[creditos]/100,$us[creditos]/2);
+				$robado+=$robado*(($ob[cl_picaro]*5)/100);
 			  if ($robado<0){$robado=0;}
-  			  $ob[creditos]+=$robado;
+  			$ob[creditos]+=$robado;
 			  $us[creditos]-=$robado;
 			  $ob[merito]+=15;
 			  $us[merito]-=5;
@@ -36,7 +38,7 @@ if($ob[hp]<=0){
 
 }
 
-$ganancias= "$ganador roba $robado Créditos<br>$ganador obteniene $puntos Puntos!";
+$ganancias= "$ganador roba $robado Créditos<br>$ganador obteniene $puntos PX!";
 $ganancias.="<br>$ganador obteniene 15 Puntos de Merito!";
 
 
@@ -60,7 +62,7 @@ $ganancias.="<br>$ganador obteniene 15 Puntos de Merito!";
 					 $result = mysql_query($c);
    }
    
- $sql = "INSERT INTO `sw_att` (dia, atacante, defensor, combate, ganador, ganancias) VALUES ('$fe[dia]', '$us[nombre]', '$ob[nombre]', '$log', '$ganador', '$ganancias')";
+ $sql = "INSERT INTO `sw_att` (dia, atacante, defensor, combate, ganador, ganancias) VALUES ('$fe[val]', '$us[nombre]', '$ob[nombre]', '$log', '$ganador', '$ganancias')";
  $result = mysql_query($sql);   
    
  $sql = "SELECT id FROM `sw_att` ORDER BY id DESC limit 0,1";
@@ -73,7 +75,7 @@ $result = mysql_query($c);
 $c = "UPDATE `sw_users` SET hp='$ob[hp]', creditos='$ob[creditos]', merito='$ob[merito]', pk='$ob[pk]', lpk='$ob[lpk]', attmess='S', puntos='$ob[puntos]' WHERE nombre='$ob[nombre]'";
 $result = mysql_query($c);
 
- $sql = "INSERT INTO `sw_log` (user, log, dia, tipo, ref) VALUES ('$ob[nombre]', '$us[nombre] te ha ATACADO!.', '$fe[dia]', '5', '$ider[id]')";
+ $sql = "INSERT INTO `sw_log` (user, log, dia, tipo, ref) VALUES ('$ob[nombre]', '$us[nombre] te ha ATACADO!.', '$fe[val]', '5', '$ider[id]')";
  $result = mysql_query($sql);
  
 

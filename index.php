@@ -29,13 +29,13 @@ $result = mysql_query($c)or die(mysql_error());
 $not= mysql_fetch_array($result);
  
 
-$c= "SELECT * FROM `sw_fecha` WHERE id='2'";
+$c= "SELECT * FROM `sw_info` WHERE id='vis'";
 $result = mysql_query($c)or die(mysql_error());
 $visit= mysql_fetch_array($result);
 
-$visit[dia]++;
+$visit[val]++;
 
-    $c="UPDATE `sw_fecha` SET dia='$visit[dia]' WHERE id='2'";
+    $c="UPDATE `sw_info` SET val='$visit[val]' WHERE id='vis'";
 	$result=mysql_query($c)or die(mysql_error());
 	
 ?>
@@ -46,26 +46,9 @@ $visit[dia]++;
 
 	<title>Star Wars - Edges of The Lost Warriors</title>
 
-	<style>
-BODY {
-scrollbar-face-color: #000000;
-scrollbar-highlight-color: #666666;
-scrollbar-3dlight-color: #000000;
-scrollbar-darkshadow-color: #000000;
-scrollbar-shadow-color: #000000;
-scrollbar-arrow-color: #666666;
-scrollbar-track-color: #000000;
-}
-</STYLE>
-
-	<style>
-A {
-	color: #FFFFCC;
-}
-A:hover {
-	color: #ffffff;
-
-</style>
+	<?php 
+	include 'juego/header/genstyle.php';
+	?>
 
 
 <meta http-equiv="Page-Enter" content="revealTrans(Duration=1.0,Transition=23)">
@@ -74,7 +57,7 @@ A:hover {
 <body text="#FFFFFF" bgcolor="#000000" background="juego/images/bg1.gif" link="#FFFFAE" vlink="#FFEFAE">
 
 <small><table width="100%"><tr><td> <font face="Verdana" style="font-size: 8pt">SW-eotlw es una creación de <a href="http://jagcompany.civitis.com">JAGCompany</a></small><br><br></td><td><div align="right">
- <font face="Verdana" style="font-size: 8pt"><? echo "Visita Nº <font color=\"#ffff00\">$visit[dia]</font>";?></div></td></tr></table>
+ <font face="Verdana" style="font-size: 8pt"><? echo "Visita Nº <font color=\"#ffff00\">$visit[val]</font>";?></div></td></tr></table>
 <br>
 <div align="center">
   <center>
@@ -172,15 +155,9 @@ A:hover {
                       AYUDA Y FAQ</a><br>
                       <a target="_BLANK" href="http://sw-eotlw.foro.st">FOROS</a><br>
                       <br>
-                      <i>Creador:</i><br>
-                      <a href="http://jagcompany.civitis.com">Zeros</a> 
-                      (Programador)[<a href="mailto:JAGCompany@hotmail.com"><img src="juego/images/msg.gif" border="0" width="11" height="7"></a><img src="juego/images/msn.gif" border="0" width="15" height="17">]<br>
-                      <i>Agradecimientos:</i><br>
-					  KSK (Grafista, Colaborador)[<a href="mailto:ksk_themaster@hotmail.com"><img src="juego/images/msg.gif" border="0" width="11" height="7"></a><img src="juego/images/msn.gif" border="0" width="15" height="17">]<br>
-                      <a href="http://paginaweb.de/alejandro86">Jaccer</a> 
-                      (Colaborador)[<a href="mailto:alejandro_rsc@hotmail.com"><img src="juego/images/msg.gif" border="0" width="11" height="7"></a><img src="juego/images/msn.gif" border="0" width="15" height="17">]<br>
-                      <a href="http://civitis.com">Civitis</a> (Hosting)<br>
-                      A ellos y algunos más... gracias...</font></div>
+											<!--Aqui Va la Marquesina-->
+															 <i>Creador:</i><br><a href="http://jagcompany.civitis.com">Zeros</a>(Programador)[<a href="mailto:JAGCompany@hotmail.com"><img src="juego/images/msg.gif" border="0" width="11" height="7"></a><img src="juego/images/msn.gif" border="0" width="15" height="17">]<br><i>Agradecimientos:</i><br>KSK (Grafista, Colaborador)[<a href="mailto:ksk_themaster@hotmail.com"><img src="juego/images/msg.gif" border="0" width="11" height="7"></a><img src="juego/images/msn.gif" border="0" width="15" height="17">]<br><a href="http://paginaweb.de/alejandro86">Jaccer</a>(Colaborador)[<a href="mailto:alejandro_rsc@hotmail.com"><img src="juego/images/msg.gif" border="0" width="11" height="7"></a><img src="juego/images/msn.gif" border="0" width="15" height="17">]<br><a href="http://civitis.com">Civitis</a> (Hosting)<br>A ellos y algunos más... gracias...
+                      </font></div>
                     </td>
                   </tr>
                 </table>

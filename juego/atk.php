@@ -23,6 +23,7 @@ function mele($one,$two){
 
 		 #<!-- tasa crítica -->
 		 $crit=mt_rand(0,100);
+		 $crit+=$one[cl_guerrero];		 
 		 if ($one[nv_sable]>=3){
 		    $modlado=($one[lado]*$one[lado])/800;
 		    $hero=mt_rand(1,$modlado); 
@@ -34,12 +35,17 @@ function mele($one,$two){
 		    $dano=  (mt_rand(-10,20)+$one[vigor]);
 		    if ($dano<=0){$dano=1;}
 		   	   $punteria+=20;
+					 if ($one[cl_guerrero]>=6 && $one[hp]<=50){
+		 			 		$dano+=$dano*2;
+		 			 }
    			   if ($punteria > $esquive){ 
 			   	  $two[hp]-=$dano; 
 			   	  $log.="<br><font color=\"#c0c0c0\">CRITICO:</font> $one[nom]</b> ataca a $two[nom]</b> y daña <var>$dano PV($two[hp])</var>! ";
-   	  			  
+		 				if ($one[cl_guerrero]>=6 && $one[hp]<50){
+								$log.="<font color=\"#ffff66\">¡GOLPE DESESPERADO!</font>";
+			 		  }   	  			  
 				  if ($one[nv_sable]>=3){
-	  	 		  	 if ($one[lado]>0){
+	  	 		 if ($one[lado]>0){
 					 	$log.=  "<font color=\"#a6ebff\">¡ACTO HEROICO!</font>";
 					 }else{
 					 	$log.=  "<font color=\"#ff0000\">¡FURIA SITH!</font>";

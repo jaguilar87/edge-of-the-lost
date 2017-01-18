@@ -2,7 +2,7 @@
 switch ($_POST[pass]){
 case $_SESSION[password]:
 
-mysql_query("INSERT INTO sw_control_muerte (dia, nombre, mail, password) VALUES ($fe[dia], '$us[nombre]', '$us[mail]', '$us[password]')")or die(mysql_error());
+mysql_query("INSERT INTO sw_control_muerte (dia, nombre, mail, password) VALUES ($fe[val], '$us[nombre]', '$us[mail]', '$us[password]')")or die(mysql_error());
 
 
 $sql = "DELETE FROM sw_users WHERE nombre='$_SESSION[nombre]' AND password='$_SESSION[password]'"; 

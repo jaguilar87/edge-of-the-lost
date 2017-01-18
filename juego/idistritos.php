@@ -71,7 +71,7 @@ echo "
 	   </tr>
 	   <tr>
 	   	   <td width=\"100%\" onMouseover=\"LmOver(this, '#c0c0c0')\" onMouseout=\"LmOut(this, '#FFFFFF')\" onMouseDown=\"LmDown(this, '#c0c0c0')\" bgcolor=\"#FFFFFF\">
-		   	   <center><a href=\"entre.php\" Class=\"navlink\">Escuela</a></center>
+		   	   <center><a href=\"entre.php\" Class=\"navlink\">Academia</a></center>
 		   </td>
 	   </tr>
 	   <tr>
@@ -104,6 +104,16 @@ echo "
 		   	   <center><a href=\"idistritos.php?def=iimina.php\" Class=\"navlink\">Mina</a></center>
 		   </td>
 	   </tr>
+	   <tr>
+	   	   <td width=\"100%\" onMouseover=\"LmOver(this, '#c0c0c0')\" onMouseout=\"LmOut(this, '#FFFFFF')\" onMouseDown=\"LmDown(this, '#c0c0c0')\" bgcolor=\"#FFFFFF\">
+		   	   <center><a href=\"idistritos.php?def=iigenerador.php\" Class=\"navlink\">Generador</a></center>
+		   </td>
+	   </tr>	
+	   <tr>
+	   	   <td width=\"100%\" onMouseover=\"LmOver(this, '#c0c0c0')\" onMouseout=\"LmOut(this, '#FFFFFF')\" onMouseDown=\"LmDown(this, '#c0c0c0')\" bgcolor=\"#FFFFFF\">
+		   	   <center><a href=\"idistritos.php?def=iiarmeria.php\" Class=\"navlink\">Armeria</a></center>
+		   </td>
+	   </tr>		      
 	   <tr>
 	   	   <td background=\"images/bg2.gif\">
 		   	   <center>Puerto Estelar</b></center>
@@ -139,7 +149,7 @@ echo "
 
 
 
-</td><td width="70%" VALIGN="TOP">
+</td><td width="100%" VALIGN="TOP">
 <?
 
 include $_GET[def];
@@ -148,7 +158,7 @@ include $_GET[def];
 echo '</td></tr></table>';
 
 if ($cic[nombre]!=$ci[nombre]){echo "<br><a href=\"ipviajok.php?ci=$cic[nombre]&pl=$plc[nombre]\">Viajar a la ciudad</a>";}
-if ($cic[nombre]==$ci[nombre] && $cl[lider]==$us[nombre] && $cic[clan]!=$us[clan] && $cic[atacada]=="N" && $za[estado]!="Aliado"){echo "<br><a href=\"aciudad_sel.php?ci=$cic[nombre]\"><img border=0 src=\"images/atk.gif\"> Planear Ataque contra la ciudad!</a>";}
+if ($cic[nombre]==$ci[nombre] && $cl[lider]==$us[nombre] && $cic[clan]!=$us[clan] && $cic[atacada]=="N" && $za[estado]!="Aliado"){echo "<br><a href=\"aciudad.php?ci=$cic[nombre]\"><img border=0 src=\"images/atk.gif\">Planear Ataque contra la ciudad!</a>";}
 if ($cic[atacada]=="S"){echo '<br><font color="#29fd49">La ciudad Dispone de protección.</font>';}
 
 

@@ -6,19 +6,27 @@ $log="";
 include 'juego/db.php';
 $log.='Load... ok ';
 
+mysql_query("UPDATE sw_users SET crecived='0'")or die(mysql_error());
+$log.='<br>Poner el maximo de Créditos recibibles a 0';
+
 
 #<!--Calculo de Día-->
-$c="select * FROM `sw_fecha` WHERE id='1'";
+$c="select * FROM `sw_info` WHERE id='dia'";
 $result=mysql_query($c)or die(mysql_error());
 $fe=mysql_fetch_array($result);
 
-$fe[dia]++;
+$fe[val]++;
 
-$c="UPDATE `sw_fecha` SET dia='$fe[dia]' WHERE id='1'";
+$c="UPDATE `sw_info` SET val='$fe[val]' WHERE id='dia'";
 $result=mysql_query($c)or die(mysql_error());
- $log.= '\n <br> Calculo... ok';
+$log.= ' <br> Calculo... ok';
 
-
+#<!--Borrar Ataques Antiguos-->
+$lim=$fe[val]-15;
+mysql_query("UPDATE sw_att SET combate=NULL WHERE dia < '$lim'")or die(mysql_error());
+mysql_query("OPTIMIZE TABLE `sw_att`")or die(mysql_error());
+$log.= ' <br> Borrar Ataques antiguos... ok';
+ 
 #<!-- CALCULO DE IMPUESTOS --> 
    $c="select * from sw_city";
    $result3=mysql_query($c)or die(mysql_error());
@@ -46,8 +54,8 @@ $result=mysql_query($c)or die(mysql_error());
 }
 
 
-$log.= '\n  <br> impuesto... ok';
-
+$log.= '  <br> impuesto... ok';
+ 
 #<!-- RECALCULOS DE MANTENIMIENTO DEL CLAN -->
    
    $c="select * from sw_city";
@@ -62,15 +70,17 @@ $log.= '\n  <br> impuesto... ok';
    
    
    if ($cy[cura]=='S'){$man+=1000;}
-   if ($cy[entrenar]=='S'){$man+=2500;}
+   if ($cy[armeria]=='S'){$man+=5000;}
    if ($cy[ayuda]=='S'){$man+=500;}
    if ($cy[mina]=='S'){$man+=20000;}
    if ($cy[fabrica]=='S'){$man+=5000;}
    if ($cy[ley]=='S'){$man+=$cy[leypre]*500;}
    if ($cy[burdel]=='S'){$man+=10000;}
    
+   $man += $cy[central]*10000;
+   
    $cn[fondos]-=$man;
-   $log.="\n  <br> $cn[nombre] paga $man Creditos de mantenimiento"; 
+   $log.=" <br> $cn[nombre] paga $man Creditos de mantenimiento"; 
    if ($cn[fondos]<0){
    	  $log.= " $cn[nombre] ha sido eliminado por insolvencia";
 
@@ -113,7 +123,7 @@ $log.= '\n  <br> impuesto... ok';
    
    
    
-   $log.= '\n  <br> mantenimiento... ok';
+   $log.= ' <br> mantenimiento... ok';
 
    
 # <!-- CLANES -->
@@ -122,12 +132,13 @@ $log.= '\n  <br> impuesto... ok';
    $d="select * from sw_clan";
    $result4=mysql_query($d)or die(mysql_error());
    while ($cn=mysql_fetch_array($result4)){
+   
    		    $r=0;
    		    $a="select * from sw_users WHERE clan='$cn[nombre]'";
    			$b=mysql_query($a)or die(mysql_error());
    			While ($c=mysql_fetch_array($b)){$r++;}
-				  $log.= "\n - $cn[nombre] $r miembros";
-				     if ($r==0){
+				  $log.= "<br>- $cn[nombre] $r miembros";
+				     if ($r==0){ #                                      <!--Eliminar Clan->
 									
       								$sql = "INSERT INTO `sw_mess` (emisor, receptor, fecha, mess) VALUES ('INFORMACION', '$cn[lider]', '$fe[dia]', 'EL CLAN HA SIDO SUSPENDIDO POR INSOLVENCIA')";
 	  								$result = mysql_query($sql);
@@ -157,17 +168,41 @@ $log.= '\n  <br> impuesto... ok';
 									  
 									  
 									  
-									  $log.="Clan $cn[nombre] borrado";
+									  $log.=" <br>Clan $cn[nombre] borrado";
 							   }
+							   
+#                                      <!--recalcular potencias->
+				  
+				  
+				mysql_query("INSERT INTO `sw_board_clan` (clan, poster, dia, mess) VALUES ('$us[clan]', 'INFORMACION', '$us[dia]', 'Se han perdido <b>$cn[potencia] W</b> por desuso.')");
+				$cn[potencia]=0;
+				   
+				   $res=mysql_query("select * from sw_city WHERE clan='$cn[nombre]'")or die(mysql_error());
+				   while ($cic=mysql_fetch_array($res)){
+				   		switch ($cic[central]){
+			  				   case "1": $cen=100; break;
+							   case "2": $cen=210; break;
+							   case "3": $cen=600; break;
+							   case "4": $cen=800; break;
+							   case "5": $cen=1000; break;
+					    }
+						
+						$cn[potencia]+=$cen;
+					}
+				mysql_query("UPDATE sw_clan SET potencia='$cn[potencia]' WHERE nombre='$cn[nombre]'")or die(mysql_error());
+				$log.=" <br>$cn[nombre] tiene $cn[potencia] W"; 
+				
+				
+											   
    }							   
 							  	  
-$log.= "\n <br>  Borrar clanes...ok";   			
+$log.= "<br>  Borrar clanes...ok";   			
 	
 	#  <!--BORRAR REG-->
 	
 	mysql_query("DELETE FROM sw_users WHERE reg='N'")or die(mysql_error());
 	
-	$log.= "\n <br> Borrar no registrados...ok";
+	$log.= " <br> Borrar no registrados...ok";
 			
    
 #  <!--fin-->
@@ -175,7 +210,7 @@ $log.= "\n <br>  Borrar clanes...ok";
    			$b=mysql_query($a)or die(mysql_error());
    			$fe=mysql_fetch_array($b);
 			
-			$loge=mysql_query("INSERT INTO sw_control (fecha, log) VALUES ('$fe[dia]', '$log')")or die(mysql_error());
+			$loge=mysql_query("INSERT INTO sw_control (fecha, log) VALUES ('$fe[val]', '$log')")or die(mysql_error());
   
   
   

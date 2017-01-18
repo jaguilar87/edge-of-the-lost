@@ -22,7 +22,7 @@ echo "</td></tr></table></td></tr></table><br>";
 
 echo "<a href=\"fmess_send.php?to=$info[nombre]\"><img border=0 src=\"images/msg.gif\">Enviar mensaje a $info[nombre]</a><br>";
 if ($info[nv_sable]==$us[nv_sable] && $us[nv_sable]>0) {echo "<a href=\"acombate.php?ob=$info[nombre]\"><img border=0 src=\"images/atk.gif\">Atacar</a><br>";}
-if ($us[nv_sable]>0){echo "<br><form action=\"fenviar_creditos.php\" method=\"get\">Enviar<input name=\"cr\" type=\"text\" value=\"0\"><input name=\"to\" type=\"hidden\" value=\"$info[nombre]\">Créditos a $info[nombre] <input type=\"submit\" Value=\"Enviar\"></form><br>";}
+if ($us[nv_sable]>1){echo "<br><form action=\"fenviar_creditos.php\" method=\"get\">Enviar<input name=\"cr\" type=\"text\" value=\"0\"><input name=\"to\" type=\"hidden\" value=\"$info[nombre]\">Créditos a $info[nombre] <input type=\"submit\" Value=\"Enviar\"></form><br>";}
 
 
 include 'footer.php'; ?>

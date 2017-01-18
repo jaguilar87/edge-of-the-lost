@@ -40,7 +40,7 @@ if ($_GET[id]==""){
 					 echo "Has vendido tu $pi[objeto] por <b>$rec Créditos</b>";
 					 $us[creditos]+=$rec;
 					 mysql_query("UPDATE sw_users SET creditos='$us[creditos]' WHERE nombre='$us[nombre]'")or die(mysql_error());
-					 mysql_query("DELETE FROM sw_inventario WHERE id='$_POST[id]'")or die(mysql_error());																																																														
+					 mysql_query("DELETE FROM sw_inventario WHERE id='$pi[id]'")or die(mysql_error());																																																														
 	 }else{
 	 		Echo "No puedes vender este objeto como pieza: o no es una pieza o no es tuya!.";
 	 }

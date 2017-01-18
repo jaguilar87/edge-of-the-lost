@@ -30,22 +30,20 @@ if ($us[clan]!=""){
 	  
 	  if ($a[atacante]==$us[nombre] || $a[defensor]==$us[nombre] || $a[atacante]==$cl[nombre] || $a[defensor]==$cl[nombre]){
 
-	  echo '<table width="100%"><tr><td>';
+	  echo '<table width="100%"><tr><td><small>'.$a[atacante].' Vs '.$a[defensor].'</small>';
 	  echo $a[combate];
 	  echo "<br><center><big><big><font color=\"#f1f95b\"><br><br>Ganador: $a[ganador]!</font></big></big></center><br><br><b>Ganancias:</b> $a[ganancias]</td></tr></table>";
 
 
 
 }else{echo 'Este combate no te concierne...';}
-
-
-
-
-
-
-
-
-
-
 }
+
+
+
+
+
+echo "<br><var>RECUERDA: La descripción de los combates con más de 15 dias serán borrados</var>";
+
+
 include 'footer.php';?>

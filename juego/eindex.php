@@ -6,6 +6,11 @@ $hab=0;
 $mony=0;
 $pun=0;
 $meri=0;
+
+$ver = sel("sw_info", "id", "ver");
+$par = sel("sw_info", "id", "par");
+$fin = sel("sw_info", "id", "fin");
+
    
    $c= "SELECT * FROM `sw_users`";
    $result = mysql_query($c)or die(mysql_error());
@@ -36,7 +41,7 @@ $mpun=round($mpun);
 
 echo "<br><br><table width=\"100%\" cellpading=\"5\" cellspacing=\"5\">
 <tr>
-       <td>Versión del juego: <b>0.2</b><br>Partida: <b>BETATEST 3</b><br>Días de juego: <b>$fe[dia]</b><br>Fecha de inicio: <b>04/01/2005</b><br>Fecha final estimada: <b>18/03/2005</b></td>
+       <td>Versión del juego: <b>$ver[val]</b><br>Partida: <b>$par[val]</b><br>Días de juego: <b>$fe[val]</b><br>Fecha de inicio: <b>01/04/2005</b><br>Fecha final estimada: <b>$fin[val]</b></td>
        <td>Jugadores: <b>$hab</b><br>Equilibrio en la fuerza: <b>$equi</b><br>Media del Equilibrio: <b>$mequi</b><br>Creditos en circulación: <b>$mony</b><br>Media de creditos: <b>$mmony</b><br>Puntos Totales: <b>$pun</b><br>Media Puntos: <b>$mpun</b><br>Mérito Total: <b>$meri</b><br>Media Mérito: <b>$mmeri</b></td>
 </tr>
 <tr>
@@ -52,7 +57,7 @@ echo "<br><br><table width=\"100%\" cellpading=\"5\" cellspacing=\"5\">
 	      
 	   echo "</td><td>";
 	   
-	   echo '<table width="100%" cellpading="5" cellspacing="5" bgcolor="#4f4f4f"><caption align="TOP"><b>Los Mejores jugadores</b></caption><tr><td><b>Nombre</b></td><td><b>Puntos</b></td></tr>';
+	   echo '<table width="100%" cellpading="5" cellspacing="5" bgcolor="#4f4f4f"><caption align="TOP"><b>Los Mejores jugadores</b></caption><tr><td><b>Nombre</b></td><td><b>Exp</b></td></tr>';
 	   $c="select nombre, puntos FROM `sw_users` ORDER BY puntos DESC LIMIT 0, 10";
 	   $result=mysql_query($c)or die(mysql_error());
 	   $i=1;
@@ -74,7 +79,7 @@ echo "<br><br><table width=\"100%\" cellpading=\"5\" cellspacing=\"5\">
 	   $result=mysql_query($c)or die(mysql_error());
 	   $i=1;
 	   while ($r = mysql_fetch_array($result)){echo "<tr><td><b>$i.</b> $r[nombre]</td><td><div align=\"right\">$r[merito]</div></b></td></tr>"; $i++;}
-	    echo '</table>';
+	   echo '</table>';
 	      
 	   echo "</td><td>";
 	   

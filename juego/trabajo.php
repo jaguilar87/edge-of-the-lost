@@ -23,10 +23,8 @@ Recuerda que al trabajar tus puntos de lado aumentan hacia el lado de la luz.<br
 <?php
 }else{echo 'La ciudad en la que te hayas no dispone de puestos de trabajo...';}
 
-if ($ci[mina]=="S"){echo '<br>- La ciudad dispone de una <a href="idistritos.php?def=iimina.php">Mina</a>';}
-if ($ci[fabrica]=="S"){echo '<br>- La ciudad dispone de unos <a href="idistritos.php?def=ipastilleros.php">astilleros</a>';}
 ?>
-
+<br>- La ciudad dispone de un <a href="idistritos.php?def=iigenerador.php">Generador</a>
 
 <br><br>No hay más trabajos disponibles...
 

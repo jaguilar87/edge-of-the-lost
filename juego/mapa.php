@@ -1,8 +1,24 @@
 <?php
 function mapear($dir){
 $y=-4;
-echo '<table width=420 border=0 bordercolor="#ffffff" background="images/map/bg.gif"><caption align="TOP"><center>Planetas</center></caption>';
-echo '<tr><td width="10%"></td><td width="10%"><center>-4</center></td><td width="10%"><center>-3</center></td><td width="10%"><center>-2</center></td><td width="10%"><center>-1</center></td><td width="10%"><center>0</center></td><td width="10%"><center>1</center></td><td width="10%"><center>2</center></td><td width="10%"><center>3</center></td><td width="10%"><center>4</center></td></tr>';
+echo '
+<table width=420 border=0 bordercolor="#ffffff" background="images/map/bg.gif">
+	   <caption align="TOP">
+	   			<center>Planetas</center>
+	   </caption>';
+echo '<tr>
+	 	  <td width="10%"></td>
+		  <td width="10%"><center>-4</center></td>
+		  <td width="10%"><center>-3</center></td>
+		  <td width="10%"><center>-2</center></td>
+		  <td width="10%"><center>-1</center></td>
+		  <td width="10%"><center>0</center></td>
+		  <td width="10%"><center>1</center></td>
+		  <td width="10%"><center>2</center></td>
+		  <td width="10%"><center>3</center></td>
+		  <td width="10%"><center>4</center></td>
+	  </tr>';
+
 while($y<=4){
    			   echo "<tr><td width=\"10%\">$y</td>"; 
 			   $x=-4;

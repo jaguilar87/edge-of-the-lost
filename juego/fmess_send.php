@@ -10,7 +10,7 @@ if ($enviar) {
    $sql = "SELECT id FROM sw_mess ORDER BY id DESC LIMIT 0,1";
    $result = mysql_query($sql);
    $ider = mysql_fetch_array($result);
-   $sql = "INSERT INTO `sw_log` (user, log, dia, tipo, ref) VALUES ('$_POST[re]', '$us[nombre] te ha enviado un <i><b>mensaje</b></i>.', '$fe[dia]', '1', '$ider[id]')";
+   $sql = "INSERT INTO `sw_log` (user, log, dia, tipo, ref) VALUES ('$_POST[re]', '$us[nombre] te ha enviado un <i><b>mensaje</b></i>.', '$fe[val]', '1', '$ider[id]')";
    $result = mysql_query($sql);
    $sql = "UPDATE `sw_users` SET mmess='S' WHERE nombre='$_POST[re]'";
    $result = mysql_query($sql);

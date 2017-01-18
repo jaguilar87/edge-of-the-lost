@@ -24,7 +24,7 @@ $de=mysql_fetch_array($result);
 	  $result=mysql_query($c)or die(mysql_error());
 	  $pde=mysql_fetch_array($result);
 	  
-	  if ($ve[tipo]=="Deslizador" && $pde[nombre]!=$por[nombre]){echo 'Ese tipo de vehículo no es válido para ese viaje.';}else{
+	  if ($ve[tipo]=="VCA" && $pde[nombre]!=$por[nombre]){echo 'Ese tipo de vehículo no es válido para ese viaje.';}else{
 	  
 	  
 	  if ($or[clan]==$cl[nombre] && $us[nombre]==$cl[lider] && $ve[tprop]=="Clan" && $ve[prop]==$us[clan] && $ve[uso]=="N" && $_GET[pre]>200){
