@@ -1,5 +1,7 @@
 <body bgcolor="#000000" text="#FFFFFF" link="#FFFFCC" vlink="#FFFFCC" alink="#FFFF99">
-<?php include 'juego/var.php';
+<?php 
+include 'juego/db.php';
+include 'juego/header/explicit.php';
 
 echo '<table width="100%" cellpading="5" cellspacing="5" bgcolor="#4f4f4f"><caption align="TOP">Más puntuados</caption><tr><td><b>Nombre</b></td><td><b>Puntos</b></td></tr>';
 $c="select nombre, puntos FROM `sw_users` ORDER BY puntos DESC LIMIT 0, 10";

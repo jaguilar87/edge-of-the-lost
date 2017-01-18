@@ -19,7 +19,7 @@ Esta obra está bajo una <a rel="license" href="http://creativecommons.org/licens
 <!-- /Licencia de Creative Commons -->
 
 
-<!--
+
 
 <rdf:RDF xmlns="http://web.resource.org/cc/"
     xmlns:dc="http://purl.org/dc/elements/1.1/"
@@ -38,7 +38,7 @@ Esta obra está bajo una <a rel="license" href="http://creativecommons.org/licens
 
 </rdf:RDF>
 
--->
+
 </center>
 </body>
 </html>

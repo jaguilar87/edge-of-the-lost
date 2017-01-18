@@ -34,7 +34,7 @@ A:hover {
 <body text="#FFFFFF" bgcolor="#000000" background="juego/images/bg1.gif" link="#FFFFAE" vlink="#FFEFAE">
 
 <small><table width="100%"><tr><td> <font face="Verdana" style="font-size: 8pt">SW-eotlw es una creación de <a href="http://jagcompany.civitis.com">JAGCompany</a></small><br><br></td><td><div align="right">
- <font face="Verdana" style="font-size: 8pt"><? echo "Visita Nº <font color=\"#ffff00\">$visit[noticia]</font>";?></div></td></tr></table>
+ <font face="Verdana" style="font-size: 8pt"></div></td></tr></table>
 <br>
 <div align="center">
   <center>
@@ -110,7 +110,8 @@ break;
 case "regok":
 
 #<!--                                            REG OK                                      -->
-include 'juego/var.php';
+include 'juego/db.php';
+include 'juego/header/explicit.php';
 mt_srand ((double) microtime() * 1000000);
 if(trim($_POST["n"]) != "" && trim($_POST["p"]) != "" && trim($_POST["r"]) != "" && trim($_POST["s"]) != ""&& trim($_POST["m"]) != ""){
  
@@ -146,8 +147,12 @@ $c="SELECT * FROM sw_city WHERE nombre='$ciudad[$luk]'";
 $result=mysql_query($c)or die(mysql_error());
 $cip=mysql_fetch_array($result);
 
+$c="SELECT * FROM sw_info WHERE id='dia'";
+$result=mysql_query($c)or die(mysql_error());
+$fe=mysql_fetch_array($result);
+
 if ($r[nombre]==$_POST[n] || $r[mail]==$_POST[m]) {echo 'Lo sentimos, ese personaje o ese mail ya existen.';}else{
-$q="INSERT INTO `sw_users` (nombre, mail, password, sexo, raza, origen, vigor, destreza, inteligencia, constitucion, dia, ciudad, planeta, comf) VALUES ('$_POST[n]', '$_POST[m]', '$_POST[p]', '$_POST[s]', '$_POST[r]', '$cip[nombre]', '$vi', '$de', '$in', '$co', '$fe[dia]', '$cip[nombre]', '$cip[planeta]', '$comf')";
+$q="INSERT INTO `sw_users` (nombre, mail, password, sexo, raza, origen, vig, des, int, con, dia, ciudad, planeta, comf, fecha) VALUES ('$_POST[n]', '$_POST[m]', '$_POST[p]', '$_POST[s]', '$_POST[r]', '$cip[nombre]', '$vi', '$de', '$in', '$co', '$fe[dia]', '$cip[nombre]', '$cip[planeta]', '$comf', '$fe[val]')";
 $result = mysql_query($q);
 
 
@@ -179,7 +184,8 @@ break;
 case "passok":
 #<!--                                       PASS OK                                       ->
 
-include 'juego/var.php';
+include 'juego/db.php';
+include 'juego/header/explicit.php';
 
 	$c = "SELECT * FROM `sw_users` WHERE mail='$_POST[mail]'";
 	$result=mysql_query($c)or die(mysql_error());

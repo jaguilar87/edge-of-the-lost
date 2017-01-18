@@ -3,48 +3,28 @@
 
 <html>
 <head>
+<base href="http://jagcompany.civitis.com/sw-eotlw4/juego/" />
 
 	<title>Star Wars - Edges of The Lost Warriors</title>
-<?php #Incluir los Datos del HEADER 
-include 'header/genstyle.php';
-include 'header/topm.php';
-
+<?php 
+			#Incluir los Datos en Modulos
+			include_once 'header/style.php'; #Incluir datos de Estilo
+			include_once 'header/var.php'; #incluir Datos PHP
+			$ver=sel("sw_info", "id", "ver");
 ?> 
 
-
-
-	
 </head>
 
 <body background="images/bg1.gif" text="#FFFFFF" link="#FFFFCC" vlink="#FFFFCC" alink="#FFFF99" marginwidth="0" marginheight="0" style="margin: 0" onLoad="writeMenus()" onResize="if (isNS4) nsResizeHandler()">
 
-
-
-<?php
-include 'header/toolt.php'; 
-include 'var.php';
-$ach=date(H);
-$acm=date(i);
-$dReal = ($fe[val]*24)+$ach;
-$dFicha = ($us[dia]*24)+$us[hora];
-
-if ($_SESSION[nombre]==""){echo "<script> location.href='http://swedges.tk' </script>";}
-
-
-$i=0;
-$sql=mysql_query("SELECT * FROM sw_board_proyectos")or die(mysql_error());
-while ($row=mysql_fetch_array($sql)){$i++;}
-?>
-	
 <table width="100%">
 <tr>
        <td>
-			 		<small>SW-eotlw 0.3 es una creación de <a href="http://jagcompany.civitis.com">JAGCompany</a></small>
+			 		<small>SW-eotlw <? echo $ver[val]; ?> es una creación de <a href="http://jagcompany.civitis.com">JAGCompany</a></small>
        </td>
 			 <td>
 			 <?php
-			 if ($us[puntos]>$us[next]){include 'lvlup.php';}
-			 if ($dFicha < $dReal){include_once 'changeday.php';}
+			 			include_once 'header/up.php'; #Incluir datos de subir de niveles
 			 ?>
 			 </td>
        <td>

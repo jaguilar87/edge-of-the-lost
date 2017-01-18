@@ -1,4 +1,4 @@
-<?php include 'header.php';
+<?php include_once 'header.php';
 switch ($_GET[ac]){
 
 	   case "ciudad":
@@ -27,7 +27,7 @@ switch ($_GET[ac]){
    								   $result= mysql_query($c)or die(mysql_error()); 
 								   echo "<br>Tramites finalizados. $_GET[nombre] construida en $_GET[pla]!";
 
-   								   $us[merito]+=100;
+   								   $us[merito]+=50;
 
    								   $c= "UPDATE sw_users SET merito='$us[merito]', creditos='$us[creditos]' WHERE nombre='$us[nombre]'";
 								   $res=mysql_query($c);
@@ -51,7 +51,7 @@ switch ($_GET[ac]){
 	  			  echo '<br>Nombre de la Nueva Ciudad: <input name="nombre" type="text" value=""><input type="submit" Value="Fundar" Name="x"><input name="ac" type="hidden" value="ciudad"></form>';
 
 	  			  echo '<br>Lista de planetas:';
-	  			  include 'mapa.php'; mapear("fundar.php");   
+	  			  mapear("fundar.php");   
    
    			}
 	   break;
@@ -74,13 +74,13 @@ switch ($_GET[ac]){
 
 			   	  if ($us[nombre]==$cl[lider] && $cl[nombre]!=""){echo 'Eres el lider de un clan, primero debes disolver el clan.';}else{
 
-				  	 $c= "INSERT INTO sw_clan (nombre, lider, hermandad) VALUES ('$_POST[nom]', '$us[nombre]', '$_POST[her]')"; 
+				   $c= "INSERT INTO sw_clan (nombre, lider, hermandad) VALUES ('$_POST[nom]', '$us[nombre]', '$_POST[her]')"; 
 					 $result= mysql_query($c); 
 					 echo '<br>Tramites finalizados.';
 
 					 $us[creditos]-=10000;
 
-					 $c= "UPDATE sw_users SET clan='$_POST[nom]', prefix='$prefix', creditos='$us[creditos]' WHERE nombre='$us[nombre]'";
+					 $c= "UPDATE sw_users SET clan='$_POST[nom]', prefix='$prefix', creditos='$us[creditos]', cvoto='$us[nombre]' WHERE nombre='$us[nombre]'";
 					 $res=mysql_query($c);
 
 
@@ -92,4 +92,4 @@ switch ($_GET[ac]){
 
 	   break;
 }
-include 'footer.php'; ?>
+include_once 'footer.php'; ?>

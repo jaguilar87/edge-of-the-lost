@@ -1,9 +1,8 @@
 		   <?php echo "<small><center><b><u>Avisos</u><b><br>";
-		   if ($us[cmess]=="S" && $us[clan]!=""){echo "<a href=\"cboard.php?clan=$us[clan]\"><span title=\"Mensaje nueno en el Tablón del Clan!\"><blink><img border=0 src=\"images/msg.gif\"></blink></span></a> ";}
-		   if ($us[mmess]=="S"){ echo "<a href=\"fmess.php\"><span title=\"Mensaje Nuevo!\"><blink><img border=0 src=\"images/msg.gif\"></blink></span></a> ";}
-		   if ($us[attmess]=="S"){echo "<a href=\"alista.php\"><span title=\"Has sido atacado recientemente!\"><blink><img border=0 src=\"images/atk.gif\"></blink></span></a> ";}
-		   if ($us[holomess]=="S"){echo "<a href=\"holonoticias.php\"><span title=\"Hay una nueva HoloNoticia!\"><blink><img border=0 src=\"images/news.gif\"></blink></span></a> ";}
-		   if ($us[pc]>0){echo "<a href=\"entre.php\"><span title=\"Tienes PCs sin repartir!\"><blink><img border=0 src=\"images/e.jpg\"></blink></span></a> ";} 
+		   if ($us[cmess]=="S" && $us[clan]!=""){echo "<a href=\"clan/?id=board\"><span title=\"Mensaje nueno en el Tablón del Clan!\"><blink><img border=0 src=\"images/msg.gif\"></blink></span></a> ";}
+		   if ($us[mmess]=="S"){ echo "<a href=\"mess/\"><span title=\"Mensaje Nuevo!\"><blink><img border=0 src=\"images/msg.gif\"></blink></span></a> ";}
+		   if ($us[attmess]=="S"){echo "<a href=\"ataque/lista.php\"><span title=\"Has sido atacado recientemente!\"><blink><img border=0 src=\"images/atk.gif\"></blink></span></a> ";}
+		   #if ($us[pc]>0){echo "<a href=\"entre/?id=class\"><span title=\"Tienes PCs sin repartir!\"><blink><img border=0 src=\"images/e.jpg\"></blink></span></a> ";} 
 		   ?>
 <table border="0" width="100" cellspacing="1" cellpadding="1" VALIGN="TOP">
 	   <tr>
@@ -13,7 +12,7 @@
 	   </tr>
 	   <tr>
 	   	   <td width="100%" onMouseover="LmOver(this, '#c0c0c0')" onMouseout="LmOut(this, '#FFFFFF')" onMouseDown="LmDown(this, '#c0c0c0')" bgcolor="#FFFFFF">
-		   	   <center><A HREF="evoto.php" Class="navlink">Votaciones</a></center>
+		   	   <center><A HREF="voto/" Class="navlink">Votaciones</a></center>
 		   </td>
 	   </tr>
 	   <tr>
@@ -23,30 +22,30 @@
 	   </tr>
 	   <tr>
 	   	   <td width="100%" onMouseover="LmOver(this, '#c0c0c0')" onMouseout="LmOut(this, '#FFFFFF')" onMouseDown="LmDown(this, '#c0c0c0')" bgcolor="#FFFFFF">
-		   	   <center><A HREF="fficha.php" Class="navlink">Ficha</a></center>
+		   	   <center><A HREF="ficha/?id=ficha" Class="navlink">Ficha</a></center>
 		   </td>
 	   </tr>
 	   <tr>
 	   	   <td width="100%" onMouseover="LmOver(this, '#c0c0c0')" onMouseout="LmOut(this, '#FFFFFF')" onMouseDown="LmDown(this, '#c0c0c0')" bgcolor="#FFFFFF">
-		   	   <center><A HREF="fequipo.php" Class="navlink">Inventario</a></center>
+		   	   <center><A HREF="ficha/?id=equipo" Class="navlink">Inventario</a></center>
 		   </td>
 	   </tr>
 	   <tr>
 	   	   <td width="100%" onMouseover="LmOver(this, '#c0c0c0')" onMouseout="LmOut(this, '#FFFFFF')" onMouseDown="LmDown(this, '#c0c0c0')" bgcolor="#FFFFFF">
-		   	   <center><A HREF="entre.php" Class="navlink">Academia</a></center>
+		   	   <center><A HREF="entre/" Class="navlink">Academia</a></center>
 		   </td>
 	   </tr>	   
 	   <tr>
 	   	   <td width="100%" onMouseover="LmOver(this, '#c0c0c0')" onMouseout="LmOut(this, '#FFFFFF')" onMouseDown="LmDown(this, '#c0c0c0')" bgcolor="#FFFFFF">
-		   	   <center><A HREF="fconfig.php" Class="navlink">Configurar</a></center>
+		   	   <center><A HREF="ficha/?id=config" Class="navlink">Configurar</a></center>
 		   </td>
 	   </tr>
 	   <tr>
 	   	   <td width="100%" onMouseover="LmOver(this, '#c0c0c0')" onMouseout="LmOut(this, '#FFFFFF')" onMouseDown="LmDown(this, '#c0c0c0')" bgcolor="#FFFFFF">
-		   	   <center><A HREF="compa.php" Class="navlink">Mascota/Droide</a></center>
+		   	   <center><A HREF="compa/" Class="navlink">Mascota/Droide</a></center>
 		   </td>
 	   </tr>	   
-	   
+<?php if($us[clan]!=""){ ?>	   
    	   <tr>
 	   	   <td background="images/bg2.gif">
 		   	   <center>Clan</b></center>
@@ -54,25 +53,25 @@
 	   </tr>
 	   <tr>
 	   	   <td width="100%" onMouseover="LmOver(this, '#c0c0c0')" onMouseout="LmOut(this, '#FFFFFF')" onMouseDown="LmDown(this, '#c0c0c0')" bgcolor="#FFFFFF">
-		   	   <center><A HREF="csede.php" Class="navlink">Sede Clan</a></center>
+		   	   <center><A HREF="clan/" Class="navlink">Sede Clan</a></center>
 		   </td>
 	   </tr>	   
 	   <tr>
 	   	   <td width="100%" onMouseover="LmOver(this, '#c0c0c0')" onMouseout="LmOut(this, '#FFFFFF')" onMouseDown="LmDown(this, '#c0c0c0')" bgcolor="#FFFFFF">
-		   	   <center><A HREF="cdiplomacia.php" Class="navlink">Diplomacia</a></center>
+		   	   <center><A HREF="clan/?id=diplo" Class="navlink">Diplomacia</a></center>
 		   </td>
 	   </tr>	
 	   <tr>
 	   	   <td width="100%" onMouseover="LmOver(this, '#c0c0c0')" onMouseout="LmOut(this, '#FFFFFF')" onMouseDown="LmDown(this, '#c0c0c0')" bgcolor="#FFFFFF">
-		   	   <center><A HREF="cvoto.php" Class="navlink">Votaciones</a></center>
+		   	   <center><A HREF="clan/?id=voto" Class="navlink">Votaciones</a></center>
 		   </td>
 	   </tr>		   
 	   <tr>
 	   	   <td width="100%" onMouseover="LmOver(this, '#c0c0c0')" onMouseout="LmOut(this, '#FFFFFF')" onMouseDown="LmDown(this, '#c0c0c0')" bgcolor="#FFFFFF">
-		   	   <center><A HREF="cboard.php" Class="navlink">S. Reuniones</a></center>
+		   	   <center><A HREF="clan/?id=board" Class="navlink">S. Reuniones</a></center>
 		   </td>
 	   </tr>		   
-	   
+<?php }?>	   
    	   <tr>
 	   	   <td background="images/bg2.gif">
 		   	   <center>Ciudad</b></center>
@@ -80,17 +79,17 @@
 	   </tr>
 	   <tr>
 	   	   <td width="100%" onMouseover="LmOver(this, '#c0c0c0')" onMouseout="LmOut(this, '#FFFFFF')" onMouseDown="LmDown(this, '#c0c0c0')" bgcolor="#FFFFFF">
-		   	   <center><A HREF="idistritos.php" Class="navlink">Ciudad</a></center>
+		   	   <center><A HREF="ciudad/" Class="navlink">Ciudad</a></center>
 		   </td>
 	   </tr>	
 	   <tr>
 	   	   <td width="100%" onMouseover="LmOver(this, '#c0c0c0')" onMouseout="LmOut(this, '#FFFFFF')" onMouseDown="LmDown(this, '#c0c0c0')" bgcolor="#FFFFFF">
-		   	   <center><A HREF="ipviaje.php" Class="navlink">Viajar</a></center>
+		   	   <center><A HREF="viaje/viaje.php" Class="navlink">Viajar</a></center>
 		   </td>
 	   </tr>
 	   <tr>
 	   	   <td width="100%" onMouseover="LmOver(this, '#c0c0c0')" onMouseout="LmOut(this, '#FFFFFF')" onMouseDown="LmDown(this, '#c0c0c0')" bgcolor="#FFFFFF">
-		   	   <center><A HREF="iacaza.php" Class="navlink">Caza</a></center>
+		   	   <center><A HREF="ciudad/?id=acaza" Class="navlink">Caza</a></center>
 		   </td>
 	   </tr>	   
 
@@ -102,12 +101,19 @@
 	   </tr>
 	   <tr>
 	   	   <td width="100%" onMouseover="LmOver(this, '#c0c0c0')" onMouseout="LmOut(this, '#FFFFFF')" onMouseDown="LmDown(this, '#c0c0c0')" bgcolor="#FFFFFF">
-		   	   <center><A HREF="acombate.php" Class="navlink">Combate</a></center>
+		   	   <center><A HREF="ataque/combate.php" Class="navlink">Combate</a></center>
 		   </td>
-	   </tr>	
+	   </tr>
+<?php if($us[clan]!=""){ ?>	  
 	   <tr>
 	   	   <td width="100%" onMouseover="LmOver(this, '#c0c0c0')" onMouseout="LmOut(this, '#FFFFFF')" onMouseDown="LmDown(this, '#c0c0c0')" bgcolor="#FFFFFF">
-		   	   <center><A HREF="alista.php" Class="navlink">Lista</a></center>
+		   	   <center><A HREF="ataque/duelo.php" Class="navlink">Duelo</a></center>
+		   </td>
+	   </tr>
+<?php } ?>		 
+	   <tr>
+	   	   <td width="100%" onMouseover="LmOver(this, '#c0c0c0')" onMouseout="LmOut(this, '#FFFFFF')" onMouseDown="LmDown(this, '#c0c0c0')" bgcolor="#FFFFFF">
+		   	   <center><A HREF="ataque/lista.php" Class="navlink">Lista</a></center>
 		   </td>
 	   </tr>
 
@@ -119,22 +125,27 @@
 	   </tr>
 	   <tr>
 	   	   <td width="100%" onMouseover="LmOver(this, '#c0c0c0')" onMouseout="LmOut(this, '#FFFFFF')" onMouseDown="LmDown(this, '#c0c0c0')" bgcolor="#FFFFFF">
-		   	   <center><A HREF="players.php" Class="navlink">Jugadores</a></center>
+		   	   <center><A HREF="lista/players.php" Class="navlink">Jugadores</a></center>
 		   </td>
 	   </tr>	
 	   <tr>
 	   	   <td width="100%" onMouseover="LmOver(this, '#c0c0c0')" onMouseout="LmOut(this, '#FFFFFF')" onMouseDown="LmDown(this, '#c0c0c0')" bgcolor="#FFFFFF">
-		   	   <center><A HREF="clanes.php" Class="navlink">Clanes</a></center>
+		   	   <center><A HREF="lista/clanes.php" Class="navlink">Clanes</a></center>
 		   </td>
 	   </tr>
 	   <tr>
 	   	   <td width="100%" onMouseover="LmOver(this, '#c0c0c0')" onMouseout="LmOut(this, '#FFFFFF')" onMouseDown="LmDown(this, '#c0c0c0')" bgcolor="#FFFFFF">
-		   	   <center><A HREF="planetas.php" Class="navlink">Mapa</a></center>
+		   	   <center><A HREF="lista/planetas.php" Class="navlink">Mapa</a></center>
 		   </td>
 	   </tr>	
 	   <tr>
 	   	   <td width="100%" onMouseover="LmOver(this, '#c0c0c0')" onMouseout="LmOut(this, '#FFFFFF')" onMouseDown="LmDown(this, '#c0c0c0')" bgcolor="#FFFFFF">
-		   	   <center><A HREF="eindex.php" Class="navlink">Estadísticas</a></center>
+		   	   <center><A HREF="lista/hangar.php" Class="navlink">Hangar</a></center>
+		   </td>
+	   </tr>			 
+	   <tr>
+	   	   <td width="100%" onMouseover="LmOver(this, '#c0c0c0')" onMouseout="LmOut(this, '#FFFFFF')" onMouseDown="LmDown(this, '#c0c0c0')" bgcolor="#FFFFFF">
+		   	   <center><A HREF="estadisticas/" Class="navlink">Estadísticas</a></center>
 		   </td>
 	   </tr>	
 
@@ -144,7 +155,7 @@
 		   </td>
 	   <tr>
 	   	   <td width="100%" onMouseover="LmOver(this, '#c0c0c0')" onMouseout="LmOut(this, '#FFFFFF')" onMouseDown="LmDown(this, '#c0c0c0')" bgcolor="#FFFFFF">
-		   	   <center><A HREF="fmess.php" Class="navlink">Privados</a></center>
+		   	   <center><A HREF="mess/" Class="navlink">Privados</a></center>
 		   </td>
 	   </tr>			 
 	   </tr>
@@ -155,14 +166,10 @@
 	   </tr>   	
 	   <tr>
 	   	   <td width="100%" onMouseover="LmOver(this, '#c0c0c0')" onMouseout="LmOut(this, '#FFFFFF')" onMouseDown="LmDown(this, '#c0c0c0')" bgcolor="#FFFFFF">
-		   	   <center><A HREF="idistritos.php?def=iaparlamento.php" Class="navlink">Parlamento</a></center>
+		   	   <center><A HREF="ciudad/?id=aparlamento" Class="navlink">Parlamento</a></center>
 		   </td>
 	   </tr>   	
-	   <tr>
-	   	   <td width="100%" onMouseover="LmOver(this, '#c0c0c0')" onMouseout="LmOut(this, '#FFFFFF')" onMouseDown="LmDown(this, '#c0c0c0')" bgcolor="#FFFFFF">
-		   	   <center><A HREF="http://sw-eotlw.foro.st" TARGET="_BLANK" Class="navlink">Foro Temporal</a></center>
-		   </td>
-	   </tr>
+
    	   <tr>
 	   	   <td background="images/bg2.gif">
 		   	   <center>Juego</b></center>

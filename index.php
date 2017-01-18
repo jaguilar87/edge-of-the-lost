@@ -35,7 +35,7 @@ $visit= mysql_fetch_array($result);
 
 $visit[val]++;
 
-    $c="UPDATE `sw_info` SET val='$visit[val]' WHERE id='vis'";
+  $c="UPDATE `sw_info` SET val='$visit[val]' WHERE id='vis'";
 	$result=mysql_query($c)or die(mysql_error());
 	
 ?>
@@ -47,7 +47,8 @@ $visit[val]++;
 	<title>Star Wars - Edges of The Lost Warriors</title>
 
 	<?php 
-	include 'juego/header/genstyle.php';
+	chdir('juego/');
+	include 'header/style.php';
 	?>
 
 

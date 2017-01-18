@@ -6,6 +6,22 @@
 
 	<title>Star Wars - Edges of The Lost Warriors</title>
 
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- This script generated free online at -->
+<!-- Wilson Information http://www.wilsoninfo.com -->
+
+<!-- Begin
+function popUp(URL) {
+day = new Date();
+id = day.getTime();
+eval("page" + id + " = window.open(URL, '" + id + "', 'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width=500,height=200,left = 150,top = 200');");
+}
+// End -->
+</script>
+	
+	
+	
 	<style>
 BODY {
 scrollbar-face-color: #000000;
@@ -31,6 +47,7 @@ A:hover {
 <meta http-equiv="Page-Enter" content="revealTrans(Duration=1.0,Transition=23)">
 </head>
 
+<!--onLoad="javascript:popUp('http://jagcompany.civitis.com/sw-eotlw/tip/')"-->
 <body text="#FFFFFF" bgcolor="#000000" background="juego/images/bg1.gif" link="#FFFFAE" vlink="#FFEFAE">
 
 <small><table width="100%"><tr><td> <font face="Verdana" style="font-size: 8pt">SW-eotlw es una creación de <a href="http://jagcompany.civitis.com">JAGCompany</a></small><br><br></td><td><div align="right">
@@ -60,7 +77,8 @@ A:hover {
                 <td width="90%" align="center" style="border-style: none; border-width: medium">
 
 <?php session_start();
-include 'juego/var.php';
+include 'juego/db.php';
+include 'juego/header/explicit.php';
 
 if ($_POST[name]=="" || $_POST[pass]==""){echo 'Debe rellenar el nombre y la contraseña';}else{
 
@@ -73,11 +91,17 @@ if ($_POST[name]=="" || $_POST[pass]==""){echo 'Debe rellenar el nombre y la con
    			$_SESSION[nombre] = $_POST[name];
 			$_SESSION[password] = $_POST[pass];		
 		
-		if ($row[reg]=="N"){echo 'La cuenta no ha sido confirmada...';}else{
+		if ($row[reg]=="N"){
+			 echo 'La cuenta no ha sido confirmada...';
+			 session_unset();
+		}else{
 		
-		   if ($row[at]==1){echo 'Has sido Baneado del juego, ¿Creias que te podias escapar, turbio?';}else{
+		   if ($row[at]==1){
+			 		echo 'Has sido Baneado del juego, ¿Creias que te podias escapar, turbio?';
+				  session_unset();
+			 }else{
 
-		echo "<b><center><big>Entrando en la web...</big></center></b><br>Si la web no se carga seguramente es por que tu Explorador no soporta las SESSIONS, prueba a configurarlo debidamente <a href=\"http://Mozilla.org\">(O bajate el Explorador Mozilla Firefox)</a> <META HTTP-EQUIV=\"Refresh\" CONTENT=\"2;URL=juego/\"><br><small>Puedes entrar directamente pulsando <a href=\"juego/\">aquí</a>.</small>";
+			 			 echo "<b><center><big>Entrando en la web...</big></center></b><br>Si la web no se carga seguramente es por que tu Explorador no soporta las SESSIONS, prueba a configurarlo debidamente <a href=\"http://Mozilla.org\">(O bajate el Explorador Mozilla Firefox)</a> <META HTTP-EQUIV=\"Refresh\" CONTENT=\"2;URL=juego/\"><br><small>Puedes entrar directamente pulsando <a href=\"juego/\">aquí</a>.</small>";
 
 
 

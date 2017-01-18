@@ -4,7 +4,7 @@
 <head>
 <title>Normas de Star Wars - Edges of the Lost Warriors</title>
 
-<?php include 'header/genstyle.php' ?>
+<?php include 'header/style/genstyle.php' ?>
 </head>
 <body background="images/bg1.gif" text="#FFFFFF" link="#FFFFCC" vlink="#FFFFCC" alink="#FFFF99" marginwidth="0" marginheight="0" style="margin: 0" onLoad="writeMenus()" onResize="if (isNS4) nsResizeHandler()">
 
