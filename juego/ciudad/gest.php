@@ -256,7 +256,7 @@ if ($_GET[ciudad]==""){$_GET[ciudad]=$ci[nombre];}
 			</table></form>";
 			
 			
-			echo "<br><form method=\"GET\"><input type='text' name='new' value='$cic[nombre]' style='width:400px'> <input style='width:98px' type='submit' value='Cambiar Nombre'/> </form>
+			echo "<br><form method=\"GET\"><input type='text' name='new' value='$cic[nombre]' style='width:400px'> <input style='width:98px' type='submit' value='Cambiar Nombre'/> </form>";
 			
 			
 			
