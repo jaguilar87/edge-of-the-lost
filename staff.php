@@ -37,10 +37,14 @@
 										<i>Diseñador:</i> <br /> 
 											&nbsp; &nbsp; <b>Cristian Robles (ksk)</b><br />										
 										<br />										
-										<i>Colaboradores:</i> <br /> 
+										<i>Colaboradores y Moderadores:</i> <br /> 
 											&nbsp; &nbsp; <b>Arturo Pérez Paniagua (Civitis)</b><br />
 											&nbsp; &nbsp; <b>Juan Jiménez</b><br />
 											&nbsp; &nbsp; <b>Cristian Dozo (Crusher)</b><br />
+											&nbsp; &nbsp; <b>Ferdia</b><br />
+											&nbsp; &nbsp; <b>Poch</b><br />
+											&nbsp; &nbsp; <b>Thor</b><br />
+											&nbsp; &nbsp; <b>Durten</b><br />
 										<br />
 										<i>Redactor del Manual:</i> <br /> 
 											&nbsp; &nbsp; <b>Roi Rodríguez</b><br />

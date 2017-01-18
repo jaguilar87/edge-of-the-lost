@@ -64,7 +64,7 @@
   include 'juego/header/explicit.php';
 
   if ($_POST[name]=="" || $_POST[pass]==""){
-    echo 'Debe rellenar el nombre y la contrase�a';
+    echo 'Debe rellenar el nombre y la contrase&ntilde;a';
   } else {
     $result = mysql_query("SELECT * FROM `sw_users` WHERE nombre='$_POST[name]'");
     $row = mysql_fetch_array($result);
@@ -84,10 +84,10 @@
         }else{
 
           if ($row[at]==1){
-            echo 'Has sido Baneado del juego, �Creias que te podias escapar, turbio?';
+            echo 'Has sido Baneado del juego, &iquest;Creias que te podias escapar, turbio?';
             session_unset();
           }else{
-            echo "<b><center><big>Entrando en la web...</big></center></b><br>Si la web no se carga seguramente es por que tu Explorador no soporta las SESSIONS, prueba a configurarlo debidamente <a href=\"http://Mozilla.org\">(O bajate el Explorador Mozilla Firefox)</a> <META HTTP-EQUIV=\"Refresh\" CONTENT=\"2;URL=juego/\"><br><small>Puedes entrar directamente pulsando <a href=\"juego/\">aqu�</a>.</small>";
+            echo "<b><center><big>Entrando en la web...</big></center></b><br>Si la web no se carga seguramente es por que tu Explorador no soporta las SESSIONS, prueba a configurarlo debidamente <a href=\"http://Mozilla.org\">(O bajate el Explorador Mozilla Firefox)</a> <META HTTP-EQUIV=\"Refresh\" CONTENT=\"2;URL=juego/\"><br><small>Puedes entrar directamente pulsando <a href=\"juego/\">aqu&iacute;</a>.</small>";
           }
         }
       }

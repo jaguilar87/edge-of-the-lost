@@ -2,7 +2,7 @@
 
 if ($_GET[pass]=="swcombinesux") {
     include 'juego/db.php';
-#<!--Calculo Por Ficha (Estr�s) y valores Negativo-->
+# Calculo Por Ficha (Estres) y valores Negativo
    $uss="SELECT * from sw_users";
     $usq=mysql_query($uss)or die(mysql_error());
     while ($us=mysql_fetch_array($usq)) {

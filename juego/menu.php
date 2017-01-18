@@ -204,7 +204,7 @@
 		   echo "</center></small>";
 		   ?>
 			 <br /><br />
-			 <small><a href="salir.php">[Cerrar sesión]</a></small>
+			 <small><a href="salir.php">[Cerrar sesi&oacute;n]</a></small>
 		   </td>
 	   </tr>
 
