@@ -1,0 +1,26 @@
+body{
+   background: url(../images/template/bg1.gif) black;
+   color: white;
+   font: 9pt Verdana;
+}
+
+a{
+  color: #ffffcc;
+  text-decoration: none;
+}
+
+a:hover{
+  color: white;
+  text-decoration: underline;
+}
+
+strong{
+  color: #ffffae;
+}
+
+var{
+  color: #ffffcc;
+}
+td{
+  line-height: 1;
+}
