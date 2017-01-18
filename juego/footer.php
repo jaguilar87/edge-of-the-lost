@@ -10,7 +10,7 @@
 
 
 <center><marquee style="width:700px"><?php echo "$hoy[tipo]>> $hoy[post]"; ?></marquee></center>
-<small>Este juego y más en la web de <a href="http://jagcompany.civitis.com">JAGCompany</a></small><br><br>
+<small>Este juego y más en la web de <a href="http://jag-team.com">JAGteam</a></small><br><br>
 <center>
 
 <!-- Licencia de Creative Commons -->

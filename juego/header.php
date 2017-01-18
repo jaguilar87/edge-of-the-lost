@@ -3,7 +3,7 @@
 
 <html>
 <head>
-<base href="http://jagcompany.civitis.com/sw-eotlw/juego/" />
+<base href="http://sw.jag-team.com/juego/" />
 
 	<title>Star Wars - Edges of The Lost Warriors</title>
 <?php 
@@ -20,7 +20,7 @@
 <table width="100%">
 <tr>
        <td>
-			 		<small>SW-eotlw <? echo $ver[val]; ?> es una creación de <a href="http://jagcompany.civitis.com">JAGCompany</a></small><br>
+			 		<small>SW-eotlw <? echo $ver[val]; ?> es una creación de <a href="http://jag-team.com">JAGteam®</a></small><br>
        </td>
 			 <td>
 			 <?php

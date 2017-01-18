@@ -2,9 +2,8 @@
 include_once 'header.php';
 
 echo "<center><big><b><big>Bienvenido a <br><font color=\"#ffffbf\"><strong>Star Wars - Edges of The Lost Warriors</strong></font></big></b></big></center>";
-echo "<br><br><b>Apoyanos, porfavor:</b><hr><center>";
-include 'juegaenred.php';
-echo "</center><hr><br><b>Ultimas noticias:</b><hr>";
+
+echo "<br><br><b>Ultimas noticias:</b><hr>";
 
 $s="SELECT * FROM sw_board_noticias WHERE tipo!='ULTIMA NOTICIA' ORDER BY id DESC";
 $q=mysql_query($s)or die(mysql_error());

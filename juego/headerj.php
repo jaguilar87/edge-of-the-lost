@@ -1,2 +1,2 @@
 <?php chdir('../'); include'header.php'; ?>
-<base href="http://jagcompany.civitis.com/sw-eotlw/juego/" />
+<base href="http://sw.jag-team.com/juego/" />

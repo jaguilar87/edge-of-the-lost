@@ -169,8 +169,14 @@ $sql = "SELECT id, comf FROM sw_users ORDER BY id DESC limit 0,1";
 $result = mysql_query($sql)or die(mysql_error());
 $ider = mysql_fetch_array($result);
 
-			$mess= "Hola $_POST[n], has sido registrado con éxito en Star Wars - Edges of The Lost Warriors (http://swedges.tk), cuando puedas ya puedes registrarte con la siguiente información: \n Nombre: $_POST[n] \n Password:$_POST[p] \n \n Pero antes debes confirmar tu cuenta en esta dirección.<br> \n ( http://jagcompany.civitis.com/sw-eotlw/alta.php?code=mecagoenswcombine&c=$ider[id]&o=$ider[comf] ) Recomendamos Copiar y pegar  <br>No pierdas este Email!<br><br>Gracias por registrarte...<br><br>Juego creado por http://jagcompany.civitis.com";
-	  mail($_POST[m], "Registro sw-eotlw", $mess);
+		//Registro al foro
+		include 'dbforo.php';
+		$passforo = md5( $_POST[p] );
+		query ("INSERT INTO phpbb_users (username, user_password)VALUES('$_POST[n]', '$passforo')");
+		mysql_select_db($dbname, $dbi);		
+		
+		$mess= "Hola $_POST[n], has sido registrado con éxito en Star Wars - Edges of The Lost Warriors (http://sw.jag-team.com), cuando puedas ya puedes registrarte con la siguiente información: \n Nombre: $_POST[n] \n Password:$_POST[p] \n \n Pero antes debes confirmar tu cuenta en esta dirección.<br> \n ( http://sw.jag-team.com/alta.php?code=mecagoenswcombine&c=$ider[id]&o=$ider[comf] ) Recomendamos Copiar y pegar  <br>No pierdas este Email!<br><br>Gracias por registrarte...<br><br>Juego creado por http://jag-team.com";
+	  mail($_POST[m], "Registro SWedges", $mess, "From: swedges@jag-team.com", "-fswedges@jag-team.com");
 	  echo '<font color="#ffffa8">Resgistro correcto</font>! <br>Ahora solo debes ir al link que ha sido enviado a tu correo. <br><br>(Recuerda que si tu nombre tiene un espacio debes copiar el codigo y pegarlo en vez de clickar simplemente)<br><br><font color="#ff0000">Atención:</font> Si usas Hotmail u otros correos con filtro comprueba que el mail no haya sido detectado como correo no deseado antes de reportar quejas.';
 	  }
 }else{
@@ -201,7 +207,7 @@ include 'juego/header/explicit.php';
 	$ider = mysql_fetch_array($result);
 	
 if ($r[nombre]!=""){
-	mail ($r[mail], "Password Perdido", "El password de tu personaje $r[nombre] es: $r[password], \n El código de confirmación es: \n( http://jagcompany.civitis.com/sw-eotlw/alta.php?code=mecagoenswcombine&c=$ider[id]&o=$ider[comf] ) Recomendamos Copiar y pegar  \n No lo pierdas again :)");
+	mail ($r[mail], "Password Perdido", "El password de tu personaje $r[nombre] es: $r[password], \n El código de confirmación es: \n( http://sw.jag-team.com/alta.php?code=mecagoenswcombine&c=$ider[id]&o=$ider[comf] ) Recomendamos Copiar y pegar  \n No lo pierdas again :)", "From: swedges@jag-team.com", "-fswedges@jag-team.com");
 
 	 echo 'Mail con password de $r[nombre] enviado a $r[mail]... <a href="index.php">Volver</a>';
 }else{
@@ -212,7 +218,7 @@ break;
 
 }
 ?>
-<br><a href="http://swedges.tk">Volver al inicio</a>
+<br><a href="http://sw.jag-team.com">Volver al inicio</a>
 			  </td>
               </tr>
             </table>

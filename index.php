@@ -57,7 +57,7 @@ $visit[val]++;
 
 <body text="#FFFFFF" bgcolor="#000000" background="juego/images/bg1.gif" link="#FFFFAE" vlink="#FFEFAE">
 
-<small><table width="100%"><tr><td> <font face="Verdana" style="font-size: 8pt">SW-eotlw es una creación de <a href="http://jagcompany.civitis.com">JAGCompany</a></small><br><br></td><td><div align="right">
+<small><table width="100%"><tr><td> <font face="Verdana" style="font-size: 8pt">SW-eotlw es una creación de <a href="http://jag-team.com">JAGteam</a></small><br><br></td><td><div align="right">
  <font face="Verdana" style="font-size: 8pt"><? echo "Visita Nº <font color=\"#ffff00\">$visit[val]</font>";?></div></td></tr></table>
 <br>
 <div align="center">
@@ -83,7 +83,7 @@ $visit[val]++;
               <tr>
                 <td width="90%" align="center" style="border-style: none; border-width: medium">
                 <font face="Verdana" style="font-size: 8pt">Bienvenido a <strong>
-                <font color="#ffffae">Star Wars - Edge of the Lost Warriors.</font></strong>
+                <font color="#ffffae">Star Wars - Edges of the Lost Warriors.</font></strong>
                 </font></p>
                 <p style="margin-top: 0; margin-bottom: 0">
                 <font face="Verdana" style="font-size: 8pt">¿Con qué nombre 
@@ -149,14 +149,13 @@ $visit[val]++;
                     <td width="232">
                     <div align="right">
                       <font face="Verdana" style="font-size: 8pt">
-                      <a href="juego/historia.php">
-                      HISTORIA DEL JUEGO</a><br>
-                      <a href="juego/ayuda.php">
-                      AYUDA Y FAQ</a><br>
-                      <a target="_BLANK" href="http://sw-eotlw.foro.st">FOROS</a><br>
-                      <br>
-											<!--Aqui Va la Marquesina-->
-															 <i>Creador:</i><br><a href="http://jagcompany.civitis.com">Zeros</a>(Programador)[<a href="mailto:JAGCompany@hotmail.com"><img src="juego/images/msg.gif" border="0" width="11" height="7"></a><img src="juego/images/msn.gif" border="0" width="15" height="17">]<br><i>Agradecimientos:</i><br>KSK (Grafista, Colaborador)[<a href="mailto:ksk_themaster@hotmail.com"><img src="juego/images/msg.gif" border="0" width="11" height="7"></a><img src="juego/images/msn.gif" border="0" width="15" height="17">]<br><a href="http://paginaweb.de/alejandro86">Jaccer</a>(Colaborador)[<a href="mailto:alejandro_rsc@hotmail.com"><img src="juego/images/msg.gif" border="0" width="11" height="7"></a><img src="juego/images/msn.gif" border="0" width="15" height="17">]<br><a href="http://civitis.com">Civitis</a> (Hosting)<br>A ellos y algunos más... gracias...
+                      
+											   <a href="juego/historia.php">HISTORIA DEL JUEGO</a><br>
+                         <a href="juego/ayuda.php">AYUDA Y FAQ</a><br>
+                         <a href="juego/normas.php">NORMAS</a><br>
+                         <a href="staff.php.php">STAFF</a><br>												 												 
+                      	 <a target="_BLANK" href="http://sw.jag-team.com/foro/">FOROS</a><br>
+										
                       </font></div>
                     </td>
                   </tr>
