@@ -3,7 +3,7 @@
 
 <html>
 <head>
-	<!-- base href="http://jagcompany.civitis.com/sw-eotlw/juego/" /-->
+	<base href="/juego/" >
 
 	<title>Star Wars - Edges of The Lost Warriors</title>
 <?php
