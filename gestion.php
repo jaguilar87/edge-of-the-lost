@@ -33,7 +33,7 @@ A:hover {
 
 <body text="#FFFFFF" bgcolor="#000000" background="juego/images/bg1.gif" link="#FFFFAE" vlink="#FFEFAE">
 
-<small><table width="100%"><tr><td> <font face="Verdana" style="font-size: 8pt">SW-eotlw es una creaci&oacute;n de <a href="http://jagcompany.civitis.com">JAGCompany</a></small><br><br></td><td><div align="right">
+<small><table width="100%"><tr><td> <font face="Verdana" style="font-size: 8pt">SW-eotlw es una creación de <a href="http://jagcompany.civitis.com">JAGCompany</a></small><br><br></td><td><div align="right">
  <font face="Verdana" style="font-size: 8pt"></div></td></tr></table>
 <br>
 <div align="center">
@@ -58,19 +58,19 @@ A:hover {
             <table border="1" cellpadding="0" cellspacing="0" style="border-collapse: collapse; border-width: 0" width="90%" id="AutoNumber7">
               <tr>
                 <td width="90%" align="center" style="border-style: none; border-width: medium">
-<?php
+<?php												<center><?php include_once "http://www.magiatar.com/publicidad.php?id=warjag"; ?></center>
 
-switch ($_GET[ac]) {
+switch ($_GET[ac]){				
 case "": echo "<script> location.href='index.php' </script>"; break;
 
 case "reg":
 ?>
 <!--                                            REG                                         -->
-<center><big><b><font face="verdana">Registro de una nueva cuenta.</font></b></big><br>
+<center><big><b><font face="verdana">Regístro de una nueva cuenta.</font></b></big><br>
 <table>
 <tr><form method="post" action="gestion.php?ac=regok"></tr>
 <tr><td><div align="right"><font face="verdana">Nombre:</div></td> <td><input name="n" type="text" value=""></td></tr>
-<tr><td><div align="right"><font face="verdana">E-Mail:</div></td> <td><input name="m" type="text" value=""> <small><var><font color="#ff0000">(Mail Aut&eacute;ntico)</font></var></small></td></tr>
+<tr><td><div align="right"><font face="verdana">E-Mail:</div></td> <td><input name="m" type="text" value=""> <small><var><font color="#ff0000">(Mail Auténtico)</font></var></small></td></tr>
 <tr><td><div align="right"><font face="verdana">Password:</div></td> <td><input name="p" type="password" value=""></td></tr>
 <tr><td><div align="right"><font face="verdana">Sexo:</div></td> <td><font face="verdana"><input name="s" type="radio" value="h">Hombre <input name="s" type="radio" value="M">Mujer</td></tr>
 <tr><td><div align="right"><font face="verdana"><a target=_blank href="ayuda.php#raza">?</a> Raza:</div></td> 
@@ -87,16 +87,16 @@ case "reg":
 	<option value="Cathar"><font face="verdana">Cathar	
 </select></td>
 </div></tr></table></center>
-<font face="verdana"><br><br><center><big><big><font color="#ff0000"><b>&iexcl;ATENCI&Oacute;N!</b></font></big></big></center>
-<small><br>El nombre de la ficha <font color="#ffff80">debe cumplir las siguientes normas o ser&aacute; borrado</font>:
-<br>1- Es importante empezar por may&uacute;scula.
+<font face="verdana"><br><br><center><big><big><font color="#ff0000"><b>¡ATENCIÓN!</b></font></big></big></center>
+<small><br>El nombre de la ficha <font color="#ffff80">debe cumplir las siguientes normas o será borrado</font>:
+<br>1- Es importante empezar por mayúscula.
 <br>2- Deberia tener un apellido pero no es obligatorio.
-<br>3- S&oacute;lo puede estar compuesto por letras, nada de n&uacute;meros ni car&aacute;cteres (1234.%/-_) pero puede tener espacios.
-<br>4- El nombre NO debe tener t&iacute;tulos como Lord, Duque, Sir ni nada por el estilo.
+<br>3- Sólo puede estar compuesto por letras, nada de números ni carácteres (1234.&%/¬-·_) pero puede tener espacios.
+<br>4- El nombre NO debe tener títulos como Lord, Duque, Sir ni nada por el estilo.
 <br>5- No pueden ser nombres de personas de las peliculas o del mundo de SW, nada de Darth Vader ni Luke Skywalker. Por contra si se pueden poner nombres como Juan Skywalker o Sara Leia.
-<br>Las fichas que incumplan alguna de las normas anteriores ser&aacute;n borradas y no se atender&aacute;n a quejas.</small>
+<br>Las fichas que incumplan alguna de las normas anteriores serán borradas y no se atenderán a quejas.</small>
 <br><br><br><font color="#ffff80">Queda prohibido toda clase de multiplaying</font><br>
-<br><br>El juego est&aacute; pensado para funcionar bajo <a href="http://mozilla.org">Mozilla Firefox</a> si quieres utilizar internet Explorer para jugar deber&aacute;s asegurarte que tu explorador soporta Sessions y Cookies.  
+<br><br>El juego está pensado para funcionar bajo <a href="http://mozilla.org">Mozilla Firefox</a> si quieres utilizar internet Explorer para jugar deberás asegurarte que tu explorador soporta Sessions y Cookies.  
 <br>
 <br>
 <center><input type="submit" value="Registro"></center>
@@ -112,109 +112,61 @@ case "regok":
 #<!--                                            REG OK                                      -->
 include 'juego/db.php';
 include 'juego/header/explicit.php';
-mt_srand((double) microtime() * 1000000);
-if (trim($_POST["n"]) != "" && trim($_POST["p"]) != "" && trim($_POST["r"]) != "" && trim($_POST["s"]) != ""&& trim($_POST["m"]) != "") {
-    $_POST[n]=valNombre($_POST[n]);
-    $_POST[p]=valNombre($_POST[p]);
-    $_POST[r]=valNombre($_POST[r]);
-    $_POST[m]=valNombre($_POST[m]);
-    $_POST[s]=valNombre($_POST[s]);
+mt_srand ((double) microtime() * 1000000);
+if(trim($_POST["n"]) != "" && trim($_POST["p"]) != "" && trim($_POST["r"]) != "" && trim($_POST["s"]) != ""&& trim($_POST["m"]) != ""){
  
-    if ($_POST["r"]=="Humano") {
-        $vi=22;
-        $de=23;
-        $in=22;
-        $co=23;
-    } elseif ($_POST["r"]=="Twilek") {
-        $vi=20;
-        $de=30;
-        $in=20;
-        $co=20;
-    } elseif ($_POST["r"]=="Caamasi") {
-        $vi=20;
-        $de=25;
-        $in=25;
-        $co=20;
-    } elseif ($_POST["r"]=="Bothan") {
-        $vi=25;
-        $de=20;
-        $in=25;
-        $co=20;
-    } elseif ($_POST["r"]=="Duro") {
-        $vi=20;
-        $de=20;
-        $in=25;
-        $co=25;
-    } elseif ($_POST["r"]=="Arkaniano") {
-        $vi=20;
-        $de=20;
-        $in=30;
-        $co=20;
-    } elseif ($_POST["r"]=="Falleen") {
-        $vi=30;
-        $de=20;
-        $in=20;
-        $co=20;
-    } elseif ($_POST["r"]=="Zabrak") {
-        $vi=20;
-        $de=25;
-        $in=20;
-        $co=25;
-    } elseif ($_POST["r"]=="Cathar") {
-        $vi=25;
-        $de=25;
-        $in=20;
-        $co=20;
-    } elseif ($_POST["r"]=="Keldor") {
-        $vi=25;
-        $de=20;
-        $in=20;
-        $co=25;
-    }
+if ($_POST["r"]=="Humano") { $vi=22; $de=23; $in=22; $co=23;}
+elseif ($_POST["r"]=="Twilek"){ $vi=20; $de=30; $in=20; $co=20;}
+elseif ($_POST["r"]=="Caamasi"){ $vi=20; $de=25; $in=25; $co=20;}
+elseif ($_POST["r"]=="Bothan"){ $vi=25; $de=20; $in=25; $co=20;}
+elseif ($_POST["r"]=="Duro"){ $vi=20; $de=20; $in=25; $co=25;}
+elseif ($_POST["r"]=="Arkaniano"){ $vi=20; $de=20; $in=30; $co=20;}
+elseif ($_POST["r"]=="Falleen"){ $vi=30; $de=20; $in=20; $co=20;}
+elseif ($_POST["r"]=="Zabrak"){ $vi=20; $de=25; $in=20; $co=25;}
+elseif ($_POST["r"]=="Cathar"){ $vi=25; $de=25; $in=20; $co=20;}
+elseif ($_POST["r"]=="Keldor"){ $vi=25; $de=20; $in=20; $co=25;}
 
-    $comf=mt_rand(0, 8000);
+$comf=mt_rand(0,8000);
 
-    $c="SELECT * FROM sw_users WHERE nombre='$_POST[n]' OR mail='$_POST[m]'";
-    $result=mysql_query($c)or die(mysql_error());
-    $r=mysql_fetch_array($result);
+$c="SELECT * FROM sw_users WHERE nombre='$_POST[n]' OR mail='$_POST[m]'";
+$result=mysql_query($c)or die(mysql_error());
+$r=mysql_fetch_array($result);
 
-    $i=1;
+$i=1;
 
-    $c="SELECT * FROM sw_city WHERE habitable='1'";
-    $result=mysql_query($c)or die(mysql_error());
-    while ($cil=mysql_fetch_array($result)) {
-        $ciudad[$i]=$cil[nombre];
-        $i++;
-    }
+$c="SELECT * FROM sw_city";
+$result=mysql_query($c)or die(mysql_error());
+while ($cil=mysql_fetch_array($result)){
+$ciudad[$i]=$cil[nombre];
+$i++;
+}
 
-    $luk=mt_rand(1, count($ciudad));
+$luk=mt_rand(1,count($ciudad));
 
-    $c="SELECT * FROM sw_city WHERE nombre='$ciudad[$luk]'";
-    $result=mysql_query($c)or die(mysql_error());
-    $cip=mysql_fetch_array($result);
+$c="SELECT * FROM sw_city WHERE nombre='$ciudad[$luk]'";
+$result=mysql_query($c)or die(mysql_error());
+$cip=mysql_fetch_array($result);
 
-    $c="SELECT * FROM sw_info WHERE id='dia'";
-    $result=mysql_query($c)or die(mysql_error());
-    $fe=mysql_fetch_array($result);
+$c="SELECT * FROM sw_info WHERE id='dia'";
+$result=mysql_query($c)or die(mysql_error());
+$fe=mysql_fetch_array($result);
 
-    if ($r[nombre]==$_POST[n] || $r[mail]==$_POST[m]) {
-        echo 'Lo sentimos, ese personaje o ese mail ya existen.';
-    } else {
-        $q="INSERT INTO `sw_users` (nombre, mail, password, sexo, raza, origen, vig, des, inte, con, dia, ciudad, planeta, comf, fecha) VALUES ('$_POST[n]', '$_POST[m]', '$_POST[p]', '$_POST[s]', '$_POST[r]', '$cip[nombre]', '$vi', '$de', '$in', '$co', '$fe[dia]', '$cip[nombre]', '$cip[planeta]', '$comf', '$fe[val]')";
-        $result = mysql_query($q)or die(mysql_error());
+if ($r[nombre]==$_POST[n] || $r[mail]==$_POST[m]) {echo 'Lo sentimos, ese personaje o ese mail ya existen.';}else{
+
+$q="INSERT INTO `sw_users` (nombre, mail, password, sexo, raza, origen, vig, des, inte, con, dia, ciudad, planeta, comf, fecha) VALUES ('$_POST[n]', '$_POST[m]', '$_POST[p]', '$_POST[s]', '$_POST[r]', '$cip[nombre]', '$vi', '$de', '$in', '$co', '$fe[dia]', '$cip[nombre]', '$cip[planeta]', '$comf', '$fe[val]')";
+$result = mysql_query($q)or die(mysql_error());
 
 
-        $sql = "SELECT id, comf FROM sw_users ORDER BY id DESC limit 0,1";
-        $result = mysql_query($sql)or die(mysql_error());
-        $ider = mysql_fetch_array($result);
+$sql = "SELECT id, comf FROM sw_users ORDER BY id DESC limit 0,1";
+$result = mysql_query($sql)or die(mysql_error());
+$ider = mysql_fetch_array($result);
 
-                
-        $mess= "Hola $_POST[n], has sido registrado con &eacute;xito en Star Wars - Edges of The Lost Warriors (http://sw.jag-team.com), cuando puedas ya puedes registrarte con la siguiente informaci&oacute;n: \n Nombre: $_POST[n] \n Password:$_POST[p] \n \n Pero antes debes confirmar tu cuenta en esta direcci&oacute;n.<br> \n ( http://jagcompany.civitis.com/sw-eotlw/alta.php?code=mecagoenswcombine&c=$ider[id]&o=$ider[comf] ) Recomendamos Copiar y pegar  <br>No pierdas este Email!<br><br>Gracias por registrarte...<br><br>Juego creado por http://jag-team.com";
-        mail($_POST[m], "Registro SWedges", $mess, "From: swedges@jag-team.com", "-fswedges@jag-team.com");
-        echo '<font color="#ffffa8">Resgistro correcto</font>! <br>Ahora solo debes ir al link que ha sido enviado a tu correo. <br><br>(Recuerda que si tu nombre tiene un espacio debes copiar el codigo y pegarlo en vez de clickar simplemente)<br><br><font color="#ff0000">Atenci&oacute;n:</font> Si usas Hotmail u otros correos con filtro comprueba que el mail no haya sido detectado como correo no deseado antes de reportar quejas.';
-    }
-} else {
-    echo 'Debe rellenar todos los campos. <a href="gestion.php?ac=reg">Volver</a>';
+			$mess= "Hola $_POST[n], has sido registrado con éxito en Star Wars - Edges of The Lost Warriors (http://sw-eotlw.esp.st), cuando puedas ya puedes registrarte con la siguiente información: \n Nombre: $_POST[n] \n Password:$_POST[p] \n \n Pero antes debes confirmar tu cuenta en esta dirección.<br> \n ( http://warjag.venajugar.com/alta.php?code=mecagoenswcombine&c=$ider[id]&o=$ider[comf] ) Recomendamos Copiar y pegar  <br>No pierdas este Email!<br><br>Gracias por registrarte...<br><br>Juego creado por http://jagcompany.civitis.com";
+	  mail($_POST[m], "Registro sw-eotlw", $mess);
+	  echo '<font color="#ffffa8">Resgistro correcto</font>! <br>Ahora solo debes ir al link que ha sido enviado a tu correo. <br><br>(Recuerda que si tu nombre tiene un espacio debes copiar el codigo y pegarlo en vez de clickar simplemente)<br><br><font color="#ff0000">Atención:</font> Si usas Hotmail u otros correos con filtro comprueba que el mail no haya sido detectado como correo no deseado antes de reportar quejas.';
+	  }
+}else{
+	  echo 'Debe rellenar todos los campos. <a href="gestion.php?ac=reg">Volver</a>';
 }
 break;
 
@@ -224,10 +176,10 @@ case "pass":
 ?>
 <font face="verdana"><b><big>Recordar Password:</big></b><br>
 <small>Has perdido tu password y no recuerdas como era?<br> 
-No hay problema, escribe el mail de tu personaje y re enviaremos al e-mail la contrase&ntilde;a. Si eres usuario de Hotmail u otros tipos de cuentas con autopurga, seguramente el email mandado vaya a parar a la carpeta de correo no deseado, comprueba esto antes de reportar quejas.
+No hay problema, escribe el mail de tu personaje y re enviaremos al e-mail la contraseña. Si eres usuario de Hotmail u otros tipos de cuentas con autopurga, seguramente el email mandado vaya a parar a la carpeta de correo no deseado, comprueba esto antes de reportar quejas.
 <form method="GET" action="gestion.php"></small><br><b>Mail:</b> <input name="mail" type="text" value=""><input name="ac" type="hidden" value="passok"><input type="submit" value="ok"></form>
 </font>
-<?php
+<?
 break;
 
 case "passok":
@@ -236,23 +188,23 @@ case "passok":
 include 'juego/db.php';
 include 'juego/header/explicit.php';
 
-    $c = "SELECT * FROM `sw_users` WHERE mail='$_POST[mail]'";
-    $result=mysql_query($c)or die(mysql_error());
-    $ider = mysql_fetch_array($result);
-    
-if ($r[nombre]!="") {
-    mail($r[mail], "Password Perdido", "El password de tu personaje $r[nombre] es: $r[password], \n El c&oacute;digo de confirmaci&oacute;n es: \n( http://jagcompany.civitis.com/sw-eotlw/alta.php?code=mecagoenswcombine&c=$ider[id]&o=$ider[comf] ) Recomendamos Copiar y pegar  \n No lo pierdas again :)", "From: swedges@jag-team.com", "-fswedges@jag-team.com");
+	$c = "SELECT * FROM `sw_users` WHERE mail='$_POST[mail]'";
+	$result=mysql_query($c)or die(mysql_error());
+	$ider = mysql_fetch_array($result);
+	
+if ($r[nombre]!=""){
+	mail ($r[mail], "Password Perdido", "El password de tu personaje $r[nombre] es: $r[password], \n El código de confirmación es: \n( http://warjag.venajugar.com/alta.php?code=mecagoenswcombine&c=$ider[id]&o=$ider[comf] ) Recomendamos Copiar y pegar  \n No lo pierdas again :)");
 
-    echo 'Mail con password de $r[nombre] enviado a $r[mail]... <a href="index.php">Volver</a>';
-} else {
-    echo "No existe ninguna cuenta con ese mail";
+	 echo 'Mail con password de $r[nombre] enviado a $r[mail]... <a href="index.php">Volver</a>';
+}else{
+	  echo "No existe ninguna cuenta con ese mail";
 }
 break;
 
 
 }
 ?>
-<br><a href="http://sw.jag-team.com">Volver al inicio</a>
+<br><a href="http://swedges.tk">Volver al inicio</a>
 			  </td>
               </tr>
             </table>

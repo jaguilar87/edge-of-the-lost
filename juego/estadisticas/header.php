@@ -1,1 +1,1 @@
-<?php include'../headerj.php';
+<?php include'../headerj.php'; ?>

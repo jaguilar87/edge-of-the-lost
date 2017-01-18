@@ -1,3 +1,1 @@
-<?php 
-    include '../headerj.php';
-    include 'clan/inc.php';
+<?php include'../headerj.php'; ?>

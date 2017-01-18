@@ -7,4 +7,4 @@
    echo "mensaje enviado...";
    echo "<script>location.href=\"clan/?id=board\"</script>";
 
-include_once 'footer.php';
+include_once 'footer.php';?>

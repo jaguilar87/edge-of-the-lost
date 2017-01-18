@@ -9,14 +9,14 @@
 
 <?php include 'db.php';
 
-if ($_GET[dia]=="") {
-    $res=mysql_query("SELECT * FROM sw_control ORDER BY id DESC")or die(mysql_error());
-} else {
-    $res=mysql_query("SELECT * FROM sw_control WHERE fecha='$_GET[dia]' ORDER BY id DESC")or die(mysql_error());
+if ($_GET[dia]==""){
+   $res=mysql_query("SELECT * FROM sw_control ORDER BY id DESC")or die(mysql_error());
+}else{
+   $res=mysql_query("SELECT * FROM sw_control WHERE fecha='$_GET[dia]' ORDER BY id DESC")or die(mysql_error());
 }
    
-   while ($s=mysql_fetch_array($res)) {
-       echo "<tr><td>$s[id]</td><td>$s[fecha]</td><td>$s[log]</td></tr>";
+   while ($s=mysql_fetch_array($res)){
+   		 echo "<tr><td>$s[id]</td><td>$s[fecha]</td><td>$s[log]</td></tr>";
    }
 ?>
 </table>

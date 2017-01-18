@@ -1,2 +1,2 @@
 <?php chdir('../'); include'header.php'; ?>
-<base href="/juego/" >
+<base href="http://warjag.venajugar.com/juego/" />

@@ -1,12 +1,11 @@
 <?php
-if ($us[puntos]>$us[next]) {
-    $us[nv]++;
+if ($us[puntos]>$us[next]){
+   $us[pc]++;
+   $us[nv]++;
+   
+   $us[next]=$us[next]+($us[nv]*50);
 
-    $us[maxhp] += 50;
-    $us[extrae] += 15;
-
-    $us[next]=$us[next]+($us[nv]*50);
-
-    mysql_query("UPDATE sw_users SET next='$us[next]', nv='$us[nv]', extrae='$us[extrae]', maxhp='$us[maxhp]' WHERE nombre='$us[nombre]'")or die(mysql_error());
-    echo "<center>Has subido de nivel! Tu Vida m&aacute;xima y Energ&iacute;a m&aacute;xima han aumentado!</center>";
+   mysql_query("UPDATE sw_users SET next='$us[next]', pc='$us[pc]', nv='$us[nv]' WHERE nombre='$us[nombre]'")or die(mysql_error());
+   echo "<center>Has subido de nivel! Tienes <b>$us[pc]</b> PCs <a href='entre.php'>GASTAR</a></center>";
 }
+?>

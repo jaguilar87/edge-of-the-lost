@@ -1,46 +1,36 @@
 <?php include_once 'header.php';
-switch ($_GET[ac]) {
+switch ($_GET[ac]){
 
 case "nombre":
 
 $com=sel("sw_users", "", "$_GET[nombre]");
 
-if ($com[nombre]==$_GET[nombre]) {
-    echo "Ese nombre ya existe, elija otro";
-} else {
-    $c="UPDATE `sw_users` SET nombre='$_GET[nombre]' WHERE nombre='$us[nombre]'";
-    $result=mysql_query($c)or die(mysql_error());
+if ($com[nombre]==$_GET[nombre]){
+   echo "Ese nombre ya existe, elija otro";
+}else{
+   
+$c="UPDATE `sw_users` SET nombre='$_GET[nombre]' WHERE nombre='$us[nombre]'";
+$result=mysql_query($c)or die(mysql_error());
 
-    $c="UPDATE `sw_clan` SET lider='$_GET[nombre]' WHERE lider='$us[nombre]'";
-    $result=mysql_query($c)or die(mysql_error());
+session_unset();
+session_destroy();
 
-    $c="UPDATE `sw_city` SET rey='$_GET[nombre]' WHERE rey='$us[nombre]'";
-    $result=mysql_query($c)or die(mysql_error());
-
-    $c="UPDATE `sw_vehiculos` SET prop='$_GET[nombre]' WHERE prop='$us[nombre]'";
-    $result=mysql_query($c)or die(mysql_error());
-
-    $c="UPDATE `sw_users` SET cvoto='$_GET[nombre]' WHERE cvoto='$us[nombre]'";
-    $result=mysql_query($c)or die(mysql_error());
-
-    session_unset();
-    session_destroy();
-
-    echo 'Rebautizado!<br>Debes volver a loguearte... <a href="http://sw.jag-team.com">Reloguear</a> <META HTTP-EQUIV="Refresh" CONTENT="1;URL=http://swedges.tk">';
+echo 'Rebautizado!<br>Debes volver a loguearte... <a href="http://swedges.tk">Reloguear</a> <META HTTP-EQUIV="Refresh" CONTENT="1;URL=http://swedges.tk">';
 }
 
 break;
 case "contra":
-if ($_GET[co]==$_GET[cor]) {
-    $c="UPDATE `sw_users` SET password='$_GET[co]' WHERE nombre='$_SESSION[nombre]'";
-    $result=mysql_query($c)or die(mysql_error());
+if ($_GET[co]==$_GET[cor]){
 
-    $_SESSION[password]==$_GET[co];
+$c="UPDATE `sw_users` SET password='$_GET[co]' WHERE nombre='$_SESSION[nombre]'";
+$result=mysql_query($c)or die(mysql_error());
 
-    echo 'Contrase&ntilde;a Cambiada, si el juego da error trata de reloguear: <a href="http://swedges.tk">htt://swedges.tk</a>';
-} else {
-    echo "Las contrase&ntilde;as no coinciden";
-}
+$_SESSION[password]==$_GET[co];
+
+echo 'Contraseña Cambiada, si el juego da error trata de reloguear: <a href="http://swedges.tk">htt://swedges.tk</a>';
+
+
+}else{Echo "Las contraseñas no coinciden";}
 break;
 
 default:
@@ -51,16 +41,16 @@ echo '<form action="ficha/config.php"><center><b>Rebautizar:</b> <input name="ac
 <form action="ficha/config.php" METHOD="GET">
 <table>
 <tr>
-       <td><div align="right"><b>Cambiar Contrase&ntilde;a:</b></div></td>
+       <td><div align="right"><b>Cambiar Contraseña:</b></div></td>
        <td><input name="co" type="password" value=""></td>
 </tr>
 <tr>
-       <td><div align="right"><b>Repetir Contrase&ntilde;a:</b></td>
+       <td><div align="right"><b>Repetir Contraseña:</b></td>
        <td><input name="cor" type="password" value=""></td>
 </tr>
 </table>
 <input name="ac" type="hidden" value="contra">
-<br><input type="submit" Value ="Cambiar Contrase&ntilde;a"></center>
+<br><input type="submit" Value ="Cambiar Contraseña"></center>
 <br>
 <br>
 </form>
@@ -74,4 +64,4 @@ echo '<form action="ficha/config.php"><center><b>Rebautizar:</b> <input name="ac
 break;
 
 }
-include_once 'footer.php';
+include_once 'footer.php';?>

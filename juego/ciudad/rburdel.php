@@ -1,34 +1,40 @@
 <?php
-if ($ci[burdel]=="N") {
-    echo 'Tu ciudad no dispone de burdeles';
-} else {
-    if ($ok) {
-        $curing =$us[maxhp] - $us[hp];
+if ($ci[burdel]=="N"){echo 'Tu ciudad no dispone de burdeles';}else{
 
-        $tur=$curing/$us[poder];
+if ($ok){
+   $curing =$us[maxhp] - $us[hp];
 
-        $us[creditos] -= $curing;
-        $us[turnos] -= $tur;
-        $us[lado]-=$tur;
+   $tur=$curing/$us[poder];
 
-        if ($us[creditos]<0 || $us[turnos] <0) {
-            echo 'Cr&eacute;ditos/Energ&iacute;a insuficientes...';
-        } else {
-            $us[hp]=$us[maxhp];
+   $us[creditos] -= $curing;
+   $us[turnos] -= $tur;
+   $us[lado]-=$tur;
 
-            $clr = sel("sw_clan", "", $ci[clan]);
-            $clr[fondos] += $curing;
+   if ($us[creditos]<0 || $us[turnos] <0){
+   	  echo 'Créditos/Energía insuficientes...';
+   }else{
+   	  $us[hp]=$us[maxhp];
 
-            mysql_query("UPDATE `sw_users` SET hp='$us[hp]', creditos='$us[creditos]', turnos='$us[turnos]', lado='$us[lado]' WHERE nombre='$_SESSION[nombre]'")or die(mysql_error());
-            mysql_query("UPDATE `sw_clan` SET fondos='$clr[fondos]' WHERE nombre='$ci[clan]'")or die(mysql_error());
+	  $clr = sel("sw_clan","",$ci[clan]);
+	  $clr[fondos] += $curing;
+	  
+	  mysql_query("UPDATE `sw_users` SET hp='$us[hp]', creditos='$us[creditos]', turnos='$us[turnos]', lado='$us[lado]' WHERE nombre='$_SESSION[nombre]'")or die(mysql_error());
+	  mysql_query("UPDATE `sw_clan` SET fondos='$clr[fondos]' WHERE nombre='$ci[clan]'")or die(mysql_error());
 
-            echo "Curaci&oacute;n completada por <b>$curing cr&eacute;dito(s) y $tur Turno(s)</b><br><small>(Tu dinero fue a parar al clan $ci[clan])<br><font color=\"#ff8080\">Has caminado $tur puntos al lado Oscuro.</font></small>";
-        }
-    } else {
-        $curing =$us[maxhp] - $us[hp];
+	  echo "Curación completada por <b>$curing crédito(s) y $tur Turno(s)</b><br><small>(Tu dinero fue a parar al clan $ci[clan])<br><font color=\"#ff8080\">Has caminado $tur puntos al lado Oscuro.</font></small>";
 
-        $tur=$curing/$us[poder];
+   }
+   
+}else{
 
-        echo "<center>La estada en el Burdel te costar&aacute; <b>$tur Turnos</b> y algunos cr&eacute;ditos<br><br><a href='ciudad/?id=rburdel&ok=true'>CURAR</a></center>";
-    }
+   $curing =$us[maxhp] - $us[hp];
+
+   $tur=$curing/$us[poder];
+   
+    echo "<center>La estada en el Burdel te costará <b>$tur Turnos</b> y algunos créditos<br><br><a href='ciudad/?id=rburdel&ok=true'>CURAR</a></center>";
+
+
+
 }
+}
+?>

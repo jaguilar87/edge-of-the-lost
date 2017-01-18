@@ -10,12 +10,12 @@
 
 
 <center><marquee style="width:700px"><?php echo "$hoy[tipo]>> $hoy[post]"; ?></marquee></center>
-<small>Este juego y m&aacute;s en la web de <a href="http://jag-team.com">JAGteam</a></small><br><br>
+<small>Este juego y más en la web de <a href="http://jagcompany.civitis.com">JAGCompany</a></small><br><br>
 <center>
 
 <!-- Licencia de Creative Commons -->
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/2.1/es/"><img alt="Licencia de Creative Commons" border="0" src="http://creativecommons.org/images/public/somerights20.gif" /></a><br />
-Esta obra est&aacute; bajo una <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/2.1/es/">licencia de Creative Commons</a>.
+Esta obra está bajo una <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/2.1/es/">licencia de Creative Commons</a>.
 <!-- /Licencia de Creative Commons -->
 
 

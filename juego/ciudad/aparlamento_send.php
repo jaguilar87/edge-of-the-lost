@@ -4,3 +4,5 @@
 
    echo "mensaje enviado...";
    echo "<script>location.href=\"ciudad/?id=aparlamento\"</script>";
+
+?>

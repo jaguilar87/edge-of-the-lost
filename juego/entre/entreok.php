@@ -1,70 +1,74 @@
 <?php include_once 'header.php';
-if ($us[hp]<=0) {
-    echo 'No puedes entrenar mientras est&aacute;s KO...';
-} else {
-    $c=$_GET["c"];
-    $m=$_GET["m"];
+if ($us[hp]<=0){echo 'No puedes entrenar mientras estés KO...';}else{
 
-    if ($m<=0) {
-        $m = 1;
-    }
+$c=$_GET["c"];
+$m=$_GET["m"];
 
-    $precio=0;
+if ($m<=0){
+  $m = ($c=="maxhp" || $c=="extrae") ? 5 : 1; 
+}
 
-    if ($_GET[c]!="vig" && $_GET[c]!="des" && $_GET[c]!="con" && $_GET[c]!="inte" && $_GET[c]!="pod") {
-        echo '<script> location.href="entre/entre.php" </script>';
-    }
+$precio=0;
 
-    $j=0;
-    while ($j<$m) {
-        $precio += $us[$c] * 100;
-        $us[$c]++;
-        $j++;
-    }
+if ($_GET[c]=="") {echo '<script> location.href="entre/entre.php" </script>';}
 
-    $ener = $m;
+$j=0;
+while ($j<$m){
+			$precio += ($c=="maxhp") ? ( $us[$c] * 10) : ( $us[$c] * 100 );
+			$us[$c]++;
+			$j++;
+}
 
-    $us[creditos] -= $precio;
-    $us[turnos] -= $ener;
+$ener = ($c=="maxhp" || $c=="extrae") ? ($m/5) : $m;
 
-    $porce=$precio*(30/100);
-    $cli=sel("sw_clan", "", $ci[clan]);
+$us[creditos] -= $precio;
+$us[turnos] -= $ener;
 
-    $cli[fondos]+=$porce;
-    mysql_query("UPDATE sw_clan SET fondos='$cli[fondos]' WHERE nombre='$cli[nombre]'")or die(mysql_error());
+$porce=$precio*(30/100);
+$cli=sel ("sw_clan", "", $ci[clan]);
 
-    $max=0;
+$cli[fondos]+=$porce;
+mysql_query("UPDATE sw_clan SET fondos='$cli[fondos]' WHERE nombre='$cli[nombre]'")or die(mysql_error());
 
-    switch ($us[nv_sable]) {
+$max=0;
+
+switch ($us[nv_sable]){
 case "0":
-     $max = 25;
+	 $max = ($c=="maxhp" || $c=="extrae") ? 150 : 25;	 
 break;
 case "1":
-     $max = 50;
+	 $max = ($c=="maxhp" || $c=="extrae") ? 350 : 50;	 
 break;
 case "2":
-     $max = 75;
+	 $max = ($c=="maxhp" || $c=="extrae") ? 750 : 75;	 
 break;
 case "3":
-     $max = 100;
+	 $max = ($c=="maxhp" || $c=="extrae") ? 1500 : 100;	 
 break;
 case "4":
-     $max = 150;
+	 $max = ($c=="maxhp" || $c=="extrae") ? 2000 : 150;	 
 break;
 }
 
-    if ($us[creditos]<0 || $us[turnos]<0) {
-        echo 'Creditos y/o energ&iacute;a insuficientes...';
-    } else {
-        if ($us[$c] > $max) {
-            echo "No puedes entrenar m&aacute;s $_GET[c] en este nivel.";
-        } else {
-            mysql_query("UPDATE `sw_users` SET creditos='$us[creditos]', turnos='$us[turnos]', {$_GET[c]}='{$us[$_GET['c']]}' WHERE nombre='$_SESSION[nombre]'");
-            echo "Entrenado (Para entrenar $m puntos de $c haz click <a href=\"entre/entreok.php?c=$c&m=$m\">aqu&iacute;.</a>)<br>Gastados $precio Cr&eacute;ditos <small>($porce fueron para $ci[clan])</small>";
-        }
-    }
+if($us[creditos]<0 || $us[turnos]<0){
+	      echo 'Creditos y/o energía insuficientes...';
+}else{
+
+	  	  
+		  if ($us[$c] > $max){
+		  	 echo "No puedes entrenar más $_GET[c] en este nivel.";
+		  }else{
+		  	  mysql_query("UPDATE `sw_users` SET creditos='$us[creditos]', turnos='$us[turnos]', {$_GET[c]}='{$us[$_GET['c']]}' WHERE nombre='$_SESSION[nombre]'");
+			  echo "Entrenado (Para entrenar $m puntos de $c haz click <a href=\"entre/entreok.php?c=$c&m=$m\">aquí.</a>)<br>Gastados $precio Créditos <small>($porce fueron para $ci[clan])</small>"; 
+
+		  }		
+	  	  
 }
 
 
 
-include_once 'footer.php';
+}
+
+
+
+include_once 'footer.php'; ?>

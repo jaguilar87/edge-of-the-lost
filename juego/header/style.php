@@ -4,7 +4,11 @@
 $handle = opendir('header/style/');
    while (false !== ($file = readdir($handle))) {
        if ($file != "." && $file != "..") {
-           include_once "style/$file";
+       		include_once "style/$file";
        }
    }
-closedir($handle);
+closedir($handle); 
+
+
+
+?>
