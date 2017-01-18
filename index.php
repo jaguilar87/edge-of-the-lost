@@ -45,7 +45,8 @@ chdir('juego/');
   <head>
     <title>Star Wars - Edge of The Lost Warriors</title>
     <?php include 'header/style.php'; ?>
-      <meta http-equiv="Page-Enter" content="revealTrans(Duration=1.0,Transition=23)">
+    <meta http-equiv="Page-Enter" content="revealTrans(Duration=1.0,Transition=23)">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
   </head>
   <body text="#FFFFFF" bgcolor="#000000" background="juego/images/bg1.gif" link="#FFFFAE" vlink="#FFEFAE">
     <div align="center">

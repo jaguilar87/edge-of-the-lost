@@ -1,11 +1,9 @@
-<body bgcolor="#000000" text="#FFFFFF" link="#FFFFCC" vlink="#FFFFCC" alink="#FFFF99">
-
 
 <html>
 <head>
 
 	<title>Star Wars - Edges of The Lost Warriors</title>
-
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
 	<style>
 BODY {
 scrollbar-face-color: #000000;

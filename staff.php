@@ -3,6 +3,7 @@
 <html>
 <head>
 	<title>Los Creadores de Star Wars - Edges of The lost Warriors</title>
+	<link rel="icon" href="favicon.ico" type="image/x-icon">
 	<?php include 'juego/header/style/genstyle.php'; ?>
 </head>
 

@@ -3,7 +3,7 @@
 <head>
 
 	<title>Star Wars - Edges of The Lost Warriors</title>
-
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
   <SCRIPT LANGUAGE="JavaScript">
   <!-- This script generated free online at -->
   <!-- Wilson Information http://www.wilsoninfo.com -->

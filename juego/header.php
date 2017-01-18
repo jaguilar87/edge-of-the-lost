@@ -12,6 +12,7 @@
             include_once 'header/var.php'; #incluir Datos PHP
             $ver=sel("sw_info", "id", "ver");
 ?>
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
 
 </head>
 
