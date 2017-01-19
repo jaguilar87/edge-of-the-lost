@@ -1,10 +1,10 @@
 <?php
-    ######################################
-    ## 	   STAR WARS - EDGES OF THE LOS WARRIORS 	 ##
-    ##	                 Attack system CORE in PvP 2.0 			 ##
-    ## 	              VERSTION UPDATED: 14/10/2005 		 ##
-    ## 	                                 JAGteam 				 ##
-    ######################################
+    ####################################################
+    ## 	   STAR WARS - EDGES OF THE LOS WARRIORS 	  ##
+    ##	   Attack system CORE in Clan VS City 2.0 	  ##
+    ## 	       VERSTION UPDATED: 19/10/2005   		  ##
+    ## 	                   JAGteam 	          		  ##
+    ####################################################
 
     //Randomize
     mt_srand((double) microtime() * 1000000);

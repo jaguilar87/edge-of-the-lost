@@ -11,7 +11,6 @@ while ($l=mysql_fetch_array($q)) {
 }
 
 ?>
-<!--<br><br><center><a href="javascript:popUp('http://jagcompany.civitis.com/sw-eotlw/tip/')"><img src="images/tip.gif" alt="TIP OF THE DAY" border=0><big>Ver la sugerencia del d&iacute;a!</big></a></center>-->
 
 <?php include_once 'footer.php'; ?>
 

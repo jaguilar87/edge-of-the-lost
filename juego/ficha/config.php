@@ -26,7 +26,7 @@ if ($com[nombre]==$_GET[nombre]) {
     session_unset();
     session_destroy();
 
-    echo 'Rebautizado!<br>Debes volver a loguearte... <a href="http://sw.jag-team.com">Reloguear</a> <META HTTP-EQUIV="Refresh" CONTENT="1;URL=http://swedges.tk">';
+    echo 'Rebautizado!<br>Debes volver a loguearte... <a href="/">Reloguear</a> <META HTTP-EQUIV="Refresh" CONTENT="1;URL=/">';
 }
 
 break;
@@ -37,7 +37,7 @@ if ($_GET[co]==$_GET[cor]) {
 
     $_SESSION[password]==$_GET[co];
 
-    echo 'Contrase&ntilde;a Cambiada, si el juego da error trata de reloguear: <a href="http://swedges.tk">htt://swedges.tk</a>';
+    echo 'Contrase&ntilde;a Cambiada, si el juego da error trata de <a href="/">reloguear</a>.';
 } else {
     echo "Las contrase&ntilde;as no coinciden";
 }

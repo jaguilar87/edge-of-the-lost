@@ -48,7 +48,7 @@ if ($_GET[ok]) {
     ?>
 	<font color="#ff0000"><center><big><big><blink>&iquest;ATENCION!</blink></big></big><br />
 	&iquest;Si pulsas el siguiente boton todas las tablas de la partida se borrar&aacute;n!<br><br>
-	<a href="admin.php?nv='.$_GET[nv].'&tip=finpar.php&ok=true"><img src="fin.gif"></a></center>';
+	<a href="admin.php?nv=<?php echo $_GET[nv]?>&tip=finpar.php&ok=true"><img src="fin.gif"></a></center>
 <?php
 
 }

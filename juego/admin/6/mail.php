@@ -4,7 +4,7 @@ if ($_POST['ok']) {
     if ($us[admin]>=$_GET[nv]) {
         $sqla = mysql_query("SELECT * FROM sw_users")or die(mysql_error());
         while ($r=mysql_fetch_array($sqla)) {
-            mail($r['mail'], $_POST['asunto'], $_POST['mess'], "From: swedges@jag-team.com", "-fswedges@jag-team.com");
+            mail($r['mail'], $_POST['asunto'], $_POST['mess'], "From: XXXXX", "-fXXXXX");
             echo "Enviado mail a $r[nombre] ($r[mail])<br>";
         }
     } else {
@@ -21,4 +21,4 @@ if ($_POST['ok']) {
     echo '</td></tr></table>';
     echo '</form>';
 }
-?> 
+?>

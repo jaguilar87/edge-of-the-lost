@@ -1,38 +1,34 @@
-
 <html>
 <head>
 
 	<title>Star Wars - Edges of The Lost Warriors</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
 	<style>
-BODY {
-scrollbar-face-color: #000000;
-scrollbar-highlight-color: #666666;
-scrollbar-3dlight-color: #000000;
-scrollbar-darkshadow-color: #000000;
-scrollbar-shadow-color: #000000;
-scrollbar-arrow-color: #666666;
-scrollbar-track-color: #000000;
-}
-</STYLE>
+        BODY {
+            scrollbar-face-color: #000000;
+            scrollbar-highlight-color: #666666;
+            scrollbar-3dlight-color: #000000;
+            scrollbar-darkshadow-color: #000000;
+            scrollbar-shadow-color: #000000;
+            scrollbar-arrow-color: #666666;
+            scrollbar-track-color: #000000;
+        }
 
-	<style>
-A {
-	color: #FFFFCC;
-}
-A:hover {
-	color: #ffffff;
-
-</style>
+        A {
+            color: #FFFFCC;
+        }
+        A:hover {
+            color: #ffffff;
+        }
+    </style>
 
 
-<meta http-equiv="Page-Enter" content="revealTrans(Duration=1.0,Transition=23)">
+    <meta http-equiv="Page-Enter" content="revealTrans(Duration=1.0,Transition=23)">
 </head>
 
 <body text="#FFFFFF" bgcolor="#000000" background="juego/images/bg1.gif" link="#FFFFAE" vlink="#FFEFAE">
 
-<small><table width="100%"><tr><td> <font face="Verdana" style="font-size: 8pt">SW-eotlw es una creaci&oacute;n de <a href="http://jagcompany.civitis.com">JAGCompany</a></small><br><br></td><td><div align="right">
- <font face="Verdana" style="font-size: 8pt"></div></td></tr></table>
+<small>
 <br>
 <div align="center">
   <center>
@@ -68,10 +64,10 @@ case "reg":
 <table>
 <tr><form method="post" action="gestion.php?ac=regok"></tr>
 <tr><td><div align="right"><font face="verdana">Nombre:</div></td> <td><input name="n" type="text" value=""></td></tr>
-<tr><td><div align="right"><font face="verdana">E-Mail:</div></td> <td><input name="m" type="text" value=""> <small><var><font color="#ff0000">(Mail Aut&eacute;ntico)</font></var></small></td></tr>
+<tr><td><div align="right"><font face="verdana">E-Mail:</div></td> <td><input name="m" type="text" value=""></td></tr>
 <tr><td><div align="right"><font face="verdana">Password:</div></td> <td><input name="p" type="password" value=""></td></tr>
 <tr><td><div align="right"><font face="verdana">Sexo:</div></td> <td><font face="verdana"><input name="s" type="radio" value="h">Hombre <input name="s" type="radio" value="M">Mujer</td></tr>
-<tr><td><div align="right"><font face="verdana"><a target=_blank href="ayuda.php#raza">?</a> Raza:</div></td> 
+<tr><td><div align="right"><font face="verdana"><a target=_blank href="ayuda.php#raza">?</a> Raza:</div></td>
 <td><select name="r">
     <option value="Humano"><font face="verdana">Humano
     <option value="Twilek"><font face="verdana">Twi'lek
@@ -79,10 +75,10 @@ case "reg":
 	<option value="Keldor"><font face="verdana">Keldor
 	<option value="Arkaniano"><font face="verdana">Arkaniano
 	<option value="Bothan"><font face="verdana">Bothan
-	<option value="Duro"><font face="verdana">Duro	
+	<option value="Duro"><font face="verdana">Duro
 	<option value="Falleen"><font face="verdana">Faallen
-	<option value="Zabrak"><font face="verdana">Zabrak		
-	<option value="Cathar"><font face="verdana">Cathar	
+	<option value="Zabrak"><font face="verdana">Zabrak
+	<option value="Cathar"><font face="verdana">Cathar
 </select></td>
 </div></tr></table></center>
 <font face="verdana"><br><br><center><big><big><font color="#ff0000"><b>&iexcl;ATENCI&Oacute;N!</b></font></big></big></center>
@@ -94,7 +90,7 @@ case "reg":
 <br>5- No pueden ser nombres de personas de las peliculas o del mundo de SW, nada de Darth Vader ni Luke Skywalker. Por contra si se pueden poner nombres como Juan Skywalker o Sara Leia.
 <br>Las fichas que incumplan alguna de las normas anteriores ser&aacute;n borradas y no se atender&aacute;n a quejas.</small>
 <br><br><br><font color="#ffff80">Queda prohibido toda clase de multiplaying</font><br>
-<br><br>El juego est&aacute; pensado para funcionar bajo <a href="http://mozilla.org">Mozilla Firefox</a> si quieres utilizar internet Explorer para jugar deber&aacute;s asegurarte que tu explorador soporta Sessions y Cookies.  
+<br><br>El juego est&aacute; pensado para funcionar bajo <a href="http://mozilla.org">Mozilla Firefox</a> si quieres utilizar internet Explorer para jugar deber&aacute;s asegurarte que tu explorador soporta Sessions y Cookies.
 <br>
 <br>
 <center><input type="submit" value="Registro"></center>
@@ -117,7 +113,7 @@ if (trim($_POST["n"]) != "" && trim($_POST["p"]) != "" && trim($_POST["r"]) != "
     $_POST[r]=valNombre($_POST[r]);
     $_POST[m]=valNombre($_POST[m]);
     $_POST[s]=valNombre($_POST[s]);
- 
+
     if ($_POST["r"]=="Humano") {
         $vi=22;
         $de=23;
@@ -170,8 +166,6 @@ if (trim($_POST["n"]) != "" && trim($_POST["p"]) != "" && trim($_POST["r"]) != "
         $co=25;
     }
 
-    $comf=mt_rand(0, 8000);
-
     $c="SELECT * FROM sw_users WHERE nombre='$_POST[n]' OR mail='$_POST[m]'";
     $result=mysql_query($c)or die(mysql_error());
     $r=mysql_fetch_array($result);
@@ -198,59 +192,19 @@ if (trim($_POST["n"]) != "" && trim($_POST["p"]) != "" && trim($_POST["r"]) != "
     if ($r[nombre]==$_POST[n] || $r[mail]==$_POST[m]) {
         echo 'Lo sentimos, ese personaje o ese mail ya existen.';
     } else {
-        $q="INSERT INTO `sw_users` (nombre, mail, password, sexo, raza, origen, vig, des, inte, con, dia, ciudad, planeta, comf, fecha) VALUES ('$_POST[n]', '$_POST[m]', '$_POST[p]', '$_POST[s]', '$_POST[r]', '$cip[nombre]', '$vi', '$de', '$in', '$co', '$fe[dia]', '$cip[nombre]', '$cip[planeta]', '$comf', '$fe[val]')";
+        $q="INSERT INTO `sw_users` (nombre, mail, password, sexo, raza, origen, vig, des, inte, con, dia, ciudad, planeta, reg, fecha) VALUES ('$_POST[n]', '$_POST[m]', '$_POST[p]', '$_POST[s]', '$_POST[r]', '$cip[nombre]', '$vi', '$de', '$in', '$co', '$fe[dia]', '$cip[nombre]', '$cip[planeta]', 'S', '$fe[val]')";
         $result = mysql_query($q)or die(mysql_error());
 
-
-        $sql = "SELECT id, comf FROM sw_users ORDER BY id DESC limit 0,1";
-        $result = mysql_query($sql)or die(mysql_error());
-        $ider = mysql_fetch_array($result);
-
-                
-        $mess= "Hola $_POST[n], has sido registrado con &eacute;xito en Star Wars - Edges of The Lost Warriors (http://sw.jag-team.com), cuando puedas ya puedes registrarte con la siguiente informaci&oacute;n: \n Nombre: $_POST[n] \n Password:$_POST[p] \n \n Pero antes debes confirmar tu cuenta en esta direcci&oacute;n.<br> \n ( http://jagcompany.civitis.com/sw-eotlw/alta.php?code=mecagoenswcombine&c=$ider[id]&o=$ider[comf] ) Recomendamos Copiar y pegar  <br>No pierdas este Email!<br><br>Gracias por registrarte...<br><br>Juego creado por http://jag-team.com";
-        mail($_POST[m], "Registro SWedges", $mess, "From: swedges@jag-team.com", "-fswedges@jag-team.com");
-        echo '<font color="#ffffa8">Resgistro correcto</font>! <br>Ahora solo debes ir al link que ha sido enviado a tu correo. <br><br>(Recuerda que si tu nombre tiene un espacio debes copiar el codigo y pegarlo en vez de clickar simplemente)<br><br><font color="#ff0000">Atenci&oacute;n:</font> Si usas Hotmail u otros correos con filtro comprueba que el mail no haya sido detectado como correo no deseado antes de reportar quejas.';
+        echo '<font color="#ffffa8">&iexcl;Resgistro correcto!</font>';
     }
 } else {
     echo 'Debe rellenar todos los campos. <a href="gestion.php?ac=reg">Volver</a>';
 }
 break;
 
-case "pass":
-
-#<!--                                       PASS LOST                                       ->
-?>
-<font face="verdana"><b><big>Recordar Password:</big></b><br>
-<small>Has perdido tu password y no recuerdas como era?<br> 
-No hay problema, escribe el mail de tu personaje y re enviaremos al e-mail la contrase&ntilde;a. Si eres usuario de Hotmail u otros tipos de cuentas con autopurga, seguramente el email mandado vaya a parar a la carpeta de correo no deseado, comprueba esto antes de reportar quejas.
-<form method="GET" action="gestion.php"></small><br><b>Mail:</b> <input name="mail" type="text" value=""><input name="ac" type="hidden" value="passok"><input type="submit" value="ok"></form>
-</font>
-<?php
-break;
-
-case "passok":
-#<!--                                       PASS OK                                       ->
-
-include 'juego/db.php';
-include 'juego/header/explicit.php';
-
-    $c = "SELECT * FROM `sw_users` WHERE mail='$_POST[mail]'";
-    $result=mysql_query($c)or die(mysql_error());
-    $ider = mysql_fetch_array($result);
-    
-if ($r[nombre]!="") {
-    mail($r[mail], "Password Perdido", "El password de tu personaje $r[nombre] es: $r[password], \n El c&oacute;digo de confirmaci&oacute;n es: \n( http://jagcompany.civitis.com/sw-eotlw/alta.php?code=mecagoenswcombine&c=$ider[id]&o=$ider[comf] ) Recomendamos Copiar y pegar  \n No lo pierdas again :)", "From: swedges@jag-team.com", "-fswedges@jag-team.com");
-
-    echo 'Mail con password de $r[nombre] enviado a $r[mail]... <a href="index.php">Volver</a>';
-} else {
-    echo "No existe ninguna cuenta con ese mail";
-}
-break;
-
-
 }
 ?>
-<br><a href="http://sw.jag-team.com">Volver al inicio</a>
+<br><a href="/">Volver al inicio</a>
 			  </td>
               </tr>
             </table>
