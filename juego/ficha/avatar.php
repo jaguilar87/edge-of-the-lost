@@ -1,5 +1,5 @@
 <?php   include 'header.php';
-if ($enviar) {
+if ($_GET[enviar]) {
     // process form
 
    $sql = "UPDATE `sw_users` SET avatar_path='$_GET[av]' WHERE nombre='$us[nombre]'";

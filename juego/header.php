@@ -16,18 +16,14 @@
 
 </head>
 
-<body background="images/bg1.gif" text="#FFFFFF" link="#FFFFCC" vlink="#FFFFCC" alink="#FFFF99" marginwidth="0" marginheight="0" style="margin: 0" onLoad="writeMenus()" onResize="if (isNS4) nsResizeHandler()">
-	<?php
-									include_once 'header/up.php'; #Incluir datos de subir de niveles
-				?>
-		<div style="float:right">
-		<?php if ($us[admin]>0) {
-						?> <a target="_BLANK" href="admin" onMouseover=" ddrivetip('Entrar en secci&oacute;n de Administraci&oacute;n', '#808080');" onMouseout="hideddrivetip()"><img height=10 width=10 src="images/admin.gif" border=0></a> <?php
-				}?>
+<body background="images/bg1.gif" text="#FFFFFF" link="#FFFFCC" vlink="#FFFFCC" alink="#FFFF99" marginwidth="0" marginheight="0" style="margin: 0" onResize="if (isNS4) nsResizeHandler()">
+	<?php include_once 'header/up.php'; #Incluir datos de subir de niveles ?>
+	<div style="float:right">
+		<?php if ($us[admin]>0) :?>
+			<a target="_BLANK" href="admin" onMouseover=" ddrivetip('Entrar en secci&oacute;n de Administraci&oacute;n', '#808080');" onMouseout="hideddrivetip()"><img height=10 width=10 src="images/admin.gif" border=0></a>
+		<?php endif; ?>
 
 	</div>
-
-
 
 	<br/>
 	<center>
@@ -35,11 +31,6 @@
 			<caption align="top">
 						<center><img src="images/logo.gif"></center>
 			</caption>
-			<tr>
-				<td VALIGN="top" width="100%" height=24>
-
-				</td>
-			</tr>
 			<tr>
 					<td>
 						<table whidth="100%">

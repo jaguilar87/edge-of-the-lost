@@ -2,7 +2,7 @@
 if ($ci[cura]=="N") {
     echo 'Tu ciudad no dispone de bar...';
 } else {
-    if ($ok) {
+    if ($_GET[ok]) {
         $curing = $us[estres];
 
         $costes = $ci[copas]*$curing;

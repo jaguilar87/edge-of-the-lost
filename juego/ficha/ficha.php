@@ -110,7 +110,7 @@ $bar3=($us[estres]/1000)*250;
 echo "<center>
 <table width=\"100%\">
 	   <tr>
-	   	   <td width=*><div align=\"right\"> <b><a href=\"ayuda.php#vida\" onMouseover=\" ddrivetip('La vida es tu vitalidad en combate. cuando tu vida llegue a 0 habr&aacute;s quedado KO', '#808080');\" onMouseout=\"hideddrivetip()\"><img border=0 src=\"images/h.gif\"></a>P. de Vida</span></b></div></td>
+	   	   <td width=*><div align=\"right\"> <b><a href=\"ayuda.php#vida\" onMouseover=\" ddrivetip('La vida es tu vitalidad en combate. cuando tu vida llegue a 0 habr&aacute;s quedado KO', '#808080');\" onMouseout=\"hideddrivetip()\"><img border=0 src=\"images/h.gif\"></a> P. de Vida</span></b></div></td>
 		   <td><img src=\"images/b1.gif\" width=\"$bar1\" height=11> <b>[$us[hp]/$us[maxhp]]</b>";
                     if ($us[hp]<=0) {
                         echo ' <sup><b><small><font color="#ffff80">KO</font></small></b></sup>';
@@ -120,16 +120,16 @@ echo "<center>
 
 #<!--Barra energia-->
 echo "  <tr>
-           <td><div align=\"right\"><b><a href=\"ayuda.php#energia\" onMouseover=\" ddrivetip('La energ&iacute;a es lo que gastas para realizar acciones, cuando tu energia llegue a 0 no podr&aacute;s hacer m&aacute;s acciones. La energia se recarga automaticamente cada hora.', '#808080');\" onMouseout=\"hideddrivetip()\"><img border=0 src=\"images/h.gif\"></a>Energ&iacute;a</b></td>
+           <td><div align=\"right\"><b><a href=\"ayuda.php#energia\" onMouseover=\" ddrivetip('La energ&iacute;a es lo que gastas para realizar acciones, cuando tu energia llegue a 0 no podr&aacute;s hacer m&aacute;s acciones. La energia se recarga automaticamente cada hora.', '#808080');\" onMouseout=\"hideddrivetip()\"><img border=0 src=\"images/h.gif\"></a> Energ&iacute;a</b></td>
 		   <td><img src=\"images/b2.gif\" width=\"$bar2\" height=11> <b>[$us[turnos]/$to]</b></td>
 		   <td></td></tr>";
 
 
 #<!--Barra Estres-->
 echo "  <tr>
- 	 	   <td><div align=\"right\"><b><b><a href=\"ayuda.php#estres\" onMouseover=\" ddrivetip('El estres es el da&ntilde;o mental de tu personaje, si pierde mucho, tiene poco dinero o no come bien el estress sube, si llega a 1000 el personaje morir&aacute;.', '#808080');\" onMouseout=\"hideddrivetip()\"><img border=0 src=\"images/h.gif\"></a>Estr&eeacute;s</b></td>
+ 	 	   <td><div align=\"right\"><b><b><a href=\"ayuda.php#estres\" onMouseover=\" ddrivetip('El estres es el da&ntilde;o mental de tu personaje, si pierde mucho, tiene poco dinero o no come bien el estress sube, si llega a 1000 el personaje morir&aacute;.', '#808080');\" onMouseout=\"hideddrivetip()\"><img border=0 src=\"images/h.gif\"></a> Estr&eacute;s</b></td>
 		   <td><img src=\"images/b3.gif\" width=\"$bar3\" height=11> <b>[$us[estres]/1000]</b></td>
-		   <td><a href=\"ciudad/?id=cbar\" onMouseover=\" ddrivetip('Sanar estr&eeacute;s en el Bar', '#808080');\" onMouseout=\"hideddrivetip()\">B</a></td>
+		   <td><a href=\"ciudad/?id=cbar\" onMouseover=\" ddrivetip('Sanar estres en el Bar', '#808080');\" onMouseout=\"hideddrivetip()\">B</a></td>
 		</tr>
 		<tr>
 		   <td><!-- Salto --></td>
@@ -138,7 +138,7 @@ echo "  <tr>
 
 #<!--Barra atributos-->
 echo "  <tr>
-	 		<td><div align=\"right\"><a href=\"ayuda.php#vigor\" onMouseover=\" ddrivetip('El Vigor Mide la fuerza de tus ataques f&iacute;sicos. Como m&aacute;s Vigor, m&aacute;s da&ntilde;inos ser&aacute;n tus ataques de arma.', '#808080');\" onMouseout=\"hideddrivetip()\"><img border=0 src=\"images/h.gif\"></a><b>Vigor</b></td>
+	 		<td><div align=\"right\"><a href=\"ayuda.php#vigor\" onMouseover=\" ddrivetip('El Vigor Mide la fuerza de tus ataques f&iacute;sicos. Como m&aacute;s Vigor, m&aacute;s da&ntilde;inos ser&aacute;n tus ataques de arma.', '#808080');\" onMouseout=\"hideddrivetip()\"><img border=0 src=\"images/h.gif\"></a><b> Vigor</b></td>
 			<td><img src=\"images/b1.gif\" width=$us[vigor] height=11> <b>$us[vigor]";?> </td>
 			<td> <a href="entre/entreok.php?c=vig" onMouseover=" ddrivetip('Entrenar Vigor', '#808080');" onMouseout="hideddrivetip()"><img border=0 src="images/e.jpg"></a></b></td>
 		</tr><?php
@@ -148,7 +148,7 @@ echo "  <tr>
 			<td> <a href="entre/entreok.php?c=con" onMouseover=" ddrivetip('Entrenar Constitucion', '#808080');" onMouseout="hideddrivetip()"><img border=0 src="images/e.jpg"></a></b></td>
 		</tr><?php
 echo "  <tr>
-	 		<td><div align=\"right\"><a href=\"ayuda.php#destreza\" onMouseover=\" ddrivetip('La Destreza mide tu habilidad manual. Como m&aacute;s destreza, m&aacute;s r&aacute;pidos y precisos ser&aacute;n tus golpes.', '#808080');\" onMouseout=\"hideddrivetip()\"><img border=0 src=\"images/h.gif\"></a><b>Destreza</b></td>
+	 		<td><div align=\"right\"><a href=\"ayuda.php#destreza\" onMouseover=\" ddrivetip('La Destreza mide tu habilidad manual. Como m&aacute;s destreza, m&aacute;s r&aacute;pidos y precisos ser&aacute;n tus golpes.', '#808080');\" onMouseout=\"hideddrivetip()\"><img border=0 src=\"images/h.gif\"></a><b> Destreza</b></td>
 			<td><img src=\"images/b5.gif\" width=$us[destreza] height=11> <b>$us[destreza]";?> </td>
 			<td> <a href="entre/entreok.php?c=des" onMouseover=" ddrivetip('Entrenar Destreza', '#808080');" onMouseout="hideddrivetip()"><img border=0 src="images/e.jpg"></a></b></td>
 		</tr><?php
@@ -158,7 +158,7 @@ echo "  <tr>
 			<td> <a href="entre/entreok.php?c=inte" onMouseover=" ddrivetip('Entrenar Inteligencia', '#808080');" onMouseout="hideddrivetip()"><img border=0 src="images/e.jpg"></a></b></td>
 		</tr><?php
 echo "  <tr>
-	 		<td><div align=\"right\"><a href=\"ayuda.php#poder\" onMouseover=\" ddrivetip('El Poder de la Fuerza indica la capacidad del usuario de controlar la Fuerza. Como m&aacute;s Poder de la Fuerza, m&aacute;s da&ntilde;o causar&aacute;s en combate con ataques de fuerza.', '#808080');\" onMouseout=\"hideddrivetip()\"><img border=0 src=\"images/h.gif\"></a><b>Poder de la Fuerza</b></td>
+	 		<td><div align=\"right\"><a href=\"ayuda.php#poder\" onMouseover=\" ddrivetip('El Poder de la Fuerza indica la capacidad del usuario de controlar la Fuerza. Como m&aacute;s Poder de la Fuerza, m&aacute;s da&ntilde;o causar&aacute;s en combate con ataques de fuerza.', '#808080');\" onMouseout=\"hideddrivetip()\"><img border=0 src=\"images/h.gif\"></a> <b>Poder de la Fuerza</b></td>
 			<td><img src=\"images/b3.gif\" width=$us[poder] height=11> <b>$us[poder]";?>  </td>
 			<td> <a href="entre/entreok.php?c=pod" onMouseover=" ddrivetip('Entrenar Poder de la Fuerza', '#808080');" onMouseout="hideddrivetip()"><img border=0 src="images/e.jpg"></a></b></td>
 		</tr><?php

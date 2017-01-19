@@ -1,5 +1,5 @@
 <?php
-	if ($ok):
+	if ($_GET[ok]):
 			$c= "INSERT INTO sw_city (nombre, planeta, clan, rey) VALUES ('$_GET[nombre]', '$_GET[pla]', '', '')";
 			$result= mysql_query($c)or die(mysql_error());
 			echo "<br>Tramites finalizados. $_GET[nombre] construida en $_GET[pla]!";

@@ -6,14 +6,14 @@ switch ($_GET[ac]) {
             if ($_GET[nombre]!="") {
                 echo "Fundando la Ciudad ($_GET[nombre])....";
                 if ($us[clan]=="") {
-                    echo "Necesitas estar o ingresar en un clan para fundar una ciudad";
+                    echo "<br>Necesitas estar o ingresar en un clan para fundar una ciudad.";
                 } else {
                     $us[creditos]-=500000;
                     if ($us[creditos]<0) {
-                        echo "No tienes creditos suficientes...";
+                        echo "<br>No tienes creditos suficientes...";
                     } else {
                         if ($us[nv_sable]>2) {
-                            echo 'Debes ser Maestro o Lord para fundar una ciudad';
+                            echo '<br>Debes ser Maestro o Lord para fundar una ciudad.';
                         } else {
                             $c="SELECT * FROM sw_city WHERE nombre='$_GET[nombre]' AND planeta='$_GET[pla]'";
                             $result = mysql_query($c);
@@ -21,7 +21,7 @@ switch ($_GET[ac]) {
 
 
                             if ($un[nombre]==$_GET[nombre]) {
-                                echo "<br>Esta ciudad ya existe";
+                                echo "<br>Esta ciudad ya existe.";
                             } else {
                                 $c="SELECT * FROM sw_plan WHERE nombre='$_GET[pla]'";
                                 $result = mysql_query($c);
@@ -31,7 +31,7 @@ switch ($_GET[ac]) {
                                     echo "<br>El planeta no existe";
                                 } else {
                                     $_GET[nombre]=valNombre($_GET[nombre]);
-                                    $c= "INSERT INTO sw_city (nombre, planeta, clan, rey) VALUES ('$_GET[nombre]', '$_GET[pla]', '$us[clan]', '$us[nombre]')";
+                                    $c= "INSERT INTO sw_city (nombre, planeta, clan, rey, mess) VALUES ('$_GET[nombre]', '$_GET[pla]', '$us[clan]', '$us[nombre]', 'Bienvenidos a $_GET[nombre].')";
                                     $result= mysql_query($c)or die(mysql_error());
                                     echo "<br>Tramites finalizados. $_GET[nombre] construida en $_GET[pla]!";
 
@@ -45,7 +45,7 @@ switch ($_GET[ac]) {
                     }
                 }
             } else {
-                echo 'Fundar ciudad...(Precio: 500.000C) <form action="fundar.php" Method="GET">';
+                echo 'Fundar ciudad (Precio: 500.000C) <form action="fundar.php" Method="GET">';
 
 
 
@@ -54,7 +54,7 @@ switch ($_GET[ac]) {
                 $un=mysql_fetch_array($result);
 
 
-                echo "Localizaci&oacute;n Espacial(Planeta): <input name=\"pla\" type=\"text\" value=\"$_GET[pla]\">";
+                echo "Localizaci&oacute;n Espacial(Planeta): <input name=\"pla\" type=\"text\" value=\"$_GET[pl]\">";
                 echo '<br>Nombre de la Nueva Ciudad: <input name="nombre" type="text" value=""><input type="submit" Value="Fundar" Name="x"><input name="ac" type="hidden" value="ciudad"></form>';
 
                 echo '<br>Lista de planetas:';

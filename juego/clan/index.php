@@ -1,6 +1,6 @@
 <?php
-if ($id) {
-    include_once "$id".".php";
+if ($_GET[id]) {
+    include_once $_GET[id].".php";
 } else { #default
      include_once "info.php";
 }

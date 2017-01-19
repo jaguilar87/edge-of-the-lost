@@ -24,18 +24,18 @@ switch ($us[nv_sable]) {
    case "0":
             $titulo="";
             $nivel="Usuario de la Fuerza";
-            $nvdesc="USUARIO DE LA FUERZA: Est&aacute;s en el nivel m&aacute;s b&aeacute;sico, apenas sabes dominar la fuerza que fluye dentro de t&ieacute;. Pero no te preocupes, pronto podr&aeacute;s ingresar de una academia, en la cual podr&aeacute;s aprender a controlar tu poder y convertirte en un poderoso guerrero. (Mientras seas Usuario no podr&aeacute;s atacar ni ser atacado por otros jugadores.";
+            $nvdesc="USUARIO DE LA FUERZA: Est&aacute;s en el nivel m&aacute;s b&aacute;sico, apenas sabes dominar la fuerza que fluye dentro de t&ieacute;. Pero no te preocupes, pronto podr&aacute;s ingresar de una academia, en la cual podr&aacute;s aprender a controlar tu poder y convertirte en un poderoso guerrero. (Mientras seas Usuario no podr&aacute;s atacar ni ser atacado por otros jugadores.";
    break;
 
      case "1":
             if ($us[lado]>=0) {
                 $titulo="Padawan";
                 $nivel="Padawan Jedi";
-                $nvdesc="PADAWAN JEDI: Tu camino en la fuerza ha comenzado, est&aacute;s en el lado de la luz, pero nada es irreversible, puedes cambiar de bando en cualquier momento, as&iacute; que cuida tus actos. Ascender&aeacute;s de nivel cuando derrotes a 15 enemigos.";
+                $nvdesc="PADAWAN JEDI: Tu camino en la fuerza ha comenzado, est&aacute;s en el lado de la luz, pero nada es irreversible, puedes cambiar de bando en cualquier momento, as&iacute; que cuida tus actos. Ascender&aacute;s de nivel cuando derrotes a 15 enemigos.";
             } else {
                 $titulo="Aprendiz";
                 $nivel="Aprendiz Sith";
-                $nvdesc="APRENDIZ SITH: Tu camino en la fuerza ha comenzado, est&aacute;s en el lado Oscuro, pero nada es irreversible, puedes cambiar de bando en cualquier momento, as&iacute; que cuida tus actos. Ascender&aeacute;s de nivel cuando derrotes a 15 enemigos.";
+                $nvdesc="APRENDIZ SITH: Tu camino en la fuerza ha comenzado, est&aacute;s en el lado Oscuro, pero nada es irreversible, puedes cambiar de bando en cualquier momento, as&iacute; que cuida tus actos. Ascender&aacute;s de nivel cuando derrotes a 15 enemigos.";
             }
      break;
 
@@ -44,21 +44,21 @@ switch ($us[nv_sable]) {
                     if ($us[lado]>=0) {
                         $titulo="Caballero";
                         $nivel="Caballero Jedi";
-                        $nvdesc="CABALLERO JEDI: Tu tiempo ha llegado, has dejado atr&aeacute;s la Academia para enfrentarte al mundo, sal ah&iacute;fuera y demuestrales de que est&aacute;s hecho!";
+                        $nvdesc="CABALLERO JEDI: Tu tiempo ha llegado, has dejado atr&aacute;s la Academia para enfrentarte al mundo, sal ah&iacute;fuera y demuestrales de que est&aacute;s hecho!";
                     } else {
                         $titulo="Guerrero";
                         $nivel="Guerrero Sith";
-                        $nvdesc="GUERRERO SITH: Tu tiempo a llegado, has dejado atr&aeacute;s la Academia para enfrentarte al mundo, sal ah&iacute;fuera y demuestrales de que est&aacute;s echo!";
+                        $nvdesc="GUERRERO SITH: Tu tiempo a llegado, has dejado atr&aacute;s la Academia para enfrentarte al mundo, sal ah&iacute;fuera y demuestrales de que est&aacute;s echo!";
                     }
                 } else {
                     if ($us[lado]>=0) {
                         $titulo="Caballera";
                         $nivel="Caballera Jedi";
-                        $nvdesc="CABALLERA JEDI: Tu tiempo ha llegado, has dejado atr&aeacute;s la Academia para enfrentarte al mundo, sal ah&iacute;fuera y demuestrales de que est&aacute;s hecho!";
+                        $nvdesc="CABALLERA JEDI: Tu tiempo ha llegado, has dejado atr&aacute;s la Academia para enfrentarte al mundo, sal ah&iacute;fuera y demuestrales de que est&aacute;s hecho!";
                     } else {
                         $titulo="Guerrera";
                         $nivel="Guerrera Sith";
-                        $nvdesc="GUERRERA SITH: Tu tiempo a llegado, has dejado atr&aeacute;s la Academia para enfrentarte al mundo, sal ah&iacute;fuera y demuestrales de que est&aacute;s echo!";
+                        $nvdesc="GUERRERA SITH: Tu tiempo a llegado, has dejado atr&aacute;s la Academia para enfrentarte al mundo, sal ah&iacute;fuera y demuestrales de que est&aacute;s echo!";
                     }
                 }
 

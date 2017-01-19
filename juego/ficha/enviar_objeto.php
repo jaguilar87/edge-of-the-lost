@@ -3,7 +3,7 @@ include_once 'header.php';
 $r=sel("sw_inventario", "id", $_GET[oid]);
 $u=sel("sw_users", "", $_GET[pl]);
 
-if ($ok) {
+if ($_GET[ok]) {
     if ($_GET[oid]=="" || $_GET[pl]=="") {
         echo "<script> location.href='ficha/equipo.php' </script>";
     }

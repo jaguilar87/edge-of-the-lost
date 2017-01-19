@@ -1,5 +1,5 @@
 <?php
-if ($ok) {
+if ($_GET[ok]) {
     echo "<b><u>Vaciando Contenido de las tablas:</u></b>";
 
     mysql_query("DELETE FROM `sw_log`")or die(mysql_error());

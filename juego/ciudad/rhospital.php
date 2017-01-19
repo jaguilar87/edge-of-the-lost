@@ -3,18 +3,18 @@
 if ($ci[cura]=="N") {
     echo 'Tu ciudad no dispone de hospitales...';
 } else {
-    if ($ok) {
-        $curing =$us[maxhp] - $us[hp];
+    if ($_GET['ok']) {
+        $curing = $us[maxhp] - $us[hp];
 
         $costes = $ci[costec]*$curing;
 
         $us[creditos] -= $costes;
 
-        if ($us[creditos]<0) {
+        if ($us[creditos] < 0) {
             echo 'Cr&eacute;dito insuficiente...';
         } else {
-            $difhp=$us[maxhp]-$us[hp];
-            $us[hp]=$us[maxhp];
+            $difhp = $us[maxhp]-$us[hp];
+            $us[hp] = $us[maxhp];
 
             $clr = sel("sw_clan", "", $ci[clan]);
 

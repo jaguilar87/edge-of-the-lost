@@ -13,7 +13,7 @@
     <table border="1" cellpadding="0" cellspacing="0" style="border-collapse: collapse; border-width: 0" width="661" id="AutoNumber4" height="184">
       <tr>
         <td width="33%" height="184" style="border-style: none; border-width: medium">
-          <center>                    
+          <center>
             <table border="1" cellpadding="0" cellspacing="0" style="border-collapse: collapse; border-width: 0" bordercolor="#111111" width="661" id="AutoNumber5">
               <tr>
                 <td width="661" align="center" style="border-style: none; border-width: medium">
@@ -26,20 +26,21 @@
                           <table border="1" cellpadding="0" cellspacing="0" style="border-collapse: collapse; border-width: 0" width="90%" id="AutoNumber7">
                             <tr>
                             	<td width="90%" align="justify" style="border-style: none; border-width: medium">
-					 La siguiente es una lista de reconocimiento a todos aquellos que han contribuido con la 
+					 La siguiente es una lista de reconocimiento a todos aquellos que han contribuido con la
 					 creaci&oacute;n de este juego.<br /><br />
 					 	<center>
 							<table summary="">
 								<tr>
 									<td>
-										<i>Creador:</i> <br /> 
+										<i>Creador:</i> <br />
 											&nbsp; &nbsp; <b>Zeros Metallium</b><br />
 										<br />
-										<i>Diseñador:</i> <br /> 
-											&nbsp; &nbsp; <b>Cristian Robles (ksk)</b><br />										
-										<br />										
-										<i>Colaboradores y Moderadores:</i> <br /> 
+										<i>Diseñador:</i> <br />
+											&nbsp; &nbsp; <b>Cristian Robles (ksk)</b><br />
+										<br />
+										<i>Colaboradores y Moderadores:</i> <br />
 											&nbsp; &nbsp; <b>Arturo Pérez Paniagua (Civitis)</b><br />
+											&nbsp; &nbsp; <b>Magiatar</b><br />
 											&nbsp; &nbsp; <b>Juan Jiménez</b><br />
 											&nbsp; &nbsp; <b>Cristian Dozo (Crusher)</b><br />
 											&nbsp; &nbsp; <b>Ferdia</b><br />
@@ -47,7 +48,7 @@
 											&nbsp; &nbsp; <b>Thor</b><br />
 											&nbsp; &nbsp; <b>Durten</b><br />
 										<br />
-										<i>Redactor del Manual:</i> <br /> 
+										<i>Redactor del Manual:</i> <br />
 											&nbsp; &nbsp; <b>Roi Rodríguez</b><br />
 										<br />
 									</td>

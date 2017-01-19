@@ -3,7 +3,7 @@
    $cli=sel("sw_clan", "", $ci[clan]);
 
 if ($cli[nombre]!="") {
-    if ($ok) {
+    if ($_GET[ok]) {
         $cli=sel("sw_clan", "", $ci[clan]);
 
         $coste = $cli[pago]*$_GET[turnos];

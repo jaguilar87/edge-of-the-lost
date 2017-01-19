@@ -5,7 +5,7 @@
         }
         $cic=sel("sw_city", "", $_GET[ci]);
 
-        if ($ok) {
+        if ($_GET[ok]) {
             if ($cic[nombre]!=$ci[nombre] || $cl[lider]!=$us[nombre] || $cic[clan]==$us[clan] || $cic[atacada]!="N" || $us[clan]=="") {
                 echo "No se puede efectuar el ataque a esta ciudad";
             } else {

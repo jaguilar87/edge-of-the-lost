@@ -148,22 +148,16 @@
 		   	   <center><A HREF="estadisticas/" Class="navlink">Estad&iacute;sticas</a></center>
 		   </td>
 	   </tr>
-
-   	   <tr>
-	   	   <td background="images/bg2.gif">
+ 	   <tr>
+  	   <td background="images/bg2.gif">
 		   	   <center>Comunicaci&oacute;n</b></center>
 		   </td>
-	   <tr>
+	   </tr>
+     <tr>
 	   	   <td width="100%" onMouseover="LmOver(this, '#c0c0c0')" onMouseout="LmOut(this, '#FFFFFF')" onMouseDown="LmDown(this, '#c0c0c0')" bgcolor="#FFFFFF">
 		   	   <center><A HREF="mess/" Class="navlink">Privados</a></center>
 		   </td>
-	   </tr>
-	   </tr>
-	   <tr>
-	   	   <td width="100%" onMouseover="LmOver(this, '#c0c0c0')" onMouseout="LmOut(this, '#FFFFFF')" onMouseDown="LmDown(this, '#c0c0c0')" bgcolor="#FFFFFF">
-		   	   <center><A HREF="http://sw-eotlw.foro.st" target="_blank" Class="navlink">Holored(Foro)</a></center>
-		   </td>
-	   </tr>
+     </tr>
 	   <tr>
 	   	   <td width="100%" onMouseover="LmOver(this, '#c0c0c0')" onMouseout="LmOut(this, '#FFFFFF')" onMouseDown="LmDown(this, '#c0c0c0')" bgcolor="#FFFFFF">
 		   	   <center><A HREF="ciudad/?id=aparlamento" Class="navlink">Parlamento</a></center>

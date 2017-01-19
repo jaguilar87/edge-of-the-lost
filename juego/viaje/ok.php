@@ -5,7 +5,7 @@ $plc=sel("sw_plan", "", $_GET[pl]);
 $result = mysql_query("SELECT * FROM sw_city WHERE nombre='$_GET[ci]' AND planeta='$plc[nombre]'")or die(mysql_error());
 $un=mysql_fetch_array($result);
 
-if ($ok) {
+if ($_GET[ok]) {
     if ($_GET[ci]!="" && $_GET[pl]!="") {
         if ($_GET[modo]=="") {
             $_GET[modo]="normal";

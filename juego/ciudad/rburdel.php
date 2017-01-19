@@ -2,7 +2,7 @@
 if ($ci[burdel]=="N") {
     echo 'Tu ciudad no dispone de burdeles';
 } else {
-    if ($ok) {
+    if ($_GET[ok]) {
         $curing =$us[maxhp] - $us[hp];
 
         $tur=$curing/$us[poder];
