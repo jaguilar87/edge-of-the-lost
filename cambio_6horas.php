@@ -1,9 +1,10 @@
-<?php 
+<?php
 
-if ($_GET[pass]=="swcombinesux") {
+if ($_GET[pass]=="muchcode") {
     include 'juego/db.php';
-# Calculo Por Ficha (Estres) y valores Negativo
-   $uss="SELECT * from sw_users";
+
+    # Calculo Por Ficha (Estres) y valores Negativo
+    $uss="SELECT * from sw_users";
     $usq=mysql_query($uss)or die(mysql_error());
     while ($us=mysql_fetch_array($usq)) {
         if ($us[hp]<=0) {
@@ -23,31 +24,29 @@ if ($_GET[pass]=="swcombinesux") {
         if ($us[merito]<0) {
             $us[merito]=0;
         }
-         
-            
+
         $up="UPDATE `sw_users` SET estres='$us[estres]', merito='$us[merito]', hp='$us[hp]', creditos='$us[creditos]' WHERE nombre='$us[nombre]'";
         $date=mysql_query($up)or die(mysql_error());
-            
-            
+
         if ($us[estres]>1000) {
             $log.= "\n -$us[nombre] muerto de estres";
             $kill=mysql_query("DELETE FROM sw_users WHERE nombre='$us[nombre]'")or die(mysql_error());
-               
+
             mysql_query("INSERT INTO sw_control_muerte (dia, nombre, mail, password) VALUES ('$fe[dia]', '$us[nombre]', '$us[mail]', '$us[password]')")or die(mysql_error());
         }
     }
-   
+
     $log.= '\n <br> estres... ok';
-    
+
 
     $c = "UPDATE sw_city SET atacada='N'";
     $result2=mysql_query($c)or die(mysql_error());
-    
+
     $log.= "ciudades desprotegidas...ok<br>";
-    
+
     $c = "UPDATE sw_clan SET atacado='N'";
     $result2=mysql_query($c)or die(mysql_error());
-   
+
     $log.= "clan desprotegido...ok";
 
     $ach=date(H);
