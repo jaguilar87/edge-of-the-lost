@@ -32,10 +32,11 @@ if ($com[nombre]==$_GET[nombre]) {
 break;
 case "contra":
 if ($_GET[co]==$_GET[cor]) {
-    $c="UPDATE `sw_users` SET password='$_GET[co]' WHERE nombre='$_SESSION[nombre]'";
+    $pass = sha1($_GET[co]);
+    $c="UPDATE `sw_users` SET password='$pass' WHERE nombre='$_SESSION[nombre]'";
     $result=mysql_query($c)or die(mysql_error());
 
-    $_SESSION[password]==$_GET[co];
+    $_SESSION[password] = $pass;
 
     echo 'Contrase&ntilde;a Cambiada, si el juego da error trata de <a href="/">reloguear</a>.';
 } else {

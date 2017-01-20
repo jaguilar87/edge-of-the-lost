@@ -45,7 +45,7 @@
     <table border="1" cellpadding="0" cellspacing="0" style="border-collapse: collapse; border-width: 0" width="661" id="AutoNumber4" height="184">
       <tr>
         <td width="33%" height="184" style="border-style: none; border-width: medium">
-          <center>                    
+          <center>
             <table border="1" cellpadding="0" cellspacing="0" style="border-collapse: collapse; border-width: 0" bordercolor="#111111" width="661" id="AutoNumber5">
               <tr>
                 <td width="661" align="center" style="border-style: none; border-width: medium">
@@ -59,7 +59,7 @@
                             <tr>
                             <td width="90%" align="center" style="border-style: none; border-width: medium">
 
-<?php 
+<?php
   include 'juego/db.php';
   include 'juego/header/explicit.php';
 
@@ -69,21 +69,21 @@
     $result = mysql_query("SELECT * FROM `sw_users` WHERE nombre='$_POST[name]'");
     $row = mysql_fetch_array($result);
 
-    if ($_POST[name]!=$row[nombre]){
+    if ($_POST[name] != $row[nombre]){
       echo 'Ese personaje no existe o ha muerto...';
     }else{
-      if ($_POST[pass]!=$row[password]){
+      if (sha1($_POST[pass]) != $row[password]){
         echo 'Password incorrecto...';
       }else{
         $_SESSION[nombre] = $_POST[name];
-        $_SESSION[password] = $_POST[pass];
+        $_SESSION[password] = sha1($_POST[pass]);
 
-        if ($row[reg]=="N"){
+        if ($row[reg] == "N"){
           echo 'La cuenta no ha sido confirmada...';
           session_unset();
         }else{
 
-          if ($row[at]==1){
+          if ($row[at] == 1){
             echo 'Has sido Baneado del juego, &iquest;Creias que te podias escapar, turbio?';
             session_unset();
           }else{
@@ -99,7 +99,7 @@
               </tr>
             </table>
             </center>
-          
+
           </td>
           <td width="71" style="border-style: none; border-width: medium" background="juego/images/borde2.jpg" height="176">
           <img border="0" src="juego/images/borde2.jpg" width="71" height="44"></td>

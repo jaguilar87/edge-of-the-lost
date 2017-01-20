@@ -109,7 +109,7 @@ include 'juego/header/explicit.php';
 mt_srand((double) microtime() * 1000000);
 if (trim($_POST["n"]) != "" && trim($_POST["p"]) != "" && trim($_POST["r"]) != "" && trim($_POST["s"]) != ""&& trim($_POST["m"]) != "") {
     $_POST[n]=valNombre($_POST[n]);
-    $_POST[p]=valNombre($_POST[p]);
+    $_POST[p]=sha1($_POST[p]);
     $_POST[r]=valNombre($_POST[r]);
     $_POST[m]=valNombre($_POST[m]);
     $_POST[s]=valNombre($_POST[s]);
@@ -192,7 +192,7 @@ if (trim($_POST["n"]) != "" && trim($_POST["p"]) != "" && trim($_POST["r"]) != "
     if ($r[nombre]==$_POST[n] || $r[mail]==$_POST[m]) {
         echo 'Lo sentimos, ese personaje o ese mail ya existen.';
     } else {
-        $q="INSERT INTO `sw_users` (nombre, mail, password, sexo, raza, origen, vig, des, inte, con, dia, ciudad, planeta, reg, fecha) VALUES ('$_POST[n]', '$_POST[m]', '$_POST[p]', '$_POST[s]', '$_POST[r]', '$cip[nombre]', '$vi', '$de', '$in', '$co', '$fe[dia]', '$cip[nombre]', '$cip[planeta]', 'S', '$fe[val]')";
+        $q="INSERT INTO `sw_users` (nombre, mail, password, sexo, raza, origen, vig, des, inte, con, dia, ciudad, planeta, reg, fecha) VALUES ('$_POST[n]', '$_POST[m]', '$_POST[p]', '$_POST[s]', '$_POST[r]', '$cip[nombre]', '$vi', '$de', '$in', '$co', '$fe[val]', '$cip[nombre]', '$cip[planeta]', 'S', '$fe[val]')";
         $result = mysql_query($q)or die(mysql_error());
 
         echo '<font color="#ffffa8">&iexcl;Resgistro correcto!</font>';

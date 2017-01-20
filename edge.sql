@@ -533,7 +533,8 @@ DROP TABLE IF EXISTS `sw_users`;
 CREATE TABLE `sw_users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(30) NOT NULL DEFAULT '',
-  `avatar_path` varchar(99) NOT NULL DEFAULT 'avatar/blank.gif',
+  `password` varchar(100) NOT NULL DEFAULT '',
+  `avatar_path` varchar(255) NOT NULL DEFAULT 'avatar/blank.gif',
   `origen` text NOT NULL,
   `clan` text,
   `creditos` int(11) NOT NULL DEFAULT '10000',
@@ -571,7 +572,6 @@ CREATE TABLE `sw_users` (
   `cl_tecnico` int(3) NOT NULL DEFAULT '0',
   `merito` int(11) NOT NULL DEFAULT '0',
   `titulo` text,
-  `password` varchar(30) NOT NULL DEFAULT '',
   `sexo` set('M','H') NOT NULL DEFAULT 'H',
   `mail` varchar(30) NOT NULL DEFAULT '',
   `ciudad` varchar(50) NOT NULL DEFAULT 'Coruscant',
