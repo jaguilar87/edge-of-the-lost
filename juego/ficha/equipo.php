@@ -11,7 +11,7 @@
 <tr>
        <td  VALIGN="TOP">
 	   <?php
-       if ($camb) {
+	   if ($_GET[camb]) {
            $us[color_sable]=$_GET[color];
            $us[estilo_sable]=$_GET[estilo];
            $c="UPDATE `sw_users` SET color_sable='$_GET[color]', estilo_sable='$_GET[estilo]' WHERE nombre='$us[nombre]'";
