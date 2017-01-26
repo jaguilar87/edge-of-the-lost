@@ -1,5 +1,5 @@
 <?php include_once 'header.php';
-if ($_GET[enviar]) {
+if ($_POST[enviar]) {
     // process form
    $sql = "SELECT nombre FROM sw_users WHERE nombre='$_POST[re]'";
     $result = mysql_query($sql);
