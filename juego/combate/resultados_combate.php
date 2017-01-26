@@ -20,8 +20,8 @@
         }
         $ob[creditos]-=$robado;
         $us[creditos]+=$robado;
-        $us[merito]+=15;
-        $ob[merito]-=5;
+        $us[merito]+=30;
+        // $ob[merito]-=5;
         $us[pk]+=1;
         $ob[lpk]+=1;
         $puntos=($ob[puntos]-$us[puntos])/2;
@@ -41,8 +41,8 @@
         }
         $us[creditos]-=$robado;
         $ob[creditos]+=$robado;
-        $ob[merito]+=15;
-        $us[merito]-=5;
+        $ob[merito]+=30;
+        //$us[merito]-=5;
         $ob[pk]+=1;
         $us[lpk]+=1;
         $puntos=($us[puntos]-$ob[puntos])/2;

@@ -2,7 +2,7 @@
 if ($dReal>$dFicha) {
     $dif=$dReal-$dFicha;
 
-    $en=6+$us[nv_sable];
+    $en=(6+$us[nv_sable])*3;
 
     $difx=$dif*$en;
 
