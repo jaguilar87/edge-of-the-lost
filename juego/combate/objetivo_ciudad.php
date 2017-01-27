@@ -13,8 +13,8 @@
                 if ($za[estado]=="Aliado") {
                     echo "No puedes atacar la ciudad de un clan aliado!";
                 } else {
-                    include 'ataque/atkcoreCIUDAD.php';
-                    include 'ataque/resultados_ciudad.php';
+                    include 'combate/atkcoreCIUDAD.php';
+                    include 'combate/resultados_ciudad.php';
                 }
             }
         } else {
@@ -24,7 +24,7 @@
 		Si tu clan ataca la ciudad de <b><?php echo $cic[nombre]?></b> gastar&aacute; potencia, como m&aacute;s dure la defensa de la ciudad, m&aacute;s potencia se gastar&aacute;.
 		<br>
 		Si tu clan se queda sin potencia a medio combate hay muchas probabilidades de perder el combate.
-		<br><a href='ataque/?id=objetivo_ciudad&ok=true'>Atacar!</a>
+		<br><a href='combate/?id=objetivo_ciudad&ok=true'>Atacar!</a>
 <?php
         }
 
