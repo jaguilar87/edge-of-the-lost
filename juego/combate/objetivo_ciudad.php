@@ -24,7 +24,7 @@
 		Si tu clan ataca la ciudad de <b><?php echo $cic[nombre]?></b> gastar&aacute; potencia, como m&aacute;s dure la defensa de la ciudad, m&aacute;s potencia se gastar&aacute;.
 		<br>
 		Si tu clan se queda sin potencia a medio combate hay muchas probabilidades de perder el combate.
-		<br><a href='ataque/?id=objetivo_ciudad&ok=true'>Atacar!</a>";
+		<br><a href='ataque/?id=objetivo_ciudad&ok=true'>Atacar!</a>
 <?php
         }
 

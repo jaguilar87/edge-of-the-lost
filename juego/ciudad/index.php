@@ -197,7 +197,7 @@ if ($ci[nombre]==null && $_GET[id]!="huir") {
     }
     $za=mysql_query("SELECT * FROM sw_diplomacia WHERE origen='$cl[nombre]' AND destino='$cic[clan]'")or die(mysql_error());
     if ($cic[nombre]==$ci[nombre] && $cl[lider]==$us[nombre] && $cic[clan]!=$us[clan] && $cic[atacada]=="N" && $za[estado]!="Aliado") {
-        echo "<br><a href=\"ataque/ciudad.php?ci=$cic[nombre]\"><img border=0 src=\"images/atk.gif\">Planear Ataque contra la ciudad!</a>";
+        echo "<br><a href=\"combate/objetivo_ciudad.php?ci=$cic[nombre]\"><img border=0 src=\"images/atk.gif\">Planear Ataque contra la ciudad!</a>";
     }
     if ($cic[atacada]=="S") {
         echo '<br><font color="#29fd49">La ciudad Dispone de protecci&oacute;n.</font>';
