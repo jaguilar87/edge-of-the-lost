@@ -13,8 +13,8 @@
                 if ($za[estado]=="Aliado") {
                     echo "No puedes atacar la ciudad de un clan aliado!";
                 } else {
-                    include 'combate/atkcoreCIUDAD.php';
-                    include 'combate/resultados_ciudad.php';
+                    include 'atkcoreCIUDAD.php';
+                    include 'resultados_ciudad.php';
                 }
             }
         } else {
