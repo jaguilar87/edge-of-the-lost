@@ -81,7 +81,7 @@ if ($_GET[ac]=="borrar") {
 	</table>
 <?php
 if ($us[nombre]==$cl[lider]) {
-    echo '<br><hr><br><form action="clan/diplo.php" METHOD="GET">a&ntilde;adir <select name="clan">';
+    echo '<br><hr><br><form action="clan/diplo.php" METHOD="GET">a&ntilde;adir <select name="cland">';
 
     $sql = "SELECT * FROM sw_clan";
     $result = mysql_query($sql);
